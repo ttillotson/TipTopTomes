@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+
+
+
+.session-buttons button {
+      background:none!important;
+      color:inherit;
+      border:none;
+      padding:0!important;
+      font: inherit;
+      cursor: pointer;
+ }

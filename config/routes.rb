@@ -7,5 +7,5 @@ Rails.application.routes.draw do
     resources :bookshelves, only: %i(index show create update destroy)
   end
 
-  root to: 'staticpages#root'
+  root to: 'static_pages#root'
 end

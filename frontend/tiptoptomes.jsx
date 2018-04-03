@@ -1,7 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import configStore from './store/store';
+import Root from './components/root';
+
 
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
-  ReactDOM.render(<h1>TipTopTomes</h1>, root);
+  const store = configStore();
+
+  // Testing
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
+
+  ReactDOM.render(<Root store={store} />, root);
 });

@@ -17,7 +17,7 @@
     "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0"
   },
-  "description": "This README would normally document whatever steps are necessary to get the application up and running.",
+  "description": "TipTopTomes is an application for viewing, collecting and reviewing books.",
   "version": "1.0.0",
   "main": "index.js",
   "directories": {

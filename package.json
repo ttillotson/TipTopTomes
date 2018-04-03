@@ -1,5 +1,5 @@
 {
-  "name": "GoodReadsClone",
+  "name": "TipTopTomes",
   "private": true,
   "dependencies": {
     "babel-core": "^6.26.0",
@@ -29,6 +29,14 @@
     "start": "webpack --watch"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "author": "Travis Tillotson",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ttillotson/GoodReads.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ttillotson/GoodReads/issues"
+  },
+  "homepage": "https://github.com/ttillotson/GoodReads#readme"
 }

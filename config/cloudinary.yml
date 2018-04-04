@@ -1,0 +1,5 @@
+development:
+  cloud_name: "tiptoptomes"
+
+production:
+  cloud_name: "tiptoptomes"

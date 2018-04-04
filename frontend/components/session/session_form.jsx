@@ -24,7 +24,7 @@ class SessionForm extends React.Component {
 
   handleSubmit(e){
     this.props.submitForm(this.state).then(
-      () => this.props.history.push('/'));
+      () => this.props.history.push('/books'));
   }
 
   render() {

@@ -1,8 +1,9 @@
 class Api::SessionsController < ApplicationController
   def create
+    puts params
     @user = User.find_by_credentials(
-      [:user][:email],
-      [:user][:password]
+      params[:user][:email],
+      params[:user][:password]
     )
     if @user
       sign_in(@user)
@@ -15,7 +16,7 @@ class Api::SessionsController < ApplicationController
   def destroy
     @user = current_user
     if @user
-      signout
+      sign_out
       render json: 'api/books'
     else
       render json: ['Nobody is currently signed in.'], status: 404

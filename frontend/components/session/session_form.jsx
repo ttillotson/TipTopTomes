@@ -13,7 +13,7 @@ class SessionForm extends React.Component {
   }
 
   componentDidMount() {
-    
+
   }
 
   update(field) {
@@ -29,6 +29,15 @@ class SessionForm extends React.Component {
 
   render() {
     let { formType } = this.props;
+    let userField = (
+      <label>Username
+        <input type='text'
+          value={this.state.username}
+          onChange={this.update('username')}/>
+      </label>
+    );
+
+
     return(
       <form onSubmit={this.handleSubmit}>
         <h2>{formType}</h2>
@@ -37,11 +46,7 @@ class SessionForm extends React.Component {
             value={this.state.email}
             onChange={this.update('email')}/>
         </label>
-        <label>Username
-          <input type='text'
-            value={this.state.username}
-            onChange={this.update('username')}/>
-        </label>
+        {(formType === 'Sign Up') ? userField : null }
         <label>Password
           <input type='password'
             value={this.state.password}

@@ -7,9 +7,11 @@ import Root from './components/root';
 document.addEventListener('DOMContentLoaded', () => {
   const root = document.getElementById('root');
   let store;
+  console.log(`Outside ${window.currentUser}`);
   if (window.currentUser) {
     const preloadedState = { session: {currentUser: window.currentUser}};
     store = configStore(preloadedState);
+    console.log(preloadedState);
     delete window.currentUser;
   } else {
     store = configStore();

@@ -11,12 +11,14 @@ class NavBar extends React.Component {
     super(props);
   }
 
+  handleClick(e) {
+    this.props.history.push(`/${e.target.value}`);
+  }
+
   render() {
     let { currentUser, signout } = this.props;
     return (
       <nav>
-        <Route path='/users/new' component={CreateUserContainer} />
-        <Route path='/session/new' component={CreateSessionContainer} />
         <SessionButtons
           signout={signout}
           currentUser={currentUser} />

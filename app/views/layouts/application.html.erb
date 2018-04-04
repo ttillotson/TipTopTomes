@@ -7,6 +7,9 @@
     <%= stylesheet_link_tag    'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
 
+  </head>
+
+  <body>
     <% if current_user %>
       <script>
         window.currentUser = {
@@ -16,9 +19,7 @@
         }
       </script>
     <% end %>
-  </head>
 
-  <body>
     <%= yield %>
   </body>
 </html>

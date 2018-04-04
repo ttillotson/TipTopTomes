@@ -6,7 +6,7 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       sign_in(@user)
-      render 'api/books'
+      render '/api/books/index'
     else
       render json: ['Invalid credentials'], status: 401
     end

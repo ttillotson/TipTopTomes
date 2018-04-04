@@ -1,0 +1,32 @@
+.app-header {
+  background-color: #F4F2E9;
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15); }
+
+.app-header-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+  margin: auto;
+  height: inherit; }
+
+nav > .session_buttons > a {
+  display: block;
+  vertical-align: middle;
+  padding: 0 15px;
+  text-align: center;}
+
+.session_buttons > a > span {
+  vertical-align: middle; }
+
+/*# sourceMappingURL=nav_bar.css.map */
+
+/* .nav-bar nav a {
+ text-decoration: none;
+ vertical-align: middle;
+ padding-right: 15px;
+ padding: 1em;
+ display: inline-block;;
+ font-size: 18px;
+ text-align: center;
+} */

@@ -6,9 +6,11 @@ const activeUser = (currentUser, signout) => {
 
   return (
   <div className='session-buttons'>
-    <Link to={'/'}>
+    <Link to={'/'} className='session-button'>
       <button onClick={signout}>
-        Sign Out
+        <span>
+          Sign Out
+        </span>
       </button>
     </Link>
   </div>
@@ -16,9 +18,9 @@ const activeUser = (currentUser, signout) => {
 };
 
 const nonActiveUser = () => (
-  <div className='session-buttons'>
-    <Link to={'/users/new'}>Sign Up</Link>
-    <Link to={'/session/new'}>Sign In</Link>
+  <div className='session_buttons'>
+    <Link to={'/users/new'} className='session_button'><span>Sign Up</span></Link>
+    <Link to={'/session/new'} className='session_button'>Sign In</Link>
   </div>
 );
 

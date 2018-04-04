@@ -13,13 +13,16 @@ import {
 } from 'react-router-dom';
 
 const App = () => (
-  <div>
+  <main className='main-container'>
     <header className='app-header'>
-      <Link to='/home'>
-        <h1>TipTopTomes</h1>
-      </Link>
-      <NavBarContainer />
-
+      <section className='app-header-contents'>
+        <ul>
+          <li><Link to='/home'>
+            <h1>TipTopTomes</h1>
+          </Link></li>
+        </ul>
+        <NavBarContainer />
+      </section>
     </header>
     <Switch>
       <AuthRoute exact path='/users/new' component={CreateUserContainer} />
@@ -28,7 +31,7 @@ const App = () => (
 
     </Switch>
 
-  </div>
+  </main>
 );
 
 export default App;

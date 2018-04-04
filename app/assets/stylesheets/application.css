@@ -10,17 +10,7 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
- *= require_tree .
+ *= require css_reset
+ *= require main
  *= require_self
  */
-
-
-
-.session-buttons button {
-      background:none!important;
-      color:inherit;
-      border:none;
-      padding:0!important;
-      font: inherit;
-      cursor: pointer;
- }

@@ -1,0 +1,32 @@
+.app-header {
+  background-color: #F4F2E9;
+  height: 50px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+
+}
+.app-header-contents {
+  display: flex;
+  justify-content: space-between;
+  width: 1220px;
+  margin: auto;
+  height: inherit;
+  line-height: 50px;
+}
+
+.session_buttons {
+  display: flex;
+}
+
+.session_button {
+  display: inline;
+  vertical-align: middle;
+  padding: 0 15px;
+  font-size: 16px;
+  color: $heading_text_color;
+}
+
+.session_button:hover {
+  background-color: #3B2112;
+  color: white;
+  font-weight: 600;
+}

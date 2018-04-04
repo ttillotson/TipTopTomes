@@ -7,7 +7,7 @@ class Api::SessionsController < ApplicationController
     )
     if @user
       sign_in(@user)
-      render '/api/books/index'
+      render 'api/users/show'
     else
       render json: ['Invalid credentials'], status: 401
     end
@@ -17,7 +17,7 @@ class Api::SessionsController < ApplicationController
     @user = current_user
     if @user
       sign_out
-      render json: 'api/books'
+      render json: '/api/books'.to_json
     else
       render json: ['Nobody is currently signed in.'], status: 404
     end

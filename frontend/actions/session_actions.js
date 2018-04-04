@@ -34,6 +34,6 @@ export const signout = () => (dispatch) => (
   SessionApiUtil.signout().then(() =>
     (dispatch(receiveCurrentUser(null))
   ), errors => (
-    dispatch(receiveErrors(errors))
+    dispatch(receiveErrors(errors.responseJSON))
   ))
 );

@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 
 const activeUser = (currentUser, signout) => {
 
-  console.log(signout);
   return (
   <div className='session-buttons'>
     <Link to={'/'}>

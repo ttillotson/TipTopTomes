@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import configStore from './store/store';
 import Root from './components/root';
+import { signin, signout } from './actions/session_actions';
 
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -19,6 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
   // Testing
   window.getState = store.getState;
   window.dispatch = store.dispatch;
+  window.signin = signin;
+  window.signout = signout;
 
   ReactDOM.render(<Root store={store} />, root);
 });

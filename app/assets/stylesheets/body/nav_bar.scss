@@ -2,19 +2,58 @@
   background-color: #F4F2E9;
   height: 50px;
   box-shadow: 0 1px 2px rgba(0,0,0,0.15);
-
 }
+
+#logo {
+  margin: 0 16px;
+  display: inline-block;
+  color: #3F2A1B;
+}
+
+#logo_tomes {
+  font-family: $logo_font;
+  font-weight: 600;
+  font-size: 24px;
+}
+
+#logo_tiptop {
+  font-family: $logo_font;
+  font-weight: 200;
+  font-size: 24px;
+}
+
 .app-header-contents {
   display: flex;
-  justify-content: space-between;
   width: 1220px;
   margin: auto;
   height: inherit;
   line-height: 50px;
+  padding: 0 10px;
 }
+.nav_bar_container {
+  display: block;
+  flex: 1;
+}
+
+.nav_bar {
+  display: flex;
+  justify-content: space-between;
+  width: 1088;
+}
+
+.heading_links {
+  display: flex;
+}
+
+.heading_links li {
+  padding: 0 15px;
+  font-size: 16px;
+}
+
 
 .session_buttons {
   display: flex;
+  float: right;
 }
 
 .session_button {
@@ -25,7 +64,8 @@
   color: $heading_text_color;
 }
 
-.session_button:hover {
+.session_button:hover,
+.heading_links li:hover {
   background-color: #3B2112;
   color: white;
   font-weight: 600;

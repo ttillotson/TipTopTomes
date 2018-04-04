@@ -16,11 +16,12 @@ const App = () => (
   <main className='main-container'>
     <header className='app-header'>
       <section className='app-header-contents'>
-        <ul>
-          <li><Link to='/home'>
-            <h1>TipTopTomes</h1>
-          </Link></li>
-        </ul>
+        <Link to='/home' id='logo'>
+          <h1>
+            <span id='logo_tiptop'>tiptop</span>
+            <span id='logo_tomes'>tomes</span>
+          </h1>
+        </Link>
         <NavBarContainer />
       </section>
     </header>

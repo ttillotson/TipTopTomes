@@ -1,0 +1,46 @@
+.session_form_container {
+  border: 1px solid #d0d0c8;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0px 1px 1px #d0d0c8;
+  padding: 28px 10px 34px 10px;
+  width: 450px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 700; }
+  .session_form_container h1 {
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 24px;
+    margin-bottom: 15px; }
+  .session_form_container button {
+    display: inline-block;
+    padding: 12px 24px;
+    background-color: #F4F1EA;
+    border: 1px solid #D6D0C4;
+    border-radius: 3px;
+    font-size: 16px;
+    color: #333333;
+    margin-top: 25px; }
+
+.session_form_inputs {
+  width: 300px;
+  margin: 0 auto;
+  text-align: left; }
+  .session_form_inputs label {
+    display: block;
+    margin-top: 8px;
+    text-align: left;
+    font-size: 12px;
+    line-height: 18px; }
+  .session_form_inputs input {
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 10px 4px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 300px;
+    color: #333333;
+    box-sizing: border-box; }
+
+/*# sourceMappingURL=session_form.css.map */

@@ -2,7 +2,7 @@ import React from 'react';
 import SessionButtons from '../session/session_buttons';
 import CreateSessionContainer from '../session/create_session_container';
 import CreateUserContainer from '../user/create_user_container';
-import { Route, withRouter } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 
 
@@ -14,11 +14,22 @@ class NavBar extends React.Component {
   render() {
     let { currentUser, signout } = this.props;
     return (
-      <nav>
+      <div className='nav_bar_container'>
+        <nav className='nav_bar'>
+        <ul className='heading_links'>
+          <li>
+            <Link to={`/home`}>Home</Link>
+          </li>
+          <li>
+            <Link to={`/bookshelf`}>My Books</Link>
+          </li>
+        </ul>
+
         <SessionButtons
           signout={signout}
           currentUser={currentUser} />
       </nav>
+    </div>
     );
   }
 }

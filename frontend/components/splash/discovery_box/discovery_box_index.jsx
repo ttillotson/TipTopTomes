@@ -1,5 +1,5 @@
 import React from 'react';
-import DiscoveryBoxIndexItem from './discovery_box_item';
+import DiscoveryBoxIndexItem from './discovery_box_index_item';
 
 const DiscoveryBoxIndex = (props) => (
   <section>

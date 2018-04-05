@@ -4,7 +4,8 @@ import CreateSessionContainer from './session/create_session_container';
 import CreateUserContainer from './user/create_user_container';
 import BooksIndexContainer from './books/books_index_container';
 import Logo from './shared/logo';
-import Splash from './shared/splash';
+import Splash from './splash/splash';
+import Footer from './shared/footer';
 import { AuthRoute } from '../util/routes_util';
 import {
   Route,
@@ -32,6 +33,7 @@ const App = () => (
       </Switch>
 
     </Switch>
+    <Footer />
   </main>
 );
 

@@ -3,15 +3,14 @@
   font-family: 'Lato', sans-serif;
   font-weight: 400;
   background-color: #FAF7F4;
-  color: #382110;
-}
-body {
-  background-color: rgba(244,241,234,0.5);
-}
+  color: #382110; }
 
-.footer{
+body {
+  background-color: rgba(244, 241, 234, 0.5); }
+
+.footer {
   font-size: 11px;
   color: #666666;
+  text-align: center; }
 
-  text-align: center;
-}
+/*# sourceMappingURL=app_base.css.map */

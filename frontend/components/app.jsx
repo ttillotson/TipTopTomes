@@ -17,22 +17,20 @@ import {
 
 const App = () => (
   <main className='main-container'>
+    <Route exact path={'/'} component={Splash} />
+    <header className='app-header'>
+      <section className='app-header-contents'>
+        <Logo />
+        <NavBarContainer />
+      </section>
+    </header>
     <Switch>
-      <Route exact path={'/'} component={Splash} />
-      <header className='app-header'>
-        <section className='app-header-contents'>
-          <Logo />
-          <NavBarContainer />
-        </section>
-      </header>
-      <Switch>
-        <AuthRoute exact path='/users/new' component={CreateUserContainer} />
-        <AuthRoute exact path='/session/new' component={CreateSessionContainer}/>
-        <Route path='/books' component={BooksIndexContainer} />
+      <AuthRoute exact path='/users/new' component={CreateUserContainer} />
+      <AuthRoute exact path='/session/new' component={CreateSessionContainer}/>
+      <Route path='/books' component={BooksIndexContainer} />
 
-      </Switch>
-      <Footer />
     </Switch>
+    <Footer />
   </main>
 );
 

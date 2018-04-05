@@ -17,8 +17,8 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
       <Switch>
-        <NonAuthRoute exact path='/' component={Splash} />
-        <Redirect to='/books' component={App} />
+        <AuthRoute exact path='/' component={Splash} />
+        <Route path='/' component={App} />
       </Switch>
     </HashRouter>
   </Provider>

@@ -20,6 +20,7 @@ class SignInForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -29,13 +30,11 @@ class SignInForm extends React.Component {
   }
 
   handleSubmit(e) {
-    this.props.submitForm(this.state).then(
-      () => this.props.history.push('/books'));
+    this.props.submitForm(this.state);
   }
   handleDemo(e) {
     let demoUser = {email: 'demo_user@demos.com', password: 'password'};
-    this.props.submitForm(demoUser).then(
-      () => this.props.history.push('/books'));
+    this.props.submitForm(demoUser);
   }
 
   render() {
@@ -52,8 +51,8 @@ class SignInForm extends React.Component {
           onChange={this.update('password')}
           placeholder='Password'/>
 
-        <button onClick={() => this.handleSubmit}>Sign In</button>
-        <button onClick={() => this.handleDemo}>Demo</button>
+        <button onClick={this.handleSubmit}>Sign In</button>
+        <button onClick={this.handleDemo}>Demo</button>
       </form>
     );
   }

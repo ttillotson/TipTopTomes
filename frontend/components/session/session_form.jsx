@@ -12,10 +12,6 @@ class SessionForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  componentDidMount() {
-
-  }
-
   update(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
@@ -57,7 +53,7 @@ class SessionForm extends React.Component {
               onChange={this.update('password')}/>
           </label>
         </fieldset>
-        
+
         <button>{formType}</button>
       </form>
     );

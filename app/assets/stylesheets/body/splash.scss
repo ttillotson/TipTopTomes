@@ -19,6 +19,7 @@
 .splash_page {
   margin: auto;
   min-height: 100%;
+  font-family: $text_font;
 }
 
 .splash_nav {
@@ -108,7 +109,7 @@
 }
 
 // Discovery Box Items can be rearranged to the site:
-// remove the just-content on box, then change margins to to right: 40px 
+// remove the just-content on box, then change margins to to right: 40px
 
 .splash_body_container {
   background-color: #FFFFFF;

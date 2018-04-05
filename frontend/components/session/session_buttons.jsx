@@ -5,12 +5,10 @@ import { Link } from 'react-router-dom';
 const activeUser = (currentUser, signout) => {
 
   return (
-    <div className='session-buttons'>
-      <Link to={'/'} className='session-button'>
+    <div className='session_buttons'>
+      <Link to={'/'} className='session_button'>
         <button onClick={signout}>
-          <span>
             Sign Out
-          </span>
         </button>
       </Link>
     </div>
@@ -19,17 +17,21 @@ const activeUser = (currentUser, signout) => {
 
 const nonActiveUser = (signin) => {
   let demoUser = {email: 'demo_user@demos.com', password: 'password'};
+
+  const signInDemo = (e) => {
+    e.preventDefault();
+    signin(demoUser);
+  };
+
   return (
     <div className='session_buttons'>
       <Link to={'/users/new'} className='session_button'>Sign Up</Link>
       <Link to={'/session/new'} className='session_button'>Sign In</Link>
-        <Link to={'/'} className='session-button'>
-          <button onClick={signin(demoUser)}>
-            <span>
-              Sign Out
-            </span>
-          </button>
-        </Link>
+      <Link to={'/'} className='session_button'>
+        <button onClick={signInDemo}>
+            Demo
+        </button>
+      </Link>
     </div>
   );
 };

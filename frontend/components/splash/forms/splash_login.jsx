@@ -30,10 +30,12 @@ class SignInForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     this.props.submitForm(this.state);
   }
   handleDemo(e) {
     let demoUser = {email: 'demo_user@demos.com', password: 'password'};
+    e.preventDefault();
     this.props.submitForm(demoUser);
   }
 

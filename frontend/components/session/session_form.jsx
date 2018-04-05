@@ -10,6 +10,7 @@ class SessionForm extends React.Component {
       password: '',
     };
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   update(field) {
@@ -19,8 +20,14 @@ class SessionForm extends React.Component {
   }
 
   handleSubmit(e){
-    this.props.submitForm(this.state).then(
-      () => this.props.history.push('/books'));
+    e.preventDefault();
+    this.props.submitForm(this.state);
+  }
+
+  handleDemo(e){
+    e.preventDefault();
+    let demoUser = {email: 'demo_user@demos.com', password: 'password'};
+    this.props.submitForm(demoUser);
   }
 
   render() {
@@ -54,7 +61,8 @@ class SessionForm extends React.Component {
           </label>
         </fieldset>
 
-        <button>{formType}</button>
+        <button onClick={this.handleSubmit}>{formType}</button>
+        <button onClick={this.handleDemo}>Demo</button>
       </form>
     );
   }

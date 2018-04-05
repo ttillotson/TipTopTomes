@@ -54,15 +54,18 @@
 .session_buttons {
   display: flex;
   float: right;
+  .session_button {
+    display: border-box;
+    vertical-align: middle;
+    padding: 0 15px;
+    font-size: 16px;
+    color: $heading_text_color;
+
+    button {
+    }
+  }
 }
 
-.session_button {
-  display: inline;
-  vertical-align: middle;
-  padding: 0 15px;
-  font-size: 16px;
-  color: $heading_text_color;
-}
 
 .session_button:hover,
 .heading_links li:hover {

@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { signout } from '../../actions/session_actions';
+import { signout, signin } from '../../actions/session_actions';
 import NavBar from './navbar';
 
 const mapStateToProps = ({ session }) => ({
@@ -7,7 +7,8 @@ const mapStateToProps = ({ session }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  signout: () => dispatch(signout())
+  signout: () => dispatch(signout()),
+  signin: (user) => dispatch(signin(user))
 });
 
 export default connect(

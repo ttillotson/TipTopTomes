@@ -17,16 +17,26 @@ const activeUser = (currentUser, signout) => {
   );
 };
 
-const nonActiveUser = () => (
-  <div className='session_buttons'>
-    <Link to={'/users/new'} className='session_button'>Sign Up</Link>
-    <Link to={'/session/new'} className='session_button'>Sign In</Link>
-  </div>
-);
-
-const SessionButtons = ({ currentUser, signout}) => {
+const nonActiveUser = (signin) => {
+  let demoUser = {email: 'demo_user@demos.com', password: 'password'};
   return (
-    currentUser ? activeUser(currentUser, signout) : nonActiveUser()
+    <div className='session_buttons'>
+      <Link to={'/users/new'} className='session_button'>Sign Up</Link>
+      <Link to={'/session/new'} className='session_button'>Sign In</Link>
+        <Link to={'/'} className='session-button'>
+          <button onClick={signin(demoUser)}>
+            <span>
+              Sign Out
+            </span>
+          </button>
+        </Link>
+    </div>
+  );
+};
+
+const SessionButtons = ({ currentUser, signout, signin }) => {
+  return (
+    currentUser ? activeUser(currentUser, signout) : nonActiveUser(signin)
   );
 };
 

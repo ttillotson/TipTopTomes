@@ -12,7 +12,7 @@ class NavBar extends React.Component {
   }
 
   render() {
-    let { currentUser, signout } = this.props;
+    let { currentUser, signout, signin } = this.props;
     return (
       <div className='nav_bar_container'>
         <nav className='nav_bar'>
@@ -27,7 +27,8 @@ class NavBar extends React.Component {
 
         <SessionButtons
           signout={signout}
-          currentUser={currentUser} />
+          currentUser={currentUser}
+          signin={signin} />
       </nav>
     </div>
     );

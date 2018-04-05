@@ -31,9 +31,8 @@ const App = () => (
         <Route path='/books' component={BooksIndexContainer} />
 
       </Switch>
-
+      <Footer />
     </Switch>
-    <Footer />
   </main>
 );
 

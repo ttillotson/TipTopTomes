@@ -4,7 +4,7 @@ const Pitch = () => (
   <section className='discovery_box'>
     <article className="discovery_box_item">
 
-      <span>Deciding your next literary adventure?</span>
+      <h2>Deciding your next literary adventure?</h2>
 
       <p>You are among friends. Our site indexes many books for you to
         review and peruse. Any books that look interesting you can add
@@ -13,7 +13,7 @@ const Pitch = () => (
     </article>
     <article className="discovery_box_item">
 
-      <span>Curious about what your friends are reading?</span>
+      <h2>Curious about what your friends are reading?</h2>
 
       <p>Odds are your friends already love our site and are reviewing
         their books on TipTopTomes.</p>

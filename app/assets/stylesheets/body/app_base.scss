@@ -1,17 +1,38 @@
 .main-container {
   font-size: 160;
-  font-family: 'Lato', sans-serif;
+  font-family: $text_font;
   font-weight: 400;
   background-color: #FAF7F4;
   color: #382110;
+
 }
 body {
   background-color: rgba(244,241,234,0.5);
 }
 
-.footer{
-  font-size: 11px;
-  color: #666666;
+.footer_container {
+  position: absolute;
+  width: 100%;
 
-  text-align: center;
+  .footer{
+    font-size: 11px;
+    color: #666666;
+    display: flex;
+    justify-content: space-between;
+    width: 960px;
+    margin: auto;
+    padding-bottom: 2px;
+
+    .footer_links {
+      display: flex;
+
+      li{
+        padding: 0 5px;
+      }
+
+      li:last-child{
+        border-left: 1px solid #666666;
+      }
+    }
+  }
 }

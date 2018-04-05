@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.r.us.com')
-admin = User.create(username: 'admin', password: 'password', email: 'admin@admin')
+demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.com')
+admin = User.create(username: 'admin', password: 'password', email: 'admin')
 user1 = User.create(username: 'LoveBooks', password: 'lovebooks', email: 'totallyrealemail@emails.com')
 user2 = User.create(username: 'BookLove', password: 'mmmbooks', email: 'hardcovers@emails.com')
 user3 = User.create(username: 'IAmTipTop', password: 'in_the_tulips', email: 'tables@emails.com')

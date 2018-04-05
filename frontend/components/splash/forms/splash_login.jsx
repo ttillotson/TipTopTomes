@@ -32,10 +32,15 @@ class SignInForm extends React.Component {
     this.props.submitForm(this.state).then(
       () => this.props.history.push('/books'));
   }
+  handleDemo(e) {
+    let demoUser = {email: 'demo_user@demos.com', password: 'password'};
+    this.props.submitForm(demoUser).then(
+      () => this.props.history.push('/books'));
+  }
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit} className='splash_login'>
+      <form className='splash_login'>
 
         <input type='text'
           value={this.state.email}
@@ -47,7 +52,8 @@ class SignInForm extends React.Component {
           onChange={this.update('password')}
           placeholder='Password'/>
 
-        <button>Sign In</button>
+        <button onClick={() => this.handleSubmit}>Sign In</button>
+        <button onClick={() => this.handleDemo}>Demo</button>
       </form>
     );
   }

@@ -21,12 +21,13 @@ ActiveRecord::Schema.define(version: 20180405223623) do
     t.text "description", null: false
     t.string "ISBN", null: false
     t.string "img_url", null: false
-    t.datetime "published", null: false
+    t.string "published", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["ISBN"], name: "index_books_on_ISBN", unique: true
     t.index ["author", "title"], name: "index_books_on_author_and_title", unique: true
     t.index ["author"], name: "index_books_on_author"
+    t.index ["title"], name: "index_books_on_title"
   end
 
   create_table "users", force: :cascade do |t|

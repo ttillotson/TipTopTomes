@@ -1,3 +1,4 @@
+require_relative 'book_info'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -24,3 +25,7 @@ user12 = User.create(username: 'caughttherye', password: 'caulfield', email: 'al
 user13 = User.create(username: 'raisinsoffury', password: 'better_than_grapes', email: 'steinbeck@emails.com')
 user14 = User.create(username: 'Rincewind', password: 'wizzard', email: 'discworld@emails.com')
 user15 = User.create(username: 'Vetinari', password: 'ankh_morpork', email: 'witty_remark@emails.com')
+
+BOOKS.each do |book|
+  Book.create(title: book[0], author: book[1], published: book[2], ISBN: book[3])
+end

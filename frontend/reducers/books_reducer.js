@@ -15,3 +15,5 @@ const BooksReducer = (state=defaultState, action) => {
       return state;
   }
 };
+
+export default BooksReducer;

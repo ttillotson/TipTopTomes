@@ -16,5 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     store = configStore();
   }
 
+  window.getState = store.getState();
+  console.log(store.getState());
+
   ReactDOM.render(<Root store={store} />, root);
 });

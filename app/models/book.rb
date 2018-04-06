@@ -14,5 +14,6 @@
 #
 
 class Book < ApplicationRecord
+  validates :title, :author, :description, :ISBN, :img_url, :published, presence: true
 
 end

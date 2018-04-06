@@ -1,15 +1,14 @@
 import { connect } from 'react-redux';
 import BooksIndex from './books_index';
-// import {} from '../../util/books_api_util';
-
-
+import { fetchBook, fetchBooks } from '../../action/book_actions';
 
 const mapStateToProps = state => ({
-
+  books: state.books
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  fetchBook: (bookId) => dispatch(fetchBook(bookId)),
+  fetchBooks: () => dispatch(fetchBook())
 });
 
 export default connect(

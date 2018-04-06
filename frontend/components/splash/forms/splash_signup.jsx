@@ -33,9 +33,26 @@ class SignUpForm extends React.Component {
       () => this.props.history.push('/books'));
   }
 
+  renderErrors() {
+    debugger
+    if (this.props.errors) {
+      let errors = this.props.errors.map((error, i) => (
+        <li key={`${i}`}>{error}</li>
+      ));
+      debugger
+      return (
+        <ul className={'errors'}>
+          {errors}
+        </ul>
+      );
+    }
+  }
+
   render() {
     return (
       <form onSubmit={this.handleSubmit} className='splash_signup'>
+
+        { this.renderErrors() }
 
         <input type='text'
           value={this.state.email}

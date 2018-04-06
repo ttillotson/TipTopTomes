@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import SessionForm from '../session/session_form';
-import { signup } from '../../actions/session_actions';
+import { signup, receiveErrors } from '../../actions/session_actions';
 import { Link } from 'react-router-dom';
 
 
@@ -14,14 +14,18 @@ const mapStateToProps = ({ session, errors }) => ({
 
 const mapDispatchToProps = (dispatch) => ({
   submitForm: (user) => dispatch(signup(user)),
+  clearErrors: (errors) => dispatch(receiveErrors(errors))
 });
 
 
-const NewUserForm = ({ submitForm, formType }) => {
+const NewUserForm = ({ submitForm, formType, errors, currentUser, navLink, clearErrors }) => {
   return (
     <SessionForm
       formType={formType}
       submitForm={submitForm}
+      errors={errors}
+      currentUser={currentUser}
+      navLink={navLink}
       />
   );
 };

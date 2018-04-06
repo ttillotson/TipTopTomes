@@ -39,9 +39,24 @@ class SignInForm extends React.Component {
     this.props.submitForm(demoUser);
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      let errors = this.props.errors.map((error, i) => (
+        <li key={`${i}`}>{error}</li>
+      ));
+      return (
+        <ul className={'errors'}>
+          {errors}
+        </ul>
+      );
+    }
+  }
+
   render() {
     return (
       <form className='splash_login'>
+
+        { this.renderErrors() }
 
         <input type='text'
           value={this.state.email}

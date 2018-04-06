@@ -13,6 +13,10 @@ class SessionForm extends React.Component {
     this.handleDemo = this.handleDemo.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors([]);
+  }
+
   update(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
@@ -31,15 +35,17 @@ class SessionForm extends React.Component {
   }
 
   renderErrors() {
-    // debugger
-    let errors = this.props.errors.map((error, i) => (
-      <li key={`${i}`}>{error}</li>
-    ));
-    return (
-      <ul className={'errors'}>
-        {errors}
-      </ul>
-    );
+    if (this.props.errors) {
+      return(
+        <ul>
+          {this.props.errors.map((error, i) => (
+            <li key={`${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
   }
 
   render() {
@@ -51,7 +57,6 @@ class SessionForm extends React.Component {
           onChange={this.update('username')}/>
       </label>
     );
-
 
     return(
       <form onSubmit={this.handleSubmit} className='session_form_container'>

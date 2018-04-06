@@ -1,7 +1,6 @@
 BOOKS = ([
-  [
-  "Snuff: A Novel of Discworld",
-  "Terry Pratchett
+  ["Snuff: A Novel of Discworld
+  ", "Terry Pratchett
   ", "Harper Collins, 2011
   ", "9780062097866
   "],

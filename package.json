@@ -14,9 +14,11 @@
     "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
-    "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "webpack": "^3.10.0"
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6",
   },
   "description": "TipTopTomes is an application for viewing, collecting and reviewing books.",
   "version": "1.0.0",

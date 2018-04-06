@@ -27,5 +27,5 @@ user14 = User.create(username: 'Rincewind', password: 'wizzard', email: 'discwor
 user15 = User.create(username: 'Vetinari', password: 'ankh_morpork', email: 'witty_remark@emails.com')
 
 BOOKS.each do |book|
-  Book.create(title: book[0], author: book[1], published: book[2], ISBN: book[3])
+  Book.create(title: book[0].chomp, author: book[1].chomp, published: book[2].chomp, ISBN: book[3].chomp)
 end

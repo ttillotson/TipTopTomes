@@ -5,7 +5,7 @@ import thunk from 'redux-thunk';
 const middlewares = [thunk];
 
 if (process.env.NODE_NAV !== 'production') {
-  const logger = require('redux-logger');
+  const { logger } = require('redux-logger');
   middlewares.push(logger);
 }
 
@@ -14,7 +14,7 @@ const configStore = (preloadedState = {}) => {
   return createStore(
     RootReducer,
     preloadedState,
-    applyMiddleware(middlewares));
+    applyMiddleware(...middlewares));
 };
 
 export default configStore;

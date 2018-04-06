@@ -3,7 +3,6 @@ import merge from 'lodash/merge';
 
 const SessionsErrorsReducer = (state=[], action) => {
   Object.freeze(state);
-  // debugger
   switch (action.type) {
     case RECEIVE_SESSION_ERRORS:
       return action.errors;

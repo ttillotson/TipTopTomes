@@ -27,8 +27,11 @@ const App = () => (
       <Switch>
         <AuthRoute exact path='/users/new' component={CreateUserContainer} />
         <AuthRoute exact path='/session/new' component={CreateSessionContainer}/>
-        <Route path='/books' component={BooksIndexContainer} />
 
+
+
+
+        <AuthRoute path='/' component={Splash} />
       </Switch>
     </div>
     <Footer />

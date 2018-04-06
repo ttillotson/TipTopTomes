@@ -30,6 +30,16 @@ class SessionForm extends React.Component {
     this.props.submitForm(demoUser);
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      this.props.errors.map((error, i) => {
+        return (
+          <li key={`${i}`}>{error}</li>
+        );
+      });
+    }
+  }
+
   render() {
     let { formType } = this.props;
     let userField = (
@@ -44,6 +54,7 @@ class SessionForm extends React.Component {
     return(
       <form onSubmit={this.handleSubmit} className='session_form_container'>
         <h1>{formType}</h1>
+        { this.renderErrors() }
         <fieldset className='session_form_inputs'>
 
           <label>Email

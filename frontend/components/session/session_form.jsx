@@ -39,15 +39,11 @@ class SessionForm extends React.Component {
           onChange={this.update('username')}/>
       </label>
     );
-    // 
-    // errors() {
-    //
-    // };
+
 
     return(
       <form onSubmit={this.handleSubmit} className='session_form_container'>
         <h1>{formType}</h1>
-        {!this.props.errors ? this.errors : null }
         <fieldset className='session_form_inputs'>
 
           <label>Email

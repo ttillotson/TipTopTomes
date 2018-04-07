@@ -34,12 +34,10 @@ class SignUpForm extends React.Component {
   }
 
   renderErrors() {
-    debugger
     if (this.props.errors) {
       let errors = this.props.errors.map((error, i) => (
         <li key={`${i}`}>{error}</li>
       ));
-      debugger
       return (
         <ul className={'errors'}>
           {errors}

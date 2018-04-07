@@ -18,7 +18,7 @@ class NavBar extends React.Component {
         <nav className='nav_bar'>
         <ul className='heading_links'>
           <li>
-            <Link to={`/home`}>Home</Link>
+            <Link to={`/books`}>Home</Link>
           </li>
           <li>
             <Link to={`/bookshelf`}>My Books</Link>

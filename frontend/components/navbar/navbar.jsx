@@ -1,7 +1,7 @@
 import React from 'react';
 import SessionButtons from '../session/session_buttons';
 import CreateSessionContainer from '../session/create_session_container';
-import CreateUserContainer from '../user/create_user_container';
+import CreateUserContainer from '../session/create_user_container';
 import { Link, withRouter } from 'react-router-dom';
 
 

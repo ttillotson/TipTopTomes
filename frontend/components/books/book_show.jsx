@@ -20,23 +20,25 @@ class BookShow extends React.Component {
     if (!book) { return null; }
 
     return (
-      <article>
-        <img className={'book_image'} src={`${book.img_url}`} alt={`Book Cover`} />
-        <h1>
-          Title: {book.title}
-        </h1>
-        <h3>
-          Author: {book.author}
-        </h3>
-        <h3>
-          Description: {book.description}
-        </h3>
-        <h3>
-          Published: {book.published}
-        </h3>
-        <h3>
-          ISBN: {book.ISBN}
-        </h3>
+      <article className='book_show'>
+        <section className='book_info'>
+          <img className='book_show_image' src={`${book.img_url}`} alt={`Book Cover`} />
+          <h1 className='book_title'>
+            Title: {book.title}
+          </h1>
+          <h3>
+            Author: {book.author}
+          </h3>
+          <h3>
+            Description: {book.description}
+          </h3>
+          <h3>
+            Published: {book.published}
+          </h3>
+          <h3>
+            ISBN: {book.ISBN}
+          </h3>
+        </section>
       </article>
     );
   }

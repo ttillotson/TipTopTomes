@@ -29,11 +29,6 @@ BOOKS = [
 ", "Pottermore, 2015
 ", "9781781100530
 "],
-["Harry Potter and the Goblet of Fire
-", "J.K. Rowling
-", "Pottermore, 2015
-", "9781781100523
-"],
 ["Harry Potter and the Deathly Hallows
 ", "J.K. Rowling
 ", "Pottermore, 2015

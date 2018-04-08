@@ -19,7 +19,9 @@ class Book < ApplicationRecord
 
   after_initialize :ensure_description, :ensure_image_url
 
-  has_many :reviews
+  has_many :reviews,
+  class_name: Review,
+  foreign_key: :book_id
 
   private
 

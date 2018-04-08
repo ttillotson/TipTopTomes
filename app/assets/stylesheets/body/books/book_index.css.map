@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,YAAY;EACV,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EAEZ,4BAAgB;IACd,OAAO,EAAE,IAAI;IACb,eAAe,EAAE,aAAa;IAE9B,6CAAiB;MACf,UAAU,EAAE,MAAM;MAClB,KAAK,EAAE,KAAK;MACZ,MAAM,EAAE,MAAM;MAEd,oDAAO;QACL,MAAM,EAAE,CAAC;MAGX,yDAAY;QACV,KAAK,EAAE,KAAK;QACZ,MAAM,EAAE,OAAO;QACf,MAAM,EAAE,IAAI",
+"sources": ["book_index.scss"],
 "names": [],
 "file": "book_index.css"
 }

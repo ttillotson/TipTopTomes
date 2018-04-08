@@ -37,9 +37,9 @@ ActiveRecord::Schema.define(version: 20180408190104) do
     t.integer "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["author_id"], name: "index_reviews_on_author_id", unique: true
+    t.index ["author_id"], name: "index_reviews_on_author_id"
     t.index ["book_id", "author_id"], name: "index_reviews_on_book_id_and_author_id", unique: true
-    t.index ["book_id"], name: "index_reviews_on_book_id", unique: true
+    t.index ["book_id"], name: "index_reviews_on_book_id"
   end
 
   create_table "users", force: :cascade do |t|

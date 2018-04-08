@@ -18,5 +18,7 @@ class Review < ApplicationRecord
   class_name: :User,
   foreign_key: :author_id
 
-  belongs_to :book
+  belongs_to :book,
+  class_name: :Book,
+  foreign_key: :book_id
 end

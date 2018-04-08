@@ -9,7 +9,7 @@ class CreateReviews < ActiveRecord::Migration[5.1]
       t.timestamps
     end
     add_index :reviews, [:book_id, :author_id], unique: true
-    add_index :reviews, :author_id, unique: true
-    add_index :reviews, :book_id, unique: true
+    add_index :reviews, :author_id
+    add_index :reviews, :book_id
   end
 end

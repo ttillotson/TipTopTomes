@@ -1,4 +1,5 @@
 require_relative 'book_info'
+require_relative 'review_base'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -28,4 +29,16 @@ user15 = User.create(username: 'Vetinari', password: 'ankh_morpork', email: 'wit
 
 BOOKS.each do |book|
   Book.create(title: book[0].chomp, author: book[1].chomp, published: book[2].chomp, ISBN: book[3].chomp)
+end
+
+BOOKS.length.times do |book_idx|
+  review = REVIEWS.sample
+  17.times do |user_count|
+    Review.create(
+      body: review[1],
+      rating: review[0],
+      author_id: (user_count + 1),
+      book_id: book_idx + 1
+    )
+  end
 end

@@ -15,11 +15,12 @@ class BooksIndex extends React.Component {
   }
 
   render(){
-    const { books, loading } = this.props ;
-
+    const { books, loading, state } = this.props ;
+    debugger
     if (loading) {return <LoadingIcon />; }
+    debugger
 
-    const bookItems = this.props.books.map( book => {
+    const bookItems = books.map( book => {
       return (
         <BookIndexItem
           key={`${book.id}`}
@@ -37,7 +38,6 @@ class BooksIndex extends React.Component {
       bookRows.push(row);
     }
 
-    debugger
       // <BookIndexRow books={} />
 
     return (

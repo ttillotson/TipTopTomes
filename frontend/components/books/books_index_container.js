@@ -3,11 +3,13 @@ import BooksIndex from './books_index';
 import { fetchBook,
          fetchBooks,
          receiveErrors } from '../../actions/book_actions';
+import selectAllBooks from '../../reducers/selectors';
 
 
 const mapStateToProps = state => ({
-  books: state.books,
-  loading: state.ui.loading.indexLoading
+  books: selectAllBooks(state),
+  loading: state.ui.loading.indexLoading,
+  state: state
 });
 
 const mapDispatchToProps = dispatch => ({

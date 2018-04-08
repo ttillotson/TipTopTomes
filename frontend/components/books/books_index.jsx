@@ -23,15 +23,17 @@ class BooksIndex extends React.Component {
           />
       );
     });
-    
-    // let bookRows = [];
-    // while ( bookItems.length > 0 ) {
-    //   let row = [];
-    //   for (let i = 0; i < 6; i++){
-    //     row.push(books.pop());
-    //   }
-    //   bookRows.push(row);
-    // }
+
+    let bookRows = [];
+    while ( bookItems.length > 0 ) {
+      console.log(bookItems);
+      let row = [];
+      for (let i = 0; i < 6; i++){
+        row.push(bookItems.pop());
+      }
+      bookRows.push(row);
+    }
+
 
       // <BookIndexRow books={} />
 
@@ -39,7 +41,7 @@ class BooksIndex extends React.Component {
       <section className='books_index'>
 
         <ul>
-
+          {bookRows}
         </ul>
 
 

@@ -3,6 +3,7 @@ import NavBarContainer from './navbar/navbar_container';
 import CreateSessionContainer from './session/create_session_container';
 import CreateUserContainer from './user/create_user_container';
 import BooksIndexContainer from './books/books_index_container';
+import BookShowContainer from './books/books_show_container';
 import Logo from './shared/logo';
 import Splash from './splash/splash';
 import Footer from './shared/footer';
@@ -27,6 +28,7 @@ const App = () => (
       <Switch>
         <AuthRoute exact path='/users/new' component={CreateUserContainer} />
         <AuthRoute exact path='/session/new' component={CreateSessionContainer}/>
+        <Route path='/books/:bookId' component={BookShowContainer}/>
         <Route path='/books' component={BooksIndexContainer} />
 
 

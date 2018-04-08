@@ -5,20 +5,15 @@ import LoadingIcon from '../shared/loading_icon.jsx';
 
 
 class BooksIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = this.props.books;
-  }
-
   componentDidMount() {
     this.props.fetchBooks();
   }
 
   render(){
     const { books, loading, state } = this.props ;
-    debugger
+
     if (loading) {return <LoadingIcon />; }
-    debugger
+
 
     const bookItems = books.map( book => {
       return (
@@ -28,22 +23,24 @@ class BooksIndex extends React.Component {
           />
       );
     });
-
-    let bookRows = [];
-    while ( bookItems.length > 0 ) {
-      let row = [];
-      for (let i = 0; i < 6; i++){
-        row.push(books.pop());
-      }
-      bookRows.push(row);
-    }
+    
+    // let bookRows = [];
+    // while ( bookItems.length > 0 ) {
+    //   let row = [];
+    //   for (let i = 0; i < 6; i++){
+    //     row.push(books.pop());
+    //   }
+    //   bookRows.push(row);
+    // }
 
       // <BookIndexRow books={} />
 
     return (
       <section className='books_index'>
 
+        <ul>
 
+        </ul>
 
 
       </section>

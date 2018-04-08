@@ -7,14 +7,13 @@ import selectAllBooks from '../../reducers/selectors';
 
 
 const mapStateToProps = state => ({
-  books: selectAllBooks(state),
+  books: selectAllBooks(state.entities),
   loading: state.ui.loading.indexLoading,
-  state: state
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchBook: (bookId) => dispatch(fetchBook(bookId)),
-  fetchBooks: () => dispatch(fetchBook()),
+  fetchBooks: () => dispatch(fetchBooks()),
   clearErrors: (errors) => dispatch(receiveErrors(errors))
 });
 

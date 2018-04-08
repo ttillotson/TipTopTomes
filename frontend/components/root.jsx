@@ -2,7 +2,7 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
 import App from './app';
-import Splash from './splash/splash';
+import SplashContainer from './splash/splash_container';
 import { AuthRoute, NonAuthRoute } from '../util/routes_util';
 
 import {
@@ -17,7 +17,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <HashRouter>
       <Switch>
-        <AuthRoute exact path='/' component={Splash} />
+        <AuthRoute exact path='/' component={SplashContainer} />
         <Route component={App} />
       </Switch>
     </HashRouter>

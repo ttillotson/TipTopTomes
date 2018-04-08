@@ -31,8 +31,16 @@
   margin: auto;
 
   .splash_login {
-    vertical-align: middle;
+    vertical-align: top;
     margin-top: 10px;
+
+    .errors {
+      display: inline-block;
+      text-align: right;
+      font-size: 11px;
+      padding-right: 3px;
+      vertical-align: middle;
+    }
 
     input {
       background-color: #FFFFFF;
@@ -41,7 +49,7 @@
       font-size: 13px;
       padding: 5px;
       margin: 2px;
-      vertical-align: baseline;
+      vertical-align: top;
       display: inline-block;
     }
 

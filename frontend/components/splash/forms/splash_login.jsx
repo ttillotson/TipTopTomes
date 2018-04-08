@@ -4,7 +4,7 @@ import { signin } from '../../../actions/session_actions';
 
 const mapStateToProps = ({ session, errors }) => ({
   currentUser: session.currentUser,
-  errors: errors.session,
+  errors: errors.sessions,
 });
 
 const mapDispatchToProps = (dispatch) => ({

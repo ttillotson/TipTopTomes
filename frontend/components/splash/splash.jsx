@@ -11,10 +11,6 @@ class Splash extends React.Component {
     super(props);
   }
 
-  // componentDidMount() {
-  //   if (this.props)
-  // }
-
   render() {
     return(
       <div className='splash_page'>

@@ -23,10 +23,10 @@ class Book < ApplicationRecord
   private
 
   def ensure_image_url
-    self.img_url = IMAGE_URL_ARRAY.sample
+    self.img_url ||= IMAGE_URL_ARRAY.sample
   end
 
   def ensure_description
-    self.description = DESCRIPTION.sample
+    self.description ||= DESCRIPTION.sample
   end
 end

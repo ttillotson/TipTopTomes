@@ -4,7 +4,7 @@ import { signup } from '../../../actions/session_actions';
 
 const mapStateToProps = ({ session, errors }) => ({
   currentUser: session.currentUser,
-  errors: errors.session,
+  errors: errors.sessions,
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -22,6 +22,10 @@ class SignUpForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentWillUnmount() {
+    this.props.clearErrors([]);
+  }
+
   update(field) {
     return (e) => {
       this.setState({[field]: e.target.value});
@@ -29,6 +33,7 @@ class SignUpForm extends React.Component {
   }
 
   handleSubmit(e) {
+    e.preventDefault();
     this.props.submitForm(this.state).then(
       () => this.props.history.push('/books'));
   }
@@ -38,8 +43,9 @@ class SignUpForm extends React.Component {
       let errors = this.props.errors.map((error, i) => (
         <li key={`${i}`}>{error}</li>
       ));
+      // debugger
       return (
-        <ul className={'errors'}>
+        <ul className={'splash_errors'}>
           {errors}
         </ul>
       );
@@ -49,8 +55,6 @@ class SignUpForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit} className='splash_signup'>
-
-        { this.renderErrors() }
 
         <input type='text'
           value={this.state.email}
@@ -68,6 +72,7 @@ class SignUpForm extends React.Component {
           placeholder='Password'/>
 
         <button>Sign Up</button>
+
       </form>
     );
   }

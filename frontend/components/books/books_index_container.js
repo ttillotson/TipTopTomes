@@ -1,9 +1,13 @@
 import { connect } from 'react-redux';
 import BooksIndex from './books_index';
-import { fetchBook, fetchBooks, receiveErrors } from '../../actions/book_actions';
+import { fetchBook,
+         fetchBooks,
+         receiveErrors } from '../../actions/book_actions';
+
 
 const mapStateToProps = state => ({
-  books: state.books
+  books: state.books,
+  loading: state.ui.loading.indexLoading
 });
 
 const mapDispatchToProps = dispatch => ({

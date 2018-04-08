@@ -1,6 +1,7 @@
 import React from 'react';
 import BookIndexRow from './book_index_row';
 import BookIndexItem from './book_index_item';
+import LoadingIcon from '../shared/loading_icon.jsx';
 
 
 class BooksIndex extends React.Component {
@@ -14,7 +15,11 @@ class BooksIndex extends React.Component {
   }
 
   render(){
-    const books = this.props.books.map( book => {
+    const { books, loading } = this.props ;
+
+    if (loading) {return <LoadingIcon />; }
+
+    const bookItems = this.props.books.map( book => {
       return (
         <BookIndexItem
           key={`${book.id}`}
@@ -22,8 +27,9 @@ class BooksIndex extends React.Component {
           />
       );
     });
+
     let bookRows = [];
-    while ( books.length > 0 ) {
+    while ( bookItems.length > 0 ) {
       let row = [];
       for (let i = 0; i < 6; i++){
         row.push(books.pop());
@@ -36,7 +42,10 @@ class BooksIndex extends React.Component {
 
     return (
       <section className='books_index'>
-        { bookRows }
+
+
+
+
       </section>
     );
   }

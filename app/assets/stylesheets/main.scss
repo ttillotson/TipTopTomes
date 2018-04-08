@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 @import url('https://fonts.googleapis.com/css?family=Muli:200,600');
 @import 'setup/variables.scss';
-@import 'body/app_base.scss';
-@import 'body/nav_bar.scss';
-@import "body/session_form.scss";
-@import "body/splash.scss";
+@import 'body/app/app_base.scss';
+@import 'body/nav_bar/nav_bar.scss';
+@import "body/session/session_form.scss";
+@import "body/splash/splash.scss";
+@import "body/books/book_index.scss";

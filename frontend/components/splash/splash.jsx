@@ -38,5 +38,3 @@ class Splash extends React.Component {
 }
 
 export default Splash;
-
-// <Image publicId="headline.png" />

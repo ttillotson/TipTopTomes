@@ -1,0 +1,25 @@
+.books_index{
+  width: 960px;
+  margin: auto;
+
+  .book_index_row {
+    display: flex;
+    justify-content: space-between;
+
+    .book_index_item {
+      text-align: center;
+      width: 135px;
+      margin: 15px 0;
+
+      figure {
+        margin: 0;
+      }
+
+      .book_image {
+        width: 115px;
+        height: 182.5px;
+        margin: auto;
+      }
+    }
+  }
+}

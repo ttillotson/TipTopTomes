@@ -29,12 +29,12 @@ BOOKS = [
 ", "Pottermore, 2015
 ", "9781781100530
 "],
-["Harry Potter and the Goblet of FireVolume 4 of Harry Potter
+["Harry Potter and the Goblet of Fire
 ", "J.K. Rowling
 ", "Pottermore, 2015
 ", "9781781100523
 "],
-["Harry Potter and the Deathly HallowsVolume 7 of Harry Potter
+["Harry Potter and the Deathly Hallows
 ", "J.K. Rowling
 ", "Pottermore, 2015
 ", "9781781102435
@@ -89,7 +89,7 @@ BOOKS = [
 ", "Knopf Canada, 2009
 ", "9780307371126
 "],
-["What Is Stephen Harper Reading?: Yann Martel's Recommended Reading for a Prime Minister and Book Lovers of All Stripes
+["What Is Stephen Harper Reading?
 ", "Yann Martel
 ", "Knopf Canada, 2009
 ", "9780307398680
@@ -104,7 +104,7 @@ BOOKS = [
 ", "Houghton Mifflin Harcourt, 2005
 ", "9780156032452
 "],
-["101 Letters to a Prime Minister: The Complete Letters to Stephen Harper
+["101 Letters to a Prime Minister
 ", "Yann Martel
 ", "Knopf Canada, 2012
 ", "9780307402080
@@ -254,12 +254,12 @@ BOOKS = [
 ", "Que, 1999
 ", "9780789718044
 "],
-["My First Coding Book: Packed with flaps and lots more to help you code without a computer!
+["My First Coding Book
 ", "Kiki Prottsman
 ", "Penguin, 2017
 ", "9781465469731
 "],
-["Computational Thinking and Coding for Every Student: The Teacher’s Getting-Started Guide
+["Computational Thinking and Coding for Every Student
 ", "sJane Krauss, Kiki Prottsman
 ", "Corwin Press, 2016
 ", "9781506341309
@@ -269,32 +269,32 @@ BOOKS = [
 ", "Norwood House Press, 2009
 ", "9781599533421
 "],
-["Getting to Know ArduinoCode Power: a Teen Programmer's Guide
+["Getting to Know ArduinoCode Power
 ", "Heather Moore Niver
 ", "The Rosen Publishing Group, 2014
 ", "9781477775004
 "],
-["Getting to Know RubyCode Power: a Teen Programmer's Guide
+["Getting to Know RubyCode Power
 ", "Heather Moore Niver
 ", "The Rosen Publishing Group, 2014
 ", "9781477777145
 "],
-["Confident Coding: Master the Fundamentals of Code and Supercharge Your Career
+["Confident Coding
 ", "Rob Percival
 ", "Kogan Page Publishers, 2017
 ", "9780749479640
 "],
-["But how Do it Know?: The Basic Principles of Computers for Everyone
+["But how Do it Know?
 ", "J. Clark Scott
 ", "John C Scott, 2009
 ", "9780615303765
 "],
-["Infrastructure as Code: Managing Servers in the CloudSafari Books Online
+["Infrastructure as Code
 ", "Kief Morris",
 "O'Reilly Media, Inc., 2016",
 "9781491924396"
 ],
-["Database Reliability Engineering: Designing and Operating Resilient Database Systems
+["Database Reliability Engineering
 ", "sLaine Campbell, Charity Majors
 ", "O'Reilly Media, Inc., 2017
 ", "9781491926222
@@ -314,7 +314,7 @@ BOOKS = [
 ", "Tom Doherty Associates, 2013
 ", "9781429992879
 "],
-["8 Simple Rules for Dating My Teenage Daughter: And Other Tips from a Beleauguered Father (not that Any of Them Work)
+["8 Simple Rules for Dating My Teenage Daughter
 ", "W. Bruce Cameron
 ", "Workman Publishing, 2001
 ", "9780761123149
@@ -324,7 +324,7 @@ BOOKS = [
 ", "The Floating Press, 2012
 ", "9781775459903
 "],
-["The Poetry of Robert Frost: The Collected Poems, Complete and Unabridged
+["The Poetry of Robert Frost
 ", "Robert Frost
 ", "Macmillan, 2002
 ", "9780805069860
@@ -364,7 +364,7 @@ BOOKS = [
 ", "Farrar, Straus and Giroux, 2016
 ", "9780374712334
 "],
-["One Minute Wellness: The Natural Health and Happiness System That Never Fails
+["One Minute Wellness
 ", "Ben Lerner
 ", "Thomas Nelson, 2006
 ", "9781418577520
@@ -399,22 +399,22 @@ BOOKS = [
 ", "Disney Electronic Content, 2010
 ", "9781423143154
 "],
-["Opal Deception, The
+["The Opal Deception
 ", "Eoin Colfer
 ", "Disney Electronic Content, 2009
 ", "9781423132233
 "],
-["Eternity Code, The
+["The Eternity Code
 ", "Eoin Colfer
 ", "Disney Electronic Content, 2009
 ", "9781423132219
 "],
-["Lost Colony, The
+["The Lost Colony
 ", "Eoin Colfer
 ", "Disney Electronic Content, 2009
 ", "9781423132240
 "],
-["Arctic Incident, The
+["The Arctic Incident
 ", "Eoin Colfer
 ", "Disney Electronic Content, 2009
 ", "9781423132196
@@ -484,7 +484,7 @@ BOOKS = [
 ", "Island Books, 1998
 ", "9780440224761
 "],
-["The FirmA Dell book
+["The Firm
 ", "John Grisham
 ", "Island Books, 1992
 ", "9780440211457
@@ -559,12 +559,12 @@ BOOKS = [
 ", "Knopf Doubleday Publishing Group, 2008
 ", "9780385528849
 "],
-["The Girl with the Dragon TattooBook
+["The Girl with the Dragon Tattoo
 ", "Stieg Larsson
 ", "Vintage Crime/Black Lizard, 2009
 ", "9780307454546
 "],
-["The Girl who Played with FireBook
+["The Girl who Played with Fire
 ", "Stieg Larsson
 ", "Vintage Books, 2010
 ", "9780307454553

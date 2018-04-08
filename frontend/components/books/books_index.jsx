@@ -24,24 +24,25 @@ class BooksIndex extends React.Component {
       );
     });
 
-    let bookRows = [];
+    let rows = [];
     while ( bookItems.length > 0 ) {
-      console.log(bookItems);
       let row = [];
       for (let i = 0; i < 6; i++){
         row.push(bookItems.pop());
       }
-      bookRows.push(row);
+      rows.push(row);
     }
 
 
-      // <BookIndexRow books={} />
+    const bookRows = rows.map((row, i) => (
+      <BookIndexRow key={i} books={row} />
+    ));
 
     return (
       <section className='books_index'>
 
         <ul>
-          {bookRows}
+          { bookRows }
         </ul>
 
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signup } from '../../../actions/session_actions';
+import { signup, receiveErrors } from '../../../actions/session_actions';
 
 const mapStateToProps = ({ session, errors }) => ({
   currentUser: session.currentUser,
@@ -8,7 +8,8 @@ const mapStateToProps = ({ session, errors }) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  submitForm: (user) => dispatch(signup(user))
+  submitForm: (user) => dispatch(signup(user)),
+  clearErrors: (errors) => dispatch(receiveErrors(errors))
 });
 
 class SignUpForm extends React.Component {

@@ -1,18 +1,67 @@
+.book_show_container {
+  width: 100%;
+  background: #fff;
+  margin-top: 2px;
+}
+
 .book_show {
+  width: 960px;
+  margin: auto;
+  min-height: 730px;
 
-
-  .book_info {
-
-
-    .book_show_image {
-      text-align: center;
-      width: 135px;
-      margin: 15px 0;
-
+    h3 {
+      margin: 0;
     }
 
-    .book_title {
+  .book_info {
+    font-family: $book_info_font;
+    display: flex;
+    color: #333;;
+    padding: 15px 15px;
 
+    .book_image_col {
+      width: 150px;
+      margin: 0 20px 10px 0;
+
+      .book_show_image {
+      text-align: center;
+      width: 150px;
+      height: 227px;
+      }
+    }
+
+    .book_info_detail {
+      .book_title {
+      line-height: 26px;
+      font-size: 20px;
+      font-weight: 700;
+      padding-bottom: 2px;
+      }
+
+      .book_author {
+        margin-bottom: 10px;
+        font-size: 13.2px;
+
+        span{
+          font-family: $text_font;
+          font-size: 13.2px;
+        }
+      }
+      .book_description {
+        font-size: 14px;
+        line-height: 21px;
+        display: block;
+        min-height: 140px;
+      }
+      .book_published,
+      .book_ISBN {
+        font-family: $text_font;
+        line-height: 18px;
+        font-size: 12px;
+      }
+      .book_ISBN {
+        font-family: $text_font;
+      }
     }
   }
 

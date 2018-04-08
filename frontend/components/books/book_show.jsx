@@ -1,8 +1,9 @@
 import React from 'react';
+import LoadingIcon from '../shared/loading_icon';
 
 class BookShow extends React.Component {
   componentDidMount() {
-    this.props.fetchBook(this.props.params.match.bookId);
+    this.props.fetchBook(this.props.match.params.bookId);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -12,7 +13,11 @@ class BookShow extends React.Component {
   }
 
   render() {
-    const { book } = this.props;
+    const { book, loading } = this.props;
+
+    if (loading) { return <LoadingIcon />; }
+
+    if (!book) { return null; }
 
     return (
       <article>

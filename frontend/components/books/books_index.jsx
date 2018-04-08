@@ -1,7 +1,7 @@
 import React from 'react';
 import BookIndexRow from './book_index_row';
 import BookIndexItem from './book_index_item';
-import LoadingIcon from '../shared/loading_icon.jsx';
+import LoadingIcon from '../shared/loading_icon';
 
 
 class BooksIndex extends React.Component {

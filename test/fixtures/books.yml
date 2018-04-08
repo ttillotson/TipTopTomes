@@ -8,7 +8,7 @@
 #  description :text             not null
 #  ISBN        :string           not null
 #  img_url     :string           not null
-#  published   :datetime         not null
+#  published   :string           not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

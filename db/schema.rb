@@ -31,10 +31,10 @@ ActiveRecord::Schema.define(version: 20180408190104) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.text "body"
+    t.text "body", null: false
     t.integer "rating"
-    t.integer "author_id"
-    t.integer "book_id"
+    t.integer "author_id", null: false
+    t.integer "book_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_reviews_on_author_id", unique: true

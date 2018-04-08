@@ -23,6 +23,14 @@ class Book < ApplicationRecord
   class_name: Review,
   foreign_key: :book_id
 
+  def ratings
+    self.reviews.map(&:rating)
+  end
+
+  def average_rating
+    self.ratings.reduce(:+).to_f / self.ratings.length
+  end
+
   private
 
   def ensure_image_url

@@ -4,7 +4,6 @@ import LoadingIcon from '../shared/loading_icon';
 class BookShow extends React.Component {
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.bookId);
-    // debugger
   }
 
   componentWillReceiveProps(nextProps) {
@@ -17,7 +16,7 @@ class BookShow extends React.Component {
     const { book, loading } = this.props;
 
     if (loading) { return <LoadingIcon />; }
-      // debugger
+
     if (!book) { return null; }
 
     return (

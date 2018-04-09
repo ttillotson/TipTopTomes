@@ -4,12 +4,14 @@ import ReviewItem from './review_item';
 class ReviewIndex extends React.Component {
 
   render() {
-    const { reviews } = this.props;
+    const { reviews, currentUser, removeReview } = this.props;
 
     const reviewItems = reviews.map((review, i) => (
       <ReviewItem
         key={`${i}`}
         review={review}
+        removeReview={removeReview}
+        currentUser={currentUser}
         />
     ));
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
 import ReviewIndexContainer from '../reviews/review_index_container';
+import { Link } from 'react-router-dom';
 
 class BookShow extends React.Component {
   componentDidMount() {
@@ -38,28 +39,27 @@ class BookShow extends React.Component {
                 {book.title}
               </h1>
 
-              <h3 className='book_author'>
+              <h2 className='book_author'>
                 <span>by</span> {book.author}
-              </h3>
+              </h2>
 
               <h3 className='book_description'>
                 {book.description}
               </h3>
 
-              <h3 className='book_published'>
+              <h5 className='book_published'>
                 Published: {book.published}
-              </h3>
+              </h5>
 
-              <h3 className='book_ISBN'>
+              <h5 className='book_ISBN'>
                 ISBN: {book.ISBN}
-              </h3>
+              </h5>
 
             </section>
           </section>
-
+          <Link to={`/reviews/:bookId`}>Add a Review</Link>
           <ReviewIndexContainer
             reviews={reviews}
-            avgRating={avgRating}
             />
         </article>
       </div>

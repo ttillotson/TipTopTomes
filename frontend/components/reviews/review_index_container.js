@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
 import ReviewIndex from './review_index';
-import { removeReview, createReview, updateReview } from '../../actions/book_actions';
+import { removeReview } from '../../actions/book_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
-
+  currentUser: state.session.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({

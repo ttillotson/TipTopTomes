@@ -4,6 +4,8 @@ import CreateSessionContainer from './session/create_session_container';
 import CreateUserContainer from './session/create_user_container';
 import BooksIndexContainer from './books/books_index_container';
 import BookShowContainer from './books/book_show_container';
+import CreateReviewContainer from './reviews/create_review_container';
+import UpdateReviewContainer from './reviews/update_review_container';
 import Logo from './shared/logo';
 import Splash from './splash/splash';
 import Footer from './shared/footer';
@@ -26,13 +28,22 @@ const App = () => (
     </header>
     <div className='page_content'>
       <Switch>
-        <AuthRoute exact path='/users/new' component={CreateUserContainer} />
-        <AuthRoute exact path='/session/new' component={CreateSessionContainer}/>
-        <Route path='/books/:bookId' component={BookShowContainer}/>
+        <AuthRoute exact path='/users/new'
+                   component={CreateUserContainer} />
+
+        <AuthRoute exact path='/session/new'
+                   component={CreateSessionContainer}/>
+
+        <AuthRoute path='/reviews/:bookId/'
+                   component={CreateReviewContainer}/>
+
+        <AuthRoute path='/reviews/:bookId/:reviewId'
+                   component={UpdateReviewContainer}/>
+
+        <Route path='/books/:bookId'
+                   component={BookShowContainer}/>
+
         <Route path='/books' component={BooksIndexContainer} />
-
-
-
 
         <Redirect to='/' />
       </Switch>

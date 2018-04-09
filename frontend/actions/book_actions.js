@@ -63,6 +63,8 @@ export const fetchBooks = () => (dispatch) => {
   ));
 };
 
+// export const fetchReview = (review)
+
 export const createReview = (review) => (dispatch) => (
   ReviewApiUtil.createReview(review).then(ajaxReview => (
   dispatch(receiveReview(ajaxReview)))

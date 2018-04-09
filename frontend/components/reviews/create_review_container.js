@@ -5,11 +5,12 @@ import { updateReview } from '../../actions/book_actions';
 
 
 const mapStateToProps = (state, ownProps) => ({
-  reviews: state.entities.books[ownProps.match.params.bookId].reviews
+  review: { rating: 0, review: ''}
+  
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  submitReview: (review) => dispatch(createReview(review))
 });
 
 export default connect(

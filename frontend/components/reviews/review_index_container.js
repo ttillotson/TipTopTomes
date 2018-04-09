@@ -4,7 +4,7 @@ import { removeReview, createReview, updateReview } from '../../actions/book_act
 
 
 const mapStateToProps = (state, ownProps) => ({
-  reviews: state.entities.books.reviews
+
 });
 
 const mapDispatchToProps = (dispatch) => ({

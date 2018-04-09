@@ -20,7 +20,6 @@ class BookShow extends React.Component {
     if (!book) { return null; }
 
     const reviews = Object.values(book.reviews);
-    debugger
 
     return (
       <div className='book_show_container'>

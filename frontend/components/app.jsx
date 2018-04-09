@@ -34,11 +34,11 @@ const App = () => (
         <AuthRoute exact path='/session/new'
           component={CreateSessionContainer}/>
 
-        <ProtectedRoute path='/reviews/:bookId/:reviewId'
-          component={UpdateReviewContainer}/>
-
-        <ProtectedRoute path='/reviews/:bookId/new'
+        <ProtectedRoute exact path='/reviews/:bookId/new'
           component={CreateReviewContainer}/>
+
+        <ProtectedRoute exact path='/reviews/:bookId/:reviewId'
+          component={UpdateReviewContainer}/>
 
         <Route path='/books/:bookId'
           component={BookShowContainer}/>

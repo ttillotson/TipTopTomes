@@ -1,0 +1,18 @@
+.review_orm_container {
+  background-color: #FFF;
+
+  .review_form_content {
+    margin: auto;
+    width: 960px;
+
+
+    .review_book_title {
+      color: #00635D;
+      font-size: 20px;
+      font-family: $book_info_font;
+      line-height: 24px;
+      display: block;
+    }
+  }
+
+}

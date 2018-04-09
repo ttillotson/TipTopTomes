@@ -5,7 +5,7 @@ class Api::BooksController < ApplicationController
   end
 
   def show
-    @book = Book.find(params[:id])
+    @book = Book.includes(reviews: [:user]).find(params[:id])
     if @book
       render "api/books/show"
     else

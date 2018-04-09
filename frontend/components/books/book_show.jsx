@@ -17,8 +17,10 @@ class BookShow extends React.Component {
     const { book, loading } = this.props;
 
     if (loading) { return <LoadingIcon />; }
-
     if (!book) { return null; }
+
+    const reviews = Object.values(book.reviews);
+    debugger
 
     return (
       <div className='book_show_container'>
@@ -54,7 +56,7 @@ class BookShow extends React.Component {
             </section>
           </section>
 
-          <ReviewIndexContainer book={book} />
+          <ReviewIndexContainer book={book} reviews={reviews} />
         </article>
       </div>
     );

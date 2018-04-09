@@ -22,8 +22,6 @@ class BookShow extends React.Component {
     const reviews = Object.values(book.reviews);
     const avgRating = book.average_rating;
 
-    // debugger
-
     return (
       <div className='book_show_container'>
         <article className='book_show'>

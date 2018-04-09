@@ -5,7 +5,7 @@ export default ({ user, bookId, bookTitle }) => {
 
   let userReview = undefined;
   let reviewComponent;
-  
+
   if (user !== null) {userReview = user.reviews[bookId];
 
      reviewComponent = (
@@ -39,7 +39,7 @@ export default ({ user, bookId, bookTitle }) => {
   return (
     <section className='user_content_container'>
       {(userReview !== undefined) ? reviewComponent : null}
-      <Link to={`/reviews/:bookId`} className='add_review_link'>
+      <Link to={`/reviews/${bookId}/new`} className='add_review_link'>
         Add a Review</Link>
     </section>
   );

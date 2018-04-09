@@ -9,7 +9,7 @@ import UpdateReviewContainer from './reviews/update_review_container';
 import Logo from './shared/logo';
 import Splash from './splash/splash';
 import Footer from './shared/footer';
-import { AuthRoute } from '../util/routes_util';
+import { AuthRoute, ProtectedRoute } from '../util/routes_util';
 import {
   Route,
   Redirect,
@@ -29,19 +29,19 @@ const App = () => (
     <div className='page_content'>
       <Switch>
         <AuthRoute exact path='/users/new'
-                   component={CreateUserContainer} />
+          component={CreateUserContainer} />
 
         <AuthRoute exact path='/session/new'
-                   component={CreateSessionContainer}/>
+          component={CreateSessionContainer}/>
 
-        <AuthRoute path='/reviews/:bookId/'
-                   component={CreateReviewContainer}/>
+        <ProtectedRoute path='/reviews/:bookId/:reviewId'
+          component={UpdateReviewContainer}/>
 
-        <AuthRoute path='/reviews/:bookId/:reviewId'
-                   component={UpdateReviewContainer}/>
+        <ProtectedRoute path='/reviews/:bookId/new'
+          component={CreateReviewContainer}/>
 
         <Route path='/books/:bookId'
-                   component={BookShowContainer}/>
+          component={BookShowContainer}/>
 
         <Route path='/books' component={BooksIndexContainer} />
 

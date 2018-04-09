@@ -13,7 +13,7 @@ const Auth = ({ component: Component, path, loggedIn, exact }) =>(
   )} />
 );
 
-const NonAuth = ({ component: Component, path, loggedIn, exact}) =>(
+const Protected = ({ component: Component, path, loggedIn, exact}) =>(
   <Route path={path} exact={exact} render={(props) => (
     loggedIn ? (
       <Component {...props} />
@@ -29,4 +29,4 @@ const mapStateToProps = (state) => ({
 
 export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 
-export const NonAuthRoute = withRouter(connect(mapStateToProps, null)(NonAuth));
+export const ProtectedRoute = withRouter(connect(mapStateToProps, null)(Protected));

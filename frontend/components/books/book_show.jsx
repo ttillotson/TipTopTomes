@@ -22,7 +22,7 @@ class BookShow extends React.Component {
     if (!book || !book.reviews) { return null; }
 
     const reviews = Object.values(book.reviews);
-    const avgRating = book.average_rating;
+    const avgRating = book.averageRating;
 
     return (
       <div className='book_show_container'>

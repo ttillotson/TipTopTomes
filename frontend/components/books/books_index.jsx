@@ -45,7 +45,6 @@ class BooksIndex extends React.Component {
           { bookRows }
         </ul>
 
-
       </section>
     );
   }

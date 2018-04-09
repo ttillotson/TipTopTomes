@@ -3,10 +3,7 @@ import React from 'react';
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      review: '',
-      rating: ''
-    };
+    this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -26,14 +23,14 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.createReview(this.state);
+    this.submitReview(this.state);
   }
 
   render() {
 
     return (
       <form className='review_form' onSubmit={this.handleSubmit}>
-        <label for='review_rating'>My Rating</label>
+        <label htmlFor='review_rating'>My Rating</label>
         <input type="radio" name='review_rating'
           onClick={this.update('rating')} value="1" />
         <input type="radio" name='review_rating'
@@ -59,7 +56,7 @@ class ReviewForm extends React.Component {
             />
         </label>
 
-        <button>Add Review</button>
+        <button>Save</button>
       </form>
     );
   }

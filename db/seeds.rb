@@ -9,7 +9,6 @@ require_relative 'review_base'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 
-demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.com')
 admin = User.create(username: 'admin', password: 'password', email: 'admin')
 user1 = User.create(username: 'LoveBooks', password: 'lovebooks', email: 'totallyrealemail@emails.com')
 user2 = User.create(username: 'BookLove', password: 'mmmbooks', email: 'hardcovers@emails.com')
@@ -23,6 +22,7 @@ user9 = User.create(username: 'davincicodeisdeep', password: 'cypher', email: 'd
 user10 = User.create(username: 'TheSeussIsLoose', password: 'green_eggs', email: 'Horton@emails.com')
 user11 = User.create(username: 'ilovedictionaries', password: 'merriam', email: 'webster@emails.com')
 user12 = User.create(username: 'caughttherye', password: 'caulfield', email: 'allaboutthedough@emails.com')
+demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.com')
 user13 = User.create(username: 'raisinsoffury', password: 'better_than_grapes', email: 'steinbeck@emails.com')
 user14 = User.create(username: 'Rincewind', password: 'wizzard', email: 'discworld@emails.com')
 user15 = User.create(username: 'Vetinari', password: 'ankh_morpork', email: 'witty_remark@emails.com')
@@ -33,7 +33,7 @@ end
 
 BOOKS.length.times do |book_idx|
   17.times do |user_count|
-    next if user_count == 2
+    next if user_count == 0
     review = REVIEWS.sample
     Review.create(
       body: review[1],

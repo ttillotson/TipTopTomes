@@ -2,6 +2,7 @@ import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
 import ReviewIndexContainer from '../reviews/review_index_container';
 import { Link } from 'react-router-dom';
+import UserContent from './user_content';
 
 class BookShow extends React.Component {
   componentDidMount() {
@@ -15,10 +16,11 @@ class BookShow extends React.Component {
   }
 
   render() {
-    const { book, loading } = this.props;
+    const { book, loading, currentUser } = this.props;
 
     if (loading) { return <LoadingIcon />; }
-    if (!book) { return null; }
+    if (!book || !book.reviews) { return null; }
+
     const reviews = Object.values(book.reviews);
     const avgRating = book.average_rating;
 
@@ -52,14 +54,13 @@ class BookShow extends React.Component {
               <h5 className='book_ISBN'>
                 ISBN: {book.iSBN}
               </h5>
-
+              <UserContent user={currentUser}
+                           bookId={book.id}
+                           bookTitle={book.title}/>
             </section>
           </section>
-          <Link to={`/reviews/:bookId`} className='add_review_link'>
-            Add a Review</Link>
           <ReviewIndexContainer
             reviews={reviews}
-            currentUser={this.props.currentUser}
             />
         </article>
       </div>

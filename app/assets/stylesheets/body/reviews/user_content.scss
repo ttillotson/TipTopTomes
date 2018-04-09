@@ -1,0 +1,25 @@
+.user_content_container {
+  font-family: $text_font;
+  font-size: 14px;
+  table {
+    margin-bottom: 5px;
+    .row_key {
+      padding: 3px 0;
+      vertical-align: top;
+      width: 70px;
+    }
+
+    .row_value{
+
+    }
+  }
+
+  a {
+    color: #00635D;
+    line-height: 18px;
+
+    :hover {
+      text-decoration: underline;
+    }
+  }
+}

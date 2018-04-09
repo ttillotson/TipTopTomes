@@ -14,9 +14,12 @@ class ReviewIndex extends React.Component {
     ));
 
     return(
-      <ul className='review_index'>
-        { reviewItems }
-      </ul>
+      <section className='reviews'>
+        <span className='review_heading'>COMMUNITY REVIEWS</span>
+        <ul className='review_index'>
+          { reviewItems }
+        </ul>
+      </section>
     );
   }
 }

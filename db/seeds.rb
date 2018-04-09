@@ -33,6 +33,7 @@ end
 
 BOOKS.length.times do |book_idx|
   17.times do |user_count|
+    next if user_count == 2
     review = REVIEWS.sample
     Review.create(
       body: review[1],

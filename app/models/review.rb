@@ -3,7 +3,7 @@
 # Table name: reviews
 #
 #  id         :integer          not null, primary key
-#  body       :text             not null
+#  body       :text             not null #CAN BE NULL
 #  rating     :integer
 #  author_id  :integer          not null
 #  book_id    :integer          not null

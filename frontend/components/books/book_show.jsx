@@ -20,6 +20,8 @@ class BookShow extends React.Component {
     if (!book) { return null; }
 
     const reviews = Object.values(book.reviews);
+    const avgRating = book.average_rating;
+
 
     return (
       <div className='book_show_container'>
@@ -55,7 +57,10 @@ class BookShow extends React.Component {
             </section>
           </section>
 
-          <ReviewIndexContainer book={book} reviews={reviews} />
+          <ReviewIndexContainer
+            reviews={reviews}
+            avgRating={avgRating}
+            />
         </article>
       </div>
     );

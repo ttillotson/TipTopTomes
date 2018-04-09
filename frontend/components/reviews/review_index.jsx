@@ -8,8 +8,10 @@ class ReviewIndex extends React.Component {
 
     return(
       <section className='review_index'>
-        
+
       </section>
     );
   }
 }
+
+export default ReviewIndex;

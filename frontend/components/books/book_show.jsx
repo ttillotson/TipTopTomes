@@ -1,6 +1,6 @@
 import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
-import ReviewIndexContainer from 'review_index_container';
+import ReviewIndexContainer from '../reviews/review_index_container';
 
 class BookShow extends React.Component {
   componentDidMount() {
@@ -54,7 +54,7 @@ class BookShow extends React.Component {
             </section>
           </section>
 
-          <REVIEWS>
+          <ReviewIndexContainer book={book} />
         </article>
       </div>
     );

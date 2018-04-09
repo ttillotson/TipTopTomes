@@ -32,8 +32,8 @@ BOOKS.each do |book|
 end
 
 BOOKS.length.times do |book_idx|
-  review = REVIEWS.sample
   17.times do |user_count|
+    review = REVIEWS.sample
     Review.create(
       body: review[1],
       rating: review[0],

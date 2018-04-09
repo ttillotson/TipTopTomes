@@ -16,7 +16,7 @@ class BookShow extends React.Component {
 
   render() {
     const { book, loading } = this.props;
-
+    console.log('here')
     if (loading) { return <LoadingIcon />; }
     if (!book) { return null; }
 

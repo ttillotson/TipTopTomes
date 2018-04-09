@@ -1,11 +1,17 @@
 class Api::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
-
+    debugger
+    if @review.save
+      render json: '/api/books/show'
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
   end
 
   def edit
-
+    @review = Review.find(params[:id])
+    render json: '/api/reviews/edit'
   end
 
   def update

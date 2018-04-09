@@ -16,13 +16,13 @@ class BookShow extends React.Component {
 
   render() {
     const { book, loading } = this.props;
-    console.log('here')
+
     if (loading) { return <LoadingIcon />; }
     if (!book) { return null; }
-
     const reviews = Object.values(book.reviews);
     const avgRating = book.average_rating;
 
+    // debugger
 
     return (
       <div className='book_show_container'>
@@ -30,7 +30,7 @@ class BookShow extends React.Component {
           <section className='book_info'>
             <section className='book_image_col'>
               <img className='book_show_image'
-                src={`${book.img_url}`}
+                src={`${book.imgUrl}`}
                 alt={`Book Cover`} />
             </section>
 
@@ -52,7 +52,7 @@ class BookShow extends React.Component {
               </h5>
 
               <h5 className='book_ISBN'>
-                ISBN: {book.ISBN}
+                ISBN: {book.iSBN}
               </h5>
 
             </section>
@@ -60,6 +60,7 @@ class BookShow extends React.Component {
           <Link to={`/reviews/:bookId`}>Add a Review</Link>
           <ReviewIndexContainer
             reviews={reviews}
+            currentUser={this.props.currentUser}
             />
         </article>
       </div>

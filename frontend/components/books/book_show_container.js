@@ -6,6 +6,7 @@ import { fetchBook } from '../../actions/book_actions';
 const mapStateToProps = (state, ownProps) => ({
   book: state.entities.books[ownProps.match.params.bookId],
   loading: state.ui.loading.bookLoading,
+  currentUser: state.session.currentUser
 });
 
 const mapDispatchToProps = (dispatch) => ({

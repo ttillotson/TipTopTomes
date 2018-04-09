@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 
 export default ({ review, deleteReview, currentUser }) => {
-  // debugger
+
   const removeLink = <button onClick={() => deleteReview(review)}
     >Delete Review</button>;
   const editLink = <Link to={`/reviews/${review.bookId}/${review.id}`}

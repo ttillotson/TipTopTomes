@@ -11,13 +11,23 @@ export default ({ review, deleteReview, currentUser }) => {
 
   return (
     <article className='review_article'>
+
       <section className='review_heading'>
-        <Link to={`#`}>{review.user.username}</Link>
-        <span>rated it {review.rating} out of 5</span>
-        {(currentUser && review.user.id === currentUser.id) ? editLink : null }
-        {(currentUser && review.user.id === currentUser.id) ? removeLink : null }
+        <div className='user_content'>
+          <Link to={`#`} >{review.user.username}</Link>
+          <span> rated it
+            <span className='rating'> {review.rating} </span>
+             out of
+             <span className='rating'> 5</span>
+          </span>
+        </div>
+        <div className='review_content'>
+          {(currentUser && review.user.id === currentUser.id) ? editLink : null }
+          {(currentUser && review.user.id === currentUser.id) ? removeLink : null }
+        </div>
       </section>
-      <p className='reviewBody'>{review.body}</p>
+
+      <p className='review_body'>{review.body}</p>
 
     </article>
   );

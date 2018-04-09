@@ -57,7 +57,8 @@ class BookShow extends React.Component {
 
             </section>
           </section>
-          <Link to={`/reviews/:bookId`}>Add a Review</Link>
+          <Link to={`/reviews/:bookId`} className='add_review_link'>
+            Add a Review</Link>
           <ReviewIndexContainer
             reviews={reviews}
             currentUser={this.props.currentUser}

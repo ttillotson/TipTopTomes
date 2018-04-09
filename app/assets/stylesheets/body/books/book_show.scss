@@ -64,8 +64,11 @@
       }
     }
   }
+  .add_review_link {
+    margin-left: 30px;
+  }
 
-  .review_container {
-
+  .add_review_link:hover {
+    text-decoration: underline;
   }
 }

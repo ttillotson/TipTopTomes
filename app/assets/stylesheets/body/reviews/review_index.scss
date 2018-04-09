@@ -1,0 +1,65 @@
+.reviews {
+  margin-left: 40px;
+  padding-bottom: 15px;
+
+  .review_index_heading{
+    display: block;
+    padding: 2px;
+    height: 24px;
+    font-weight: 700;
+    font-family: $text_font;
+    font-size: 12px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #D8D8D8;
+    margin-bottom: 5px;
+  }
+
+  .review_index {
+    margin-left: 30px;
+  }
+
+  .review_article {
+    .review_heading {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+      .user_content {
+        a {
+          color: #00635d;
+          font-weight: bold;
+        }
+        span {
+          color: #000;
+          font-size: 12px;
+          font-family: 'Merriweather', serif;
+
+          .rating{
+            font-family: $text_font;
+            font-size: 15px;
+          }
+        }
+      }
+      .review_content {
+        font-size: 12px;
+        color: #bbb;
+
+        button, a {
+          padding: 3px;
+        }
+
+        a:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .review_body {
+      font-family: $book_info_font;
+      line-height: 21px;
+      font-size: 14px;
+      color: #000;
+      margin-bottom: 31px;
+
+    }
+  }
+}

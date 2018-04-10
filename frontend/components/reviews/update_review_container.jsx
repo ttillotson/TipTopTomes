@@ -42,7 +42,7 @@ const mapStateToProps = (state, ownProps) => {
     review: state.entities.review,
     loading: state.ui.loading.reviewLoading,
     errors: state.errors.review,
-    formType: 'Update'
+    formType: 'Update',
   });
 };
 
@@ -54,11 +54,19 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 class EditReviewForm extends React.Component {
+  componentDidMount() {
+    // debugger
+    this.props.requestReview(this.props.match.params.reviewId);
+  }
 
+  // componentWillReceiveProps(nextProps) {
+  //   debugger
+  //
+  // }
 
   render() {
     const { review,
-            book,
+            // book,
             formType,
             requestReview,
             submitReview,
@@ -83,9 +91,14 @@ class EditReviewForm extends React.Component {
     //     reviewId={this.props.match.params.reviewId}
     //   />
     // );
+    const book = this.props.review.book;
+
+    debugger
+
     return (
       <ReviewForm
         errors={errors}
+        book={book}
         review={review}
         loading={loading}
         formType={formType}

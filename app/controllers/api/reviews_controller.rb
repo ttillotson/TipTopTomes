@@ -2,7 +2,7 @@ class Api::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
     @review.author_id = current_user.id
-    debugger
+
     if @review.save
       render json: '/api/books/show'
     else

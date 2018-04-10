@@ -12,13 +12,11 @@ const receiveBook = (book) => ({
   book
 });
 
-const receiveBooks = (books) => {
-  debugger
-  return ({
+const receiveBooks = (books) => ({
   type: RECEIVE_BOOKS,
   books
 });
-};
+
 
 const startLoadingBooks = () => ({
   type: START_LOADING_BOOKS,

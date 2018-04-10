@@ -6,7 +6,7 @@ export default ({ book }) => (
     <Link to={`/books/${book.id}`}>
       <figure>
         <img className='book_image'
-             src={`${book.img_url}`}
+             src={`${book.imgUrl}`}
              alt={`Book Cover`} />
       </figure>
     </Link>

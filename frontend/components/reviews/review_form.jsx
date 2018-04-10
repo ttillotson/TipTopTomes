@@ -11,16 +11,21 @@ class ReviewForm extends React.Component {
     debugger
   }
 
-  componentDidMount() {
-    if (this.props.formType === 'Update') {
-      debugger
-      this.props.requestReview(this.props.reviewId);
-    }
-  }
+  // componentDidMount() {
+  //   if (this.props.review.book === undefined){
+  //     this.props.fetchbook
+  //   }
+  // }
 
   componentWillReceiveProps(nextProps) {
     debugger
-
+    if (this.props.review.id !== nextProps.review.id) {
+      this.props.requestReview(nextProps.review.id);
+    }
+    if (this.props.review.id !== nextProps.review.id) {
+      this.setState(nextProps.review);
+      debugger
+    }
   }
 
   componentWillUnmount() {
@@ -43,7 +48,7 @@ class ReviewForm extends React.Component {
   render() {
     const { review, loading } = this.props;
     if (loading) { return <LoadingIcon />; }
-    if (review === {}) { return null; }
+    if ($.isEmptyObject(review)) { return null; }
 
     debugger
     const book = review.book;
@@ -57,7 +62,7 @@ class ReviewForm extends React.Component {
           </h1>
 
           <section className='review_book_info'>
-            <img src={book.imgUrl} />
+            <img src={book.img_url} />
             <article className='book_details'>
               <h2 className='title'>{book.title}</h2>
               <h3 className='author'>
@@ -104,7 +109,7 @@ class ReviewForm extends React.Component {
                 rows='12'
                 placeholder='Enter your review'
                 onChange={this.update('review')}
-                value={this.state.review}
+                value={this.state.body}
                 />
             </fieldset>
 

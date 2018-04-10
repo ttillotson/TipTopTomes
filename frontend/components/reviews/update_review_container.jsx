@@ -26,9 +26,12 @@ const mapDispatchToProps = (dispatch) => ({
   requestBook: (bookId) => dispatch(fetchBook(bookId)),
 });
 
+// END CONTAINER CODE
+//
 
 
-
+//
+// BEGIN FORM CODE
 
 class EditReviewForm extends React.Component {
   componentDidMount() {
@@ -36,14 +39,7 @@ class EditReviewForm extends React.Component {
     this.props.requestBook(this.props.match.params.bookId);
   }
 
-  // componentWillReceiveProps(nextProps) {
-  //   debugger
-  //
-  // }
-
   render() {
-
-    debugger
 
     return (
       <ReviewForm {...this.props} />

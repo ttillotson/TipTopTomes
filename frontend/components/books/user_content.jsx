@@ -1,22 +1,27 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-export default ({ user, bookId, bookTitle }) => {
+class  UserContent extends React.Component {
+  constructor(props) {
+    super(props);
+  }
 
-  let userReview = undefined;
-  let reviewComponent;
-  let editReview;
+  render() {
+    const { user, bookId, bookTitle } = this.props;
+    let userReview = undefined;
+    let reviewComponent;
+    let editReview;
 
-  if (user !== null) { userReview = user.reviews[bookId]; }
+    if (user !== null) { userReview = user.reviews[bookId]; }
 
-  if (userReview !== undefined){
+    if (userReview !== undefined){
 
-    editReview = <Link to={`/reviews/${bookId}/${userReview.id}`}
-                  className='add_review_link'>
-                  Edit your Review</Link
-                  >;
+      editReview = <Link to={`/reviews/${bookId}/${userReview.id}`}
+                    className='add_review_link'>
+                    Edit your Review</Link
+                    >;
 
-     reviewComponent = (
+      reviewComponent = (
         <table>
           <tbody>
             <tr>
@@ -41,16 +46,17 @@ export default ({ user, bookId, bookTitle }) => {
             </tr>
           </tbody>
         </table>
+      );
+    }
+
+    const addReview = <Link to={`/reviews/${bookId}/new`}
+      className='add_review_link'>Add a Review</Link>;
+
+    return (
+      <section className='user_content_container'>
+        {(userReview !== undefined) ? reviewComponent : null }
+        {(userReview !== undefined) ? editReview : addReview }
+      </section>
     );
   }
-
-  const addReview = <Link to={`/reviews/${bookId}/new`}
-    className='add_review_link'>Add a Review</Link>;
-
-  return (
-    <section className='user_content_container'>
-      {(userReview !== undefined) ? reviewComponent : null }
-      {(userReview !== undefined) ? editReview : addReview }
-    </section>
-  );
-};
+}

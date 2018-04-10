@@ -1,6 +1,7 @@
 import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
 import { Link } from 'react-router-dom';
+import { snakeCase } from 'lodash';
 
 
 class ReviewForm extends React.Component {
@@ -35,7 +36,6 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    // debugger
     this.props.submitReview(this.state).then(() =>
       this.props.history.push(`/books/${this.props.book.id}`)
     );
@@ -46,7 +46,7 @@ class ReviewForm extends React.Component {
     if (loading) { return <LoadingIcon />; }
     if (!book) { return null; }
 
-    // debugger
+
 
     return (
       <div className='review_form_container'>

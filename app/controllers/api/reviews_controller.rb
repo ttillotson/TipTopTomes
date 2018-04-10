@@ -4,7 +4,7 @@ class Api::ReviewsController < ApplicationController
     @review.author_id = current_user.id
 
     if @review.save
-      render json: '/api/books/show'
+      render :show
     else
       render json: @review.errors.full_messages, status: 422
     end
@@ -23,7 +23,7 @@ class Api::ReviewsController < ApplicationController
     @review = Review.find(params[:id])
     @book = @review.book
     if @review.update_attributes(review_params)
-      render json: '/api/books/show'
+      render '/api/reviews/show'
     else
       render json: @review.errors.full_messages, status: 422
     end

@@ -2,7 +2,7 @@ import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
 import ReviewIndexContainer from '../reviews/review_index_container';
 import { Link } from 'react-router-dom';
-import UserContent from './user_content';
+import UserContentContainer from './user_content_container';
 
 class BookShow extends React.Component {
   componentDidMount() {
@@ -54,9 +54,7 @@ class BookShow extends React.Component {
               <h5 className='book_ISBN'>
                 ISBN: {book.iSBN}
               </h5>
-              <UserContent user={currentUser}
-                           bookId={book.id}
-                           bookTitle={book.title}/>
+              <UserContentContainer {...this.props} />
             </section>
           </section>
           <ReviewIndexContainer

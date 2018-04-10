@@ -14,7 +14,6 @@ class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
-    // debugger
     if (this.props.book === undefined){
       this.props.requestBook(this.props.match.params.bookId);
     }

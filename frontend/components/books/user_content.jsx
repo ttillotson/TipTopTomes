@@ -4,19 +4,24 @@ import { Link } from 'react-router-dom';
 class  UserContent extends React.Component {
   constructor(props) {
     super(props);
+    this.state = this.props.review;
   }
 
   render() {
-    const { user, bookId, bookTitle } = this.props;
+    const { currentUser, book, review } = this.props;
     let userReview = undefined;
     let reviewComponent;
     let editReview;
 
-    if (user !== null) { userReview = user.reviews[bookId]; }
+    if (currentUser !== undefined) {
+      userReview = currentUser.reviews[book.id];
+    }
+
+    if (review.bookId === book.id) { userReview = this.props.review; }
 
     if (userReview !== undefined){
 
-      editReview = <Link to={`/reviews/${bookId}/${userReview.id}`}
+      editReview = <Link to={`/reviews/${book.id}/${userReview.id}`}
                     className='add_review_link'>
                     Edit your Review</Link
                     >;
@@ -26,7 +31,7 @@ class  UserContent extends React.Component {
           <tbody>
             <tr>
               <td className='row_key'>Review of</td>
-              <td className='row_value'>{bookTitle}</td>
+              <td className='row_value'>{book.title}</td>
             </tr>
             <tr>
               <td className='row_key'>Rating</td>
@@ -49,7 +54,7 @@ class  UserContent extends React.Component {
       );
     }
 
-    const addReview = <Link to={`/reviews/${bookId}/new`}
+    const addReview = <Link to={`/reviews/${book.id}/new`}
       className='add_review_link'>Add a Review</Link>;
 
     return (
@@ -60,3 +65,5 @@ class  UserContent extends React.Component {
     );
   }
 }
+
+export default UserContent;

@@ -8,8 +8,8 @@ const ReviewReducer = (state={}, action) => {
     case RECEIVE_REVIEW:
       return merge({}, action.review);
     case REMOVE_REVIEW:
-      delete newState[action.review.id];
-      return newState;
+      delete newState[action.reviewId];
+      return merge({}, newState);
     default:
       return state;
   }

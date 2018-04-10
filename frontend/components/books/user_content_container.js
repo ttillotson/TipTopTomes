@@ -1,17 +1,16 @@
 import { connect } from 'react-redux';
-import ReviewIndex from './review_index';
-import { deleteReview } from '../../actions/review_actions';
-
+import UserContent from './user_content';
 
 const mapStateToProps = (state, ownProps) => ({
   currentUser: state.session.currentUser,
+  book: state.entities.books[ownProps.match.params.bookId],
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  deleteReview: (reviewId) => dispatch(deleteReview(reviewId))
+
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(ReviewIndex);
+)(UserContent);

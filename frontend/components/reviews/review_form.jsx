@@ -8,19 +8,19 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
-
+    debugger
   }
 
   componentDidMount() {
     if (this.props.formType === 'Update') {
-      this.props.requestReview(this.props.review.reviewId);
+      debugger
+      this.props.requestReview(this.props.reviewId);
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.review.reviewId !== nextProps.match.params.bookId) {
-      this.props.requestBook(nextProps.match.params.bookId);
-    }
+    debugger
+
   }
 
   componentWillUnmount() {
@@ -42,10 +42,8 @@ class ReviewForm extends React.Component {
 
   render() {
     const { book, loading } = this.props;
-
     if (loading) { return <LoadingIcon />; }
-    if (!book || !book.reviews) { return null; }
-
+    // if (!book || !book.reviews) { return null; }
     return (
       <div className='review_form_container'>
         <div className='review_content'>

@@ -4,21 +4,22 @@ import ReviewForm from './review_form';
 import { fetchReview,
          updateReview,
          receiveErrors } from '../../actions/review_actions';
-
+import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
   let passedReview;
   let passed = false;
-  if (state.entities.books[ownProps.match.params.bookId] === undefined){
+  debugger
+  if (state.entities.review === {} ){
     passedReview = { bookId:ownProps.match.params.bookId,
-                    reviewId: ownProps.match.params.reviewId };
+                    reviewInfo: ownProps.match.params.reviewId };
   } else {
-    passedReview = state.entities.books[ownProps.match.params.bookId].reviews[ownProps.match.params.reviewId];
+    passedReview = state.entities.review;
     passed = true;
   }
 
   const wasPassed = {
-    reviewId: passedReview.id,
+    reviewInfo: passedReview.id,
     review: passedReview,
     loading: state.ui.loading.reviewLoading,
     book: ownProps.match.params.bookId,
@@ -34,18 +35,19 @@ const mapStateToProps = (state, ownProps) => {
     errors: state.errors.review,
     formType: 'Update',
   };
-
+  debugger
   return (passed) ? wasPassed : notPassed;
 };
 
 
 const mapDispatchToProps = (dispatch) => ({
-  requestReview: (reviewId) => dispatch(fetchReview(reviewId)),
+  requestReview: (reviewInfo) => dispatch(fetchReview(reviewInfo)),
   submitReview: (review) => dispatch(updateReview(review)),
   clearErrors: (errors) => dispatch(receiveErrors(errors))
 });
 
 class EditReviewForm extends React.Component {
+
 
   render() {
     const { review,
@@ -56,25 +58,28 @@ class EditReviewForm extends React.Component {
             clearErrors,
             requestBook,
             errors,
-            loading } = this.props;
+            loading,
+            reviewInfo} = this.props;
 
     return (
       <ReviewForm
         book={book}
         errors={errors}
         review={review}
+        reviewInfo={reviewInfo}
         loading={loading}
         requestReview={requestReview}
         submitReview={submitReview}
         clearErrors={clearErrors}
         requestBook={requestBook}
         formType={formType}
+        reviewId={this.props.match.params.reviewId}
       />
     );
   }
 }
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(EditReviewForm);
+)(EditReviewForm));

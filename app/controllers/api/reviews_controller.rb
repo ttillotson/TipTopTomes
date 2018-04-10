@@ -12,7 +12,6 @@ class Api::ReviewsController < ApplicationController
 
   def show
     @review = Review.includes(:book).find(params[:id])
-
     if @review
       render '/api/reviews/show'
     else

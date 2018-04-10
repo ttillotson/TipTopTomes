@@ -41,9 +41,12 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    const { book, loading } = this.props;
+    const { review, loading } = this.props;
     if (loading) { return <LoadingIcon />; }
-    // if (!book || !book.reviews) { return null; }
+    if (review === {}) { return null; }
+
+    debugger
+    const book = review.book;
     return (
       <div className='review_form_container'>
         <div className='review_content'>

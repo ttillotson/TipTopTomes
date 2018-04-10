@@ -11,7 +11,13 @@ class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBook(this.props.params.match.bookId);
+    this.props.fetchBook(this.props.match.params.bookId);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
+      this.props.fetchBook(nextProps.match.params.bookId);
+    }
   }
 
   componentWillUnmount() {
@@ -32,54 +38,77 @@ class ReviewForm extends React.Component {
   }
 
   render() {
-    const book = this.props.book;
+    const { book, loading } = this.props;
+
+    if (loading) { return <LoadingIcon />; }
+    if (!book || !book.reviews) { return null; }
+
     return (
       <div className='review_form_container'>
         <div className='review_content'>
           <h1 className='review_book_title'>
             <Link to={`/books${book.id}`}>
-              {book.title} Review
-            </Link>
+              {book.title} </Link>
+              > Review
           </h1>
 
           <section className='review_book_info'>
             <img src={book.imgUrl} />
             <article className='book_details'>
-              <h2>{book.title}</h2>
-              <h3>{book.author}</h3>
+              <h2 className='title'>{book.title}</h2>
+              <h3 className='author'>
+                <span>by </span>
+                {book.author}
+              </h3>
             </article>
           </section>
-
+        </div>
+        <section className='review_content'>
           <form className='review_form' onSubmit={this.handleSubmit}>
-            <label htmlFor='review_rating'>My Rating</label>
-            <input type="radio" name='review_rating'
-              onClick={this.update('rating')} value="1" />
-            <input type="radio" name='review_rating'
-              onClick={this.update('rating')} value="2" />
-            <input type="radio" name='review_rating'
-              onClick={this.update('rating')} value="3" />
-            <input type="radio" name='review_rating'
-              onClick={this.update('rating')} value="4" />
-            <input type="radio" name='review_rating'
-              onClick={this.update('rating')} value="5" />
+            <fieldset className='form_item'>
+              <legend className='rating'>
+                My Rating:
+                <select onChange={this.update('rating')}>
+                  <option disabled selected> - </option>
+                  <option value='1'>1</option>
+                  <option value='2'>2</option>
+                  <option value='3'>3</option>
+                  <option value='4'>4</option>
+                  <option value='5'>5</option>
+                </select>
+              </legend>
+            </fieldset>
 
-            <label>
-              Bookshelves
 
-            </label>
 
-            <label> What did you think?
-              <input
-                type='textarea'
-                placeholder='Enter your review (optional)'
+            <fieldset className='form_item'>
+              <legend className='bookshelves'>
+                Bookshelves
+                <select onChange={this.update()}>
+                  <option disabled selected>Read</option>
+                  <option disabled value='1'>1</option>
+                  <option disabled value='2'>2</option>
+                  <option disabled value='3'>3</option>
+                  <option disabled value='4'>4</option>
+                  <option disabled value='5'>5</option>
+                </select>
+              </legend>
+            </fieldset>
+
+            <fieldset className='form_item'>
+              <legend> What did you think?</legend>
+              <textarea
+                className='review_body'
+                rows='12'
+                placeholder='Enter your review'
                 onChange={this.update('review')}
                 value={this.state.review}
                 />
-            </label>
+            </fieldset>
 
             <button>Save</button>
           </form>
-        </div>
+        </section>
       </div>
     );
   }

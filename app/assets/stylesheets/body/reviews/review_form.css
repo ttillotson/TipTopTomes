@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$book_info_font".
-        on line 12 of review_form.scss
+        on line 14 of review_form.scss
 
-7: 
-8: 
-9:     .review_book_title {
-10:       color: #00635D;
-11:       font-size: 20px;
-12:       font-family: $book_info_font;
-13:       line-height: 24px;
-14:       display: block;
-15:     }
-16:   }
-17: 
+9:     width: 960px;
+10:     font-size: 16px;
+11: 
+12:     .review_book_title {
+13:       font-size: 26px;
+14:       font-family: $book_info_font;
+15:       line-height: 28px;
+16:       display: block;
+17:       margin-bottom: 15px;
+18:       font-weight: 700;
+19:       color: #333333;
 
 Backtrace:
-review_form.scss:12
+review_form.scss:14
 /Users/appacademy/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/sass-3.5.6/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Users/appacademy/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
 /Users/appacademy/.rbenv/versions/2.3.5/lib/ruby/gems/2.3.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -91,4 +91,4 @@ review_form.scss:12
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$book_info_font\".\A         on line 12 of review_form.scss\A \A 7: \A 8: \A 9:     .review_book_title {\A 10:       color: #00635D;\A 11:       font-size: 20px;\A 12:       font-family: $book_info_font;\A 13:       line-height: 24px;\A 14:       display: block;\A 15:     }\A 16:   }\A 17: "; }
+  content: "Error: Undefined variable: \"$book_info_font\".\A         on line 14 of review_form.scss\A \A 9:     width: 960px;\A 10:     font-size: 16px;\A 11: \A 12:     .review_book_title {\A 13:       font-size: 26px;\A 14:       font-family: $book_info_font;\A 15:       line-height: 28px;\A 16:       display: block;\A 17:       margin-bottom: 15px;\A 18:       font-weight: 700;\A 19:       color: #333333;"; }

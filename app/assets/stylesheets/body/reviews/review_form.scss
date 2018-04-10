@@ -1,18 +1,118 @@
-.review_orm_container {
+.review_form_container {
   background-color: #FFF;
+  min-height: 750px;
+  margin-top: 2px;
+  padding-top: 17px;
 
-  .review_form_content {
+  .review_content {
     margin: auto;
     width: 960px;
-
+    font-size: 16px;
 
     .review_book_title {
-      color: #00635D;
-      font-size: 20px;
+      font-size: 26px;
       font-family: $book_info_font;
-      line-height: 24px;
+      line-height: 28px;
       display: block;
+      margin-bottom: 15px;
+      font-weight: 700;
+      color: #333333;
+
+      a {
+        color: #00635D;
+      }
+    }
+
+    .review_book_info {
+      display: flex;
+      border-bottom: 1px solid #EEEEEE;
+
+      img {
+        margin-right: 10px;
+        width: 80px;
+        height: 120px;
+      }
+
+      .book_details {
+        font-size: 16px;
+        line-height: 18px;
+        color: #181818  ;
+
+        .title {
+          font-size: 120%;
+          font-family: $book_info_font;
+          line-height: 1.3;
+          font-weight: 700;
+        }
+
+        .author {
+          font-family: $book_info_font;
+          line-height: 150%;
+
+          span {
+            display: inline;
+            font-family: $text_font;
+          }
+        }
+      }
+    }
+
+    .review_form {
+
+      .rating {
+        select {
+          margin-left: 8px;
+        }
+      }
+      .form_item {
+        margin: 15px 0px;
+        font-family: $text_font;
+        font-size: 17px;
+        line-height: 18px;
+        width: 725px;
+
+        .review_body {
+          border: 1px solid #DCD6CC;
+          vertical-align: top;
+          border-radius: 3px;
+          color: #333333;
+          width: 100%;
+          display: block;
+          min-height: 120px;
+          padding: 4px;
+          margin-top: 5px;
+        }
+      }
+      fieldset:last-child {
+        border-bottom: 1px solid #EEEEEE;
+      }
+
+      button {
+        background: #F4F1EA;
+        border: 1px solid #D6D0C4;
+        font-family: $text_font;
+        padding: 8px 12px;
+        margin-top: 5px;
+        border-radius: 3px;
+      }
     }
   }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//

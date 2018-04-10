@@ -6,7 +6,9 @@ import { fetchBook, createReview, receiveErrors } from '../../actions/book_actio
 const mapStateToProps = (state, ownProps) => ({
     review: { rating: 0, review: ''},
     book: state.entities.books[ownProps.match.params.bookId],
-    loading: state.ui.loading.bookLoading,
+    loading: state.ui.loading.reviewLoading,
+    errors: state.errors.review,
+    formType: 'Create',
   });
 
 

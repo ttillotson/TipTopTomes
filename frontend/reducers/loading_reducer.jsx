@@ -3,11 +3,15 @@ import { RECEIVE_BOOK,
          START_LOADING_BOOKS,
          START_LOADING_SINGLE_BOOK
        } from '../actions/book_actions';
+import { RECEIVE_REVIEW,
+         START_LOADING_REVIEW
+       } from '../actions/review_actions';
 import merge from 'lodash/merge';
 
 const initialState = {
   indexLoading: false,
-  bookLoading: false
+  bookLoading: false,
+  reviewLoading: false,
 };
 
 const loadingReducer = (state = initialState, action) => {
@@ -18,10 +22,14 @@ const loadingReducer = (state = initialState, action) => {
       return merge(newState, { indexLoading: false });
     case RECEIVE_BOOKS:
       return merge(newState, { detailLoading: false });
+    case RECEIVE_REVIEW:
+      return merge(newState, { reviewLoading: false });
     case START_LOADING_BOOKS:
       return merge(newState, { indexLoading: true });
     case START_LOADING_SINGLE_BOOK:
       return merge(newState, { detailLoading: true });
+    case START_LOADING_REVIEW:
+      return merge(newState, { reviewLoading: true });
     default:
       return state;
   }

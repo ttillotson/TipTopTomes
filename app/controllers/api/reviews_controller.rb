@@ -12,7 +12,12 @@ class Api::ReviewsController < ApplicationController
 
   def show
     @review = Review.includes(:book).find(params[:id])
-    render json: '/api/reviews/show'
+
+    if @review
+      render '/api/reviews/show'
+    else
+      render json: @review.errors.full_messages, status: 422
+    end
   end
 
   def update

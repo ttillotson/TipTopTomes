@@ -1,4 +1,3 @@
-
 # == Schema Information
 #
 # Table name: books
@@ -18,7 +17,7 @@ class Book < ApplicationRecord
   validates :title, :author, :description, :ISBN, :img_url, :published, presence: true
 
   has_many :reviews,
-  class_name: Review,
+  class_name: :Review,
   foreign_key: :book_id
 
   def ratings

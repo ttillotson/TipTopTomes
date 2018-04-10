@@ -12,8 +12,8 @@ class  UserContent extends React.Component {
     let userReview = undefined;
     let reviewComponent;
     let editReview;
-
-    if (currentUser !== undefined) {
+    debugger
+    if (currentUser !== null) {
       userReview = currentUser.reviews[book.id];
     }
 

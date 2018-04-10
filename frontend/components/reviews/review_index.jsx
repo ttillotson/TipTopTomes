@@ -8,7 +8,7 @@ class ReviewIndex extends React.Component {
 
     const reviewItems = reviews.map((review, i) => (
       <ReviewItem
-        key={`${i}`}
+        key={`review-${review.id}`}
         review={review}
         deleteReview={deleteReview}
         currentUser={currentUser}

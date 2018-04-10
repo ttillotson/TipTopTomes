@@ -17,6 +17,7 @@ class User < ApplicationRecord
   validates :password, length: { minimum: 6, allow_nil: true }
 
   after_initialize :ensure_session_token
+  after_create :build_shelves
 
   has_many :reviews,
   class_name: :Review,

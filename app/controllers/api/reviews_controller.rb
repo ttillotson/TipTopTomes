@@ -1,6 +1,7 @@
 class Api::ReviewsController < ApplicationController
   def create
     @review = Review.new(review_params)
+    @review.author_id = current_user.id
     debugger
     if @review.save
       render json: '/api/books/show'
@@ -11,7 +12,7 @@ class Api::ReviewsController < ApplicationController
 
   def edit
     @review = Review.find(params[:id])
-    render json: '/api/reviews/edit'
+    render json: '/api/reviews/show'
   end
 
   def update
@@ -36,6 +37,6 @@ class Api::ReviewsController < ApplicationController
   private
 
   def review_params
-    params.require(:review).permit(:rating, :body)
+    params.require(:review).permit(:rating, :body, :book_id)
   end
 end

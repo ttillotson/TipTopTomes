@@ -22,10 +22,10 @@ user9 = User.create(username: 'davincicodeisdeep', password: 'cypher', email: 'd
 user10 = User.create(username: 'TheSeussIsLoose', password: 'green_eggs', email: 'Horton@emails.com')
 user11 = User.create(username: 'ilovedictionaries', password: 'merriam', email: 'webster@emails.com')
 user12 = User.create(username: 'caughttherye', password: 'caulfield', email: 'allaboutthedough@emails.com')
-demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.com')
 user13 = User.create(username: 'raisinsoffury', password: 'better_than_grapes', email: 'steinbeck@emails.com')
 user14 = User.create(username: 'Rincewind', password: 'wizzard', email: 'discworld@emails.com')
 user15 = User.create(username: 'Vetinari', password: 'ankh_morpork', email: 'witty_remark@emails.com')
+demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.com')
 
 BOOKS.each do |book|
   Book.create(title: book[0].chomp, author: book[1].chomp, published: book[2].chomp, ISBN: book[3].chomp)
@@ -35,6 +35,7 @@ BOOKS.length.times do |book_idx|
   17.times do |user_count|
     next if user_count == 0
     review = REVIEWS.sample
+    next if user_count == 17 && book_idx.even?
     Review.create(
       body: review[1],
       rating: review[0],

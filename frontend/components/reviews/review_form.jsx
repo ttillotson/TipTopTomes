@@ -11,12 +11,13 @@ class ReviewForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchBook(this.props.match.params.bookId);
+    debugger
+    this.props.requestBook(this.props.match.params.bookId);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
-      this.props.fetchBook(nextProps.match.params.bookId);
+      this.props.requestBook(nextProps.match.params.bookId);
     }
   }
 
@@ -69,7 +70,7 @@ class ReviewForm extends React.Component {
               <legend className='rating'>
                 My Rating:
                 <select onChange={this.update('rating')}>
-                  <option disabled selected> - </option>
+                  <option disabled defaultValue> - </option>
                   <option value='1'>1</option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
@@ -85,7 +86,7 @@ class ReviewForm extends React.Component {
               <legend className='bookshelves'>
                 Bookshelves
                 <select onChange={this.update()}>
-                  <option disabled selected>Read</option>
+                  <option disabled defaultValue>Read</option>
                   <option disabled value='1'>1</option>
                   <option disabled value='2'>2</option>
                   <option disabled value='3'>3</option>

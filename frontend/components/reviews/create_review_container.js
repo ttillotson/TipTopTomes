@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 
 const mapDispatchToProps = (dispatch) => ({
-  fetchBook: (bookId) => dispatch(fetchBook(bookId)),
+  requestBook: (bookId) => dispatch(fetchBook(bookId)),
   submitReview: (review) => dispatch(createReview(review)),
   clearErrors: (errors) => dispatch(receiveErrors(errors)),
 });

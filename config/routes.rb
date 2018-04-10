@@ -5,9 +5,8 @@ Rails.application.routes.draw do
       resources :bookshelves, only: %i(index show create update destroy)
     end
     resource :session, only: %i(create destroy)
-    resources :books, only: %i(index show) do
-      resources :reviews, only: %i(create update edit destroy)
-    end
+    resources :books, only: %i(index show)
+    resources :reviews, only: %i(show create update destroy)
   end
 
   root to: 'static_pages#root'

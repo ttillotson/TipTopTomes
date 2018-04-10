@@ -1,12 +1,13 @@
-// export const fetchReview = (review) => (
-//   $.ajax({
-//     url: `/books/${review.book_id}/reviews/${review.id}`
-//   })
-// );
+export const fetchReview = (reviewId) => (
+  $.ajax({
+    url: `/api/reviews/${reviewId}`,
+    method: 'GET'
+  })
+);
 
 export const createReview = (review) => (
   $.ajax({
-    url:`/api/books/${review.bookId}/reviews`,
+    url:`/api/reviews`,
     method: 'POST',
     data: { review }
   })
@@ -14,16 +15,16 @@ export const createReview = (review) => (
 
 export const updateReview = (review) => (
   $.ajax({
-    url: `/api/books/${review.bookId}/reviews/${review.id}`,
+    url: `/api/reviews/${review.id}`,
     method: 'PATCH',
     data: { review }
   })
 );
 
-export const deleteReview = (review) => (
+export const deleteReview = (reviewId) => (
   $.ajax({
-    url: `/api/books/${review.bookId}/reviews/${review.id}`,
+    url: `/api/reviews/${reviewId}`,
     method: 'DELETE',
-    data: `${review.id}`
+    data: `${reviewId}`
   })
 );

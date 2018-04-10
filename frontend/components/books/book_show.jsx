@@ -10,6 +10,7 @@ class BookShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    debugger
     if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
       this.props.fetchBook(nextProps.match.params.bookId);
     }

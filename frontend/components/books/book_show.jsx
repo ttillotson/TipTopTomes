@@ -10,10 +10,11 @@ class BookShow extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    debugger
+    // debugger
     if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
       this.props.fetchBook(nextProps.match.params.bookId);
     }
+    // const hasCorrectReviews = Object.values(this.props.book.reviews).length !== Object.values(nextProps.book.reviews);
   }
 
   render() {

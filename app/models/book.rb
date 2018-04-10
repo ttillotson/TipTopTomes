@@ -1,4 +1,4 @@
-require_relative 'generic_book_info'
+
 # == Schema Information
 #
 # Table name: books
@@ -17,8 +17,6 @@ require_relative 'generic_book_info'
 class Book < ApplicationRecord
   validates :title, :author, :description, :ISBN, :img_url, :published, presence: true
 
-  after_initialize :ensure_description, :ensure_image_url
-
   has_many :reviews,
   class_name: Review,
   foreign_key: :book_id
@@ -29,15 +27,5 @@ class Book < ApplicationRecord
 
   def average_rating
     self.ratings.reduce(:+).to_f / self.ratings.length
-  end
-
-  private
-
-  def ensure_image_url
-    self.img_url ||= IMAGE_URL_ARRAY.sample
-  end
-
-  def ensure_description
-    self.description ||= DESCRIPTION.sample
   end
 end

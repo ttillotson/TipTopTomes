@@ -5,13 +5,11 @@ export default ({ user, bookId, bookTitle }) => {
 
   let userReview = undefined;
   let reviewComponent;
-  let addReview;
   let editReview;
 
-  if (user !== null) {userReview = user.reviews[bookId];
+  if (user !== null) { userReview = user.reviews[bookId]; }
 
-    addReview = <Link to={`/reviews/${bookId}/new`}
-      className='add_review_link'>Add a Review</Link>;
+  if (userReview !== undefined){
 
     editReview = <Link to={`/reviews/${bookId}/${userReview.id}`}
                   className='add_review_link'>
@@ -45,6 +43,9 @@ export default ({ user, bookId, bookTitle }) => {
         </table>
     );
   }
+
+  const addReview = <Link to={`/reviews/${bookId}/new`}
+    className='add_review_link'>Add a Review</Link>;
 
   return (
     <section className='user_content_container'>

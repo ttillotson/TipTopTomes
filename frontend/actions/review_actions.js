@@ -37,21 +37,24 @@ export const fetchReview = (reviewId) => (dispatch) => {
 
 export const createReview = (review) => (dispatch) => (
   ReviewApiUtil.createReview(review).then(ajaxReview => (
-  dispatch(receiveReview(ajaxReview)))
-), errors => (
-  dispatch(receiveErrors(errors.responseJSON))
+    dispatch(receiveReview(ajaxReview))
+  ), errors => (
+    dispatch(receiveErrors(errors.responseJSON))
+  )
 ));
 
 export const updateReview = (review) => (dispatch) => (
   ReviewApiUtil.updateReview(review).then(ajaxReview => (
-  dispatch(receiveReview(ajaxReview)))
-), errors => (
-  dispatch(receiveErrors(errors.responseJSON))
+    dispatch(receiveReview(ajaxReview))
+  ), errors => (
+    dispatch(receiveErrors(errors.responseJSON))
+  )
 ));
 
 export const deleteReview = (review) => (dispatch) => (
   ReviewApiUtil.deleteReview(review).then(ajaxReview => (
-  dispatch(removeReview(ajaxReview)))
-), errors => (
-  dispatch(receiveErrors(errors.responseJSON))
+    dispatch(removeReview(ajaxReview))
+  ), errors => (
+    dispatch(receiveErrors(errors.responseJSON))
+  )
 ));

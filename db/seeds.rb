@@ -32,10 +32,11 @@ BOOKS.each do |book|
 end
 
 BOOKS.length.times do |book_idx|
+  @even = book_idx.even?
   17.times do |user_count|
     next if user_count == 0
     review = REVIEWS.sample
-    next if user_count == 17 && book_idx.even?
+    next if user_count == 16 && @even
     Review.create(
       body: review[1],
       rating: review[0],

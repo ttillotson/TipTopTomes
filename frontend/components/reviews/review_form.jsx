@@ -6,26 +6,21 @@ import { Link } from 'react-router-dom';
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
+    this.props = props;
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
-    debugger
+
   }
 
-  // componentDidMount() {
-  //   if (this.props.review.book === undefined){
-  //     this.props.fetchbook
-  //   }
-  // }
+  componentDidMount() {
+    // debugger
+    if (this.props.book === undefined){
+      this.props.requestBook(this.props.match.params.bookId);
+    }
+  }
 
   componentWillReceiveProps(nextProps) {
-    debugger
-    if (this.props.review.id !== nextProps.review.id) {
-      this.props.requestReview(nextProps.review.id);
-    }
-    if (this.props.review.id !== nextProps.review.id) {
-      this.setState(nextProps.review);
-      debugger
-    }
+    this.setState(this.props.review);
   }
 
   componentWillUnmount() {
@@ -40,29 +35,30 @@ class ReviewForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.submitReview(this.state).then(() => {
-      this.props.history.push(`/books/${this.props.book.id}`);
-    });
+    // debugger
+    this.props.submitReview(this.state).then(() =>
+      this.props.history.push(`/books/${this.props.book.id}`)
+    );
   }
 
   render() {
-    const { review, loading } = this.props;
+    const { review, loading, book } = this.props;
     if (loading) { return <LoadingIcon />; }
-    if ($.isEmptyObject(review)) { return null; }
+    if (!book) { return null; }
 
-    debugger
-    const book = review.book;
+    // debugger
+
     return (
       <div className='review_form_container'>
         <div className='review_content'>
           <h1 className='review_book_title'>
-            <Link to={`/books${book.id}`}>
+            <Link to={`/books/${book.id}`}>
               {book.title} </Link>
               > Review
           </h1>
 
           <section className='review_book_info'>
-            <img src={book.img_url} />
+            <img src={book.imgUrl} />
             <article className='book_details'>
               <h2 className='title'>{book.title}</h2>
               <h3 className='author'>
@@ -74,11 +70,14 @@ class ReviewForm extends React.Component {
         </div>
         <section className='review_content'>
           <form className='review_form' onSubmit={this.handleSubmit}>
+
             <fieldset className='form_item'>
               <legend className='rating'>
                 My Rating:
-                <select onChange={this.update('rating')}>
-                  <option disabled defaultValue> - </option>
+                <select value={this.state.rating}
+                  onChange={this.update('rating')}
+                  >
+                  <option disabled defaultValue value='0'> - </option>
                   <option value='1'>1</option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
@@ -108,7 +107,7 @@ class ReviewForm extends React.Component {
                 className='review_body'
                 rows='12'
                 placeholder='Enter your review'
-                onChange={this.update('review')}
+                onChange={this.update('body')}
                 value={this.state.body}
                 />
             </fieldset>

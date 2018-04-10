@@ -14,7 +14,9 @@ export default ({ user, bookId, bookTitle }) => {
       className='add_review_link'>Add a Review</Link>;
 
     editReview = <Link to={`/reviews/${bookId}/${userReview.id}`}
-      className='add_review_link'>Edit your Review</Link>;
+                  className='add_review_link'>
+                  Edit your Review</Link
+                  >;
 
      reviewComponent = (
         <table>

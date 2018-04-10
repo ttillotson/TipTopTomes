@@ -10,8 +10,8 @@ class Api::ReviewsController < ApplicationController
     end
   end
 
-  def edit
-    @review = Review.find(params[:id])
+  def show
+    @review = Review.includes(:book).find(params[:id])
     render json: '/api/reviews/show'
   end
 

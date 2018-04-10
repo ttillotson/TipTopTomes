@@ -1,20 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ReviewForm from './review_form';
-import { fetchBook, updateReview, receiveErrors } from '../../actions/book_actions';
+import { fetchReview,
+         updateReview,
+         receiveErrors } from '../../actions/review_actions';
 
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
+  let passedReview;
+  if (state.entities.books[ownProps.match.params.bookId] === undefined){
+    passedReview = { bookId:ownProps.match.params.bookId,
+                    reviewId: ownProps.match.params.reviewId };
+  } else {
+    passedReview = state.entities.books[ownProps.match.params.bookId].reviews[ownProps.match.params.reviewId];
+  }
+
   return ({
-    review: state.entities.books[ownProps.match.params.bookId].reviews[ownProps.match.params.reviewId],
+    review: passedReview,
     book: ownProps.match.params.bookId,
     errors: state.errors.review,
   });
 };
 
+
 const mapDispatchToProps = (dispatch) => ({
-  requestBook: (bookId) => dispatch(fetchBook(bookId)),
+  requestReview: (reviewId) => dispatch(fetchReview(reviewId)),
   submitReview: (review) => dispatch(updateReview(review)),
   clearErrors: (errors) => dispatch(receiveErrors(errors))
 });
@@ -32,13 +42,12 @@ class EditReviewForm extends React.Component {
 
     return (
       <ReviewForm
-        review={review}
         book={book}
-        formType={formType}
+        errors={errors}
+        review={review}
         submitReview={submitReview}
         clearErrors={clearErrors}
         requestBook={requestBook}
-        errors={errors}
       />
     );
   }

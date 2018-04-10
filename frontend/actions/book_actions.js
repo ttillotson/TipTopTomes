@@ -25,7 +25,7 @@ const startLoadingSingleBook = () => ({
   type: START_LOADING_SINGLE_BOOK,
 });
 
-const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_BOOK_ERRORS,
   errors
 });

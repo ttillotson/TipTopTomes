@@ -8,11 +8,11 @@ class ReviewForm extends React.Component {
     super(props);
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
+
   }
 
   componentDidMount() {
-    debugger
-    this.props.requestBook(this.props.match.params.bookId);
+    this.props.requestReview(this.props.review.reviewId);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -79,8 +79,6 @@ class ReviewForm extends React.Component {
                 </select>
               </legend>
             </fieldset>
-
-
 
             <fieldset className='form_item'>
               <legend className='bookshelves'>

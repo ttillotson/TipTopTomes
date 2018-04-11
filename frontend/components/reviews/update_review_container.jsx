@@ -8,9 +8,9 @@ import { fetchReview,
 import { withRouter } from 'react-router-dom';
 
 const mapStateToProps = (state, ownProps) => {
-
+  debugger
   return ({
-    review: state.entities.reviews[ownProps.match.params.reviewId],
+    review: state.entities.reviews[state.session.currentUser.id],
     book: state.entities.books[ownProps.match.params.bookId],
     loading: state.ui.loading.reviewLoading,
     errors: state.errors.review,

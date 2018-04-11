@@ -1,13 +1,17 @@
 class Api::BookshelvesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update]
 
+  def index
+    @shelves = Bookshelf.where(user_id: params[:user_id])
+    render :index
+  end
+
   def show
     @bookshelf = Bookshelf.find(params[:id])
-
   end
 
   def create
-    @bookshelf = Bookshelf.new
+    @bookshelf = Bookshelf.new(bookshelf_params)
     @bookshelf.user_id = current_user.id
     if @bookshelf.save
       render :show
@@ -25,6 +29,6 @@ class Api::BookshelvesController < ApplicationController
   private
 
   def bookshelf_params
-    params.require(:bookshelf).permit(:user_id)
+    params.require(:bookshelf).permit(:user_id, :name)
   end
 end

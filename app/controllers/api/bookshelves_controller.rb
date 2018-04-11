@@ -2,28 +2,33 @@ class Api::BookshelvesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update]
 
   def index
-    @shelves = Bookshelf.where(user_id: params[:user_id])
-    render :index
+    @shelves = Bookshelf.includes(:books).where(user_id: params[:user_id])
+    render 'api/bookshelves/combined'
   end
 
   def show
-    @bookshelf = Bookshelf.find(params[:id])
+    @shelf = Bookshelf.find(params[:id])
+
+    if @shelf 
+      render :show 
+    else
+      render json: ['Bookshelf not found.'], status: 404
+    end
   end
 
   def create
-    @bookshelf = Bookshelf.new(bookshelf_params)
-    @bookshelf.user_id = current_user.id
-    if @bookshelf.save
+    @shelf = Bookshelf.new(bookshelf_params)
+    @shelf.user_id = current_user.id
+    if @shelf.save
       render :show
     else
-      render json: 'api/bookshelf/user_id'
+      render json: @shelf.errors.full_messages, status: 422
     end
   end
 
   def destroy
-    @bookshelf = current_user.bookshelves.find(params[:id])
-    @bookshelf.destroy
-    render json: 'api/bookshelf/user_id'
+    @shelf = current_user.bookshelves.find(params[:id])
+    @shelf.destroy
   end
 
   private

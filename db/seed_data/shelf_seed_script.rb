@@ -12,10 +12,13 @@ def shelf_seeds
 
       if book_id % 7 == 0
         @reading_array << book_id
+        next
       elsif book_id % 3 == 0
         @will_read_array << book_id
+        next
       elsif book_id % 2 == 0
         @read_array << book_id
+        next
       end
     end
 

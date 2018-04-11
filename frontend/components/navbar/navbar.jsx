@@ -17,18 +17,23 @@ class NavBar extends React.Component {
       <div className='nav_bar_container'>
         <nav className='nav_bar'>
         <ul className='heading_links'>
-          <li>
-            <Link to={`/books`}>Home</Link>
-          </li>
-          <li>
-            <Link to={`/bookshelf`}>My Books</Link>
-          </li>
+          <Link to={`/books`}>
+            <li>
+              Home
+            </li>
+          </Link>
+          <Link to={`/bookshelf`}>
+            <li>
+              My Books
+            </li>
+          </Link>
         </ul>
 
         <SessionButtons
           signout={signout}
           currentUser={currentUser}
-          signin={signin} />
+          signin={signin} 
+        />
       </nav>
     </div>
     );

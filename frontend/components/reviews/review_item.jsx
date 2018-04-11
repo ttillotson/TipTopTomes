@@ -14,7 +14,7 @@ export default ({ review, deleteReview, currentUser }) => {
 
       <section className='review_heading'>
         <div className='user_content'>
-          <Link to={`#`} >{review.user.username}</Link>
+          <Link to={`/bookshelf/${review.user.id}`} >{review.user.username}</Link>
           <span> rated it
             <span className='rating'> {review.rating} </span>
              out of

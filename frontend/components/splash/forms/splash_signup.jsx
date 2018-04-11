@@ -44,7 +44,6 @@ class SignUpForm extends React.Component {
       let errors = this.props.errors.map((error, i) => (
         <li key={`${i}`}>{error}</li>
       ));
-      // debugger
       return (
         <ul className={'splash_errors'}>
           {errors}

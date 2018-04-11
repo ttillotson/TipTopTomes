@@ -7,23 +7,23 @@ import UserContentContainer from './user_content_container';
 class BookShow extends React.Component {
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.bookId);
+    this.props.fetchReviews(this.props.match.params.bookId);
   }
 
   componentWillReceiveProps(nextProps) {
-    // debugger
     if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
       this.props.fetchBook(nextProps.match.params.bookId);
+      this.props.fetchReviews(nextProps.match.params.bookId);
     }
-    // const hasCorrectReviews = Object.values(this.props.book.reviews).length !== Object.values(nextProps.book.reviews);
   }
 
   render() {
-    const { book, loading, currentUser } = this.props;
+    const { book, bookLoading, reviewLoading, currentUser } = this.props;
 
-    if (loading) { return <LoadingIcon />; }
-    if (!book || !book.reviews) { return null; }
+    if (bookLoading) { return <LoadingIcon />; }
+    if (reviewLoading) { return <LoadingIcon />; }
+    if (!book) { return <LoadingIcon />; }
 
-    const reviews = Object.values(book.reviews);
     const avgRating = book.averageRating;
 
     return (
@@ -59,9 +59,7 @@ class BookShow extends React.Component {
               <UserContentContainer {...this.props} />
             </section>
           </section>
-          <ReviewIndexContainer
-            reviews={reviews}
-            />
+          <ReviewIndexContainer {...this.props.match} />
         </article>
       </div>
     );

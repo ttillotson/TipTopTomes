@@ -1,6 +1,6 @@
 class Api::ReviewsController < ApplicationController
   def index
-    @book = Book.includes(:reviews).find(params[:book_id])
+    @book = Book.includes(reviews: [:user]).find(params[:book_id])
 
     if @book
       render :index

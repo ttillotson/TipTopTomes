@@ -1,12 +1,19 @@
 import React from 'react';
 import ReviewItem from './review_item';
+import LoadingIcon from '../shared/loading_icon';
 
 class ReviewIndex extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = this.props.reviews;
+  }
 
   render() {
-    const { reviews, currentUser, deleteReview } = this.props;
+    const { reviews, loading, currentUser, deleteReview } = this.props;
+    
+    if (loading){ return LoadingIcon; }
 
-    const reviewItems = reviews.map((review, i) => (
+    const reviewItems = Object.values(reviews).map((review, i) => (
       <ReviewItem
         key={`review-${review.id}`}
         review={review}

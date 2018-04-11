@@ -10,7 +10,7 @@ import { withRouter } from 'react-router-dom';
 const mapStateToProps = (state, ownProps) => {
 
   return ({
-    review: state.entities.review,
+    review: state.entities.reviews[ownProps.match.params.reviewId],
     book: state.entities.books[ownProps.match.params.bookId],
     loading: state.ui.loading.reviewLoading,
     errors: state.errors.review,
@@ -35,12 +35,15 @@ const mapDispatchToProps = (dispatch) => ({
 
 class EditReviewForm extends React.Component {
   componentDidMount() {
-    this.props.requestReview(this.props.match.params.reviewId);
-    this.props.requestBook(this.props.match.params.bookId);
+    if (!this.props.review){
+      this.props.requestReview(this.props.match.params.reviewId);
+    }
+    if (!this.props.book) {
+      this.props.requestBook(this.props.match.params.bookId);
+    }
   }
 
   render() {
-
     return (
       <ReviewForm {...this.props} />
     );

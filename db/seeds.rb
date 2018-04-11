@@ -1,6 +1,7 @@
 require_relative 'seed_data/book_info'
 require_relative 'seed_data/review_base'
 require_relative 'seed_data/generic_book_info'
+require_relative 'seed_data/shelf_seed_script'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
@@ -9,8 +10,7 @@ require_relative 'seed_data/generic_book_info'
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
-admin = User.create(username: 'admin', password: 'password', email: 'admin')
+# User Seeds
 user1 = User.create(username: 'LoveBooks', password: 'lovebooks', email: 'totallyrealemail@emails.com')
 user2 = User.create(username: 'BookLove', password: 'mmmbooks', email: 'hardcovers@emails.com')
 user3 = User.create(username: 'IAmTipTop', password: 'in_the_tulips', email: 'tables@emails.com')
@@ -27,7 +27,10 @@ user13 = User.create(username: 'raisinsoffury', password: 'better_than_grapes', 
 user14 = User.create(username: 'Rincewind', password: 'wizzard', email: 'discworld@emails.com')
 user15 = User.create(username: 'Vetinari', password: 'ankh_morpork', email: 'witty_remark@emails.com')
 demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.com')
+admin = User.create(username: 'admin', password: 'password', email: 'admin')
 
+
+# Book Seeds
 BOOKS.each do |book|
   Book.create(
     title: book[0].chomp,
@@ -39,12 +42,12 @@ BOOKS.each do |book|
   )
 end
 
+# Review Seeds
 BOOKS.length.times do |book_idx|
   @even = book_idx.even?
-  17.times do |user_count|
-    next if user_count == 0
+  16.times do |user_count|
     review = REVIEWS.sample
-    next if user_count == 16 && @even
+    next if user_count == 15 && @even
     Review.create(
       body: review[1],
       rating: review[0],
@@ -53,3 +56,6 @@ BOOKS.length.times do |book_idx|
     )
   end
 end
+
+# Bookshelf Seeds
+shelf_seeds

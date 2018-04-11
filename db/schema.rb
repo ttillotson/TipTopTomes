@@ -58,7 +58,7 @@ ActiveRecord::Schema.define(version: 20180410232353) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_shelf_memberships_on_book_id"
-    t.index ["shelf_id", "book_id"], name: "index_shelf_memberships_on_shelf_id_and_book_id"
+    t.index ["shelf_id", "book_id"], name: "index_shelf_memberships_on_shelf_id_and_book_id", unique: true
     t.index ["shelf_id"], name: "index_shelf_memberships_on_shelf_id"
   end
 

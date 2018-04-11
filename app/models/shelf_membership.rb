@@ -10,4 +10,11 @@
 #
 
 class ShelfMembership < ApplicationRecord
+
+  belongs_to :shelf,
+  class_name: :Bookshelf,
+  foreign_key: :shelf_id
+
+
+  belongs_to :book
 end

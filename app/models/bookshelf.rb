@@ -12,5 +12,14 @@
 class Bookshelf < ApplicationRecord
   validates :user_id, :name, presence: true
 
-  
+  belongs_to :user
+
+  has_many :memberships,
+  class_name: :ShelfMembership,
+  foreign_key: :shelf_id,
+  dependent: :destroy,
+  inverse_of: :shelf
+
+  has_many :books,
+  through: :memberships
 end

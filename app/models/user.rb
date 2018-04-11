@@ -21,7 +21,17 @@ class User < ApplicationRecord
 
   has_many :reviews,
   class_name: :Review,
-  foreign_key: :author_id
+  foreign_key: :author_id,
+  dependent: :destroy
+
+  has_many :shelves,
+  class_name: :Bookshelf,
+  foreign_key: :user_id,
+  dependent: :destroy
+
+
+  has_many :books,
+  through: :shelves
 
   attr_reader :password
 
@@ -49,5 +59,11 @@ class User < ApplicationRecord
 
   def ensure_session_token
     self.session_token ||= SecureRandom.urlsafe_base64(16)
+  end
+
+  def build_shelves
+    Bookshelf.create!(user_id: self.id, name: "Read")
+    Bookshelf.create!(user_id: self.id, name: "Want to Read")
+    Bookshelf.create!(user_id: self.id, name: "Currently Reading")
   end
 end

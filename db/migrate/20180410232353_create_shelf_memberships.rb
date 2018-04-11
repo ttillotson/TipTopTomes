@@ -8,6 +8,6 @@ class CreateShelfMemberships < ActiveRecord::Migration[5.1]
     end
     add_index :shelf_memberships, :book_id
     add_index :shelf_memberships, :shelf_id
-    add_index :shelf_memberships, [:shelf_id, :book_id]
+    add_index :shelf_memberships, [:shelf_id, :book_id], unique: true
   end
 end

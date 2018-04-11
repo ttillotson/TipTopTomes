@@ -20,6 +20,13 @@ class Book < ApplicationRecord
   class_name: :Review,
   foreign_key: :book_id
 
+  has_many :memberships,
+  class_name: :ShelfMembership,
+  foreign_key: :book_id,
+  dependent: :destroy,
+  inverse_of: :book
+
+
   def ratings
     self.reviews.map(&:rating)
   end

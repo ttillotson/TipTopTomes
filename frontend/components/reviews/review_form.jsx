@@ -67,6 +67,7 @@ class ReviewForm extends React.Component {
             </article>
           </section>
         </div>
+
         <section className='review_content'>
           <form className='review_form' onSubmit={this.handleSubmit}>
 

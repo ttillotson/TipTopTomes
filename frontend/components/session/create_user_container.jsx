@@ -18,14 +18,14 @@ const mapDispatchToProps = (dispatch) => ({
 });
 
 
-const NewUserForm = ({ submitForm, formType, errors, currentUser, navLink, clearErrors }) => {
+const NewUserForm = ({ submitForm, formType, errors, currentUser, clearErrors }) => {
   return (
     <SessionForm
       formType={formType}
       submitForm={submitForm}
       errors={errors}
       currentUser={currentUser}
-      navLink={navLink}
+      clearErrors={clearErrors}
       />
   );
 };

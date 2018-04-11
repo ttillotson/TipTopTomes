@@ -4,6 +4,9 @@
 	margin: 0 auto;
 	margin-top: 125px;
 	position: relative;
+	transition-duration: 0.5s;
+	transition-timing-function: ease; 
+	transition-delay: 0.5s;
 	transform: rotateZ(45deg);
 		-o-transform: rotateZ(45deg);
 		-ms-transform: rotateZ(45deg);

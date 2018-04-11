@@ -1,7 +1,6 @@
 import React from 'react';
 
 export default () => {
-  console.log('Loading')
   return (
   <div className="cssload-thecube">
     <div className="cssload-cube cssload-c1"></div>

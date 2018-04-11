@@ -11,7 +11,10 @@ import SingleShelfContainer from './shelves/shelf_container';
 import Logo from './shared/logo';
 import Splash from './splash/splash';
 import Footer from './shared/footer';
-import { AuthRoute, ProtectedRoute, ReviewRoute, EditRoute } from '../util/routes_util';
+import { AuthRoute, 
+         ProtectedRoute, 
+         ReviewRoute, 
+         EditRoute } from '../util/routes_util';
 import {
   Route,
   Redirect,

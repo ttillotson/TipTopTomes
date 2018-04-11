@@ -13,7 +13,7 @@ class Api::UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      render '/api/books/index'
+      render @user
     else
       render json: @user.errors.full_messages, status: 422
     end

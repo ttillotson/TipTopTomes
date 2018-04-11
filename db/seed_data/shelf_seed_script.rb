@@ -5,7 +5,7 @@ def shelf_seeds
     @read_array = []
     @will_read_array = []
     @reading_array = []
-
+    
     BOOKS.length.times do |book_idx|
       book_id = book_idx + 1
 
@@ -21,7 +21,7 @@ def shelf_seeds
         next
       end
     end
-
+    debugger
     [@read_array, @will_read_array, @reading_array].each_with_index do |shelf_array, i|
       shelf_array.each do |book_id|
         ShelfMembership.create(shelf_id: ((i + 1) * (user_count + 1)),

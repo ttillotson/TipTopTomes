@@ -17,9 +17,9 @@ const receiveReview = (review) => ({
   review
 });
 
-const removeReview = (reviewId) => ({
+const removeReview = (review) => ({
   type: REMOVE_REVIEW,
-  reviewId
+  review
 });
 
 export const receiveErrors = (errors) => ({

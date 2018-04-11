@@ -16,8 +16,6 @@ class  UserContent extends React.Component {
     if (currentUser !== null) {
       userReview = reviews[currentUser.id];
     }
-    // debugger
-    // if (review.bookId === book.id) { userReview = this.props.review; }
 
     if (userReview !== undefined){
 

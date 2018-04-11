@@ -6,11 +6,11 @@ const ReviewsReducer = (state={}, action) => {
   let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_REVIEW:
-      return merge(newState, {[action.review.id]: action.review});
+      return merge(newState, {[action.review.userId]: action.review});
     case RECEIVE_ALL_REVIEWS:
       return merge({}, action.reviews);
     case REMOVE_REVIEW:
-      delete newState[action.reviewId];
+      delete newState[action.review.authorId];
       return merge({}, newState);
     default:
       return state;

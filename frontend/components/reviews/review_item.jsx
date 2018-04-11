@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 export default ({ review, deleteReview, currentUser }) => {
 
-  const removeLink = <button onClick={() => deleteReview(review.id)}
+  const removeLink = <button onClick={() => deleteReview(review)}
     >Delete Review</button>;
   const editLink = <Link to={`/reviews/${review.bookId}/${review.id}`}
     >Update Review</Link>;

@@ -8,10 +8,6 @@ class ReviewIndex extends React.Component {
     this.state = this.props.reviews;
   }
 
-  componentWillReceiveProps (nextProps) {
-    debugger
-  }
-
   render() {
     const { reviews, loading, currentUser, deleteReview } = this.props;
 

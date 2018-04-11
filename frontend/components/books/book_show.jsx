@@ -13,7 +13,6 @@ class BookShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
       this.props.fetchBook(nextProps.match.params.bookId);
-      this.props.fetchReviews(nextProps.match.params.bookId);
     }
   }
 
@@ -59,7 +58,7 @@ class BookShow extends React.Component {
               <UserContentContainer {...this.props} />
             </section>
           </section>
-          <ReviewIndexContainer {...this.props.match} />
+          <ReviewIndexContainer {...this.props} />
         </article>
       </div>
     );

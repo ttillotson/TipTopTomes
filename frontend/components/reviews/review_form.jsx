@@ -46,7 +46,6 @@ class ReviewForm extends React.Component {
     if (!book) { return null; }
     if (!review) { return <LoadingIcon />; }
 
-
     return (
       <div className='review_form_container'>
         <div className='review_content'>

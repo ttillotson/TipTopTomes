@@ -8,7 +8,7 @@ const BooksReducer = (state={}, action) => {
     case RECEIVE_BOOKS:
       return merge({}, action.books);
     case RECEIVE_BOOK:
-      return merge(newState, {[action.book.id]: action.book});
+      return merge(newState, {[action.book.book.id]: action.book.book});
     default:
       return state;
   }

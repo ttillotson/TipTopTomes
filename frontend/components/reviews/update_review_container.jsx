@@ -7,16 +7,13 @@ import { fetchReview,
          receiveErrors } from '../../actions/review_actions';
 import { withRouter } from 'react-router-dom';
 
-const mapStateToProps = (state, ownProps) => {
-  debugger
-  return ({
-    review: state.entities.reviews[state.session.currentUser.id],
-    book: state.entities.books[ownProps.match.params.bookId],
-    loading: state.ui.loading.reviewLoading,
-    errors: state.errors.review,
-    formType: 'Update',
-  });
-};
+const mapStateToProps = (state, ownProps) => ({
+  review: state.entities.reviews[state.session.currentUser.id],
+  book: state.entities.books[ownProps.match.params.bookId],
+  loading: state.ui.loading.reviewLoading,
+  errors: state.errors.review,
+  formType: 'Update',
+});
 
 
 const mapDispatchToProps = (dispatch) => ({

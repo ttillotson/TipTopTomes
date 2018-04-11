@@ -6,10 +6,7 @@ import UserContentContainer from './user_content_container';
 
 class BookShow extends React.Component {
   componentDidMount() {
-    if (!this.props.book){
-      this.props.fetchBook(this.props.match.params.bookId);
-      this.props.fetchReviews(this.props.match.params.bookId);
-    }
+    this.props.fetchBook(this.props.match.params.bookId);
   }
 
   componentWillReceiveProps(nextProps) {

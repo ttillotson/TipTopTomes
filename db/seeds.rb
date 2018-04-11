@@ -11,6 +11,7 @@ require_relative 'seed_data/shelf_seed_script'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # User Seeds
+user0 = User.create(username: 'AppAcademy', password: 'majestic_corgi', email: 'appacademy@aa.io')
 user1 = User.create(username: 'LoveBooks', password: 'lovebooks', email: 'totallyrealemail@emails.com')
 user2 = User.create(username: 'BookLove', password: 'mmmbooks', email: 'hardcovers@emails.com')
 user3 = User.create(username: 'IAmTipTop', password: 'in_the_tulips', email: 'tables@emails.com')
@@ -45,9 +46,9 @@ end
 # Review Seeds
 BOOKS.length.times do |book_idx|
   @even = book_idx.even?
-  16.times do |user_count|
+  17.times do |user_count|
     review = REVIEWS.sample
-    next if user_count == 15 && @even
+    next if user_count == 16 && @even
     Review.create(
       body: review[1],
       rating: review[0],

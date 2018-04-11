@@ -42,7 +42,6 @@ class ReviewForm extends React.Component {
 
   render() {
     const { review, loading, book } = this.props;
-    debugger
     if (loading) { return <LoadingIcon />; }
     if (!book) { return null; }
     if (!review) { return <LoadingIcon />; }

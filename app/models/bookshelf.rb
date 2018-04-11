@@ -23,7 +23,17 @@ class Bookshelf < ApplicationRecord
   has_many :books,
   through: :memberships
 
-  def ensure_unique_shelving(book)
+  def ensure_unique_shelving(book_id)
+    shelf_owner = self.user
+    if is_default_shelf?
+      shelf_book = shelf_owner.default_memberships.find_by(book_id: book_id)
+      shelf_book.destroy if shelf_book
+    end
+  end
 
+  private
+
+  def is_default_shelf?
+    self.user.default_shelves.include?(self)
   end
 end

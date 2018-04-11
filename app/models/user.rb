@@ -19,6 +19,8 @@ class User < ApplicationRecord
   after_initialize :ensure_session_token
   after_create :build_shelves
 
+  attr_accessor :read_shelf, :reading_shelf, :will_read_shelf
+
   has_many :reviews,
   class_name: :Review,
   foreign_key: :author_id,
@@ -34,6 +36,18 @@ class User < ApplicationRecord
   through: :shelves
 
   attr_reader :password
+
+
+  def default_shelves
+    self.shelves.limit(3)
+  end
+
+  def default_memberships
+    shelf_memberships = self.shelves.includes(:memberships).limit(3).map do |shelf|
+      shelf.memberships
+    end
+    shelf_memberships.flatten
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
@@ -62,8 +76,9 @@ class User < ApplicationRecord
   end
 
   def build_shelves
-    Bookshelf.create!(user_id: self.id, name: "Read")
-    Bookshelf.create!(user_id: self.id, name: "Want to Read")
-    Bookshelf.create!(user_id: self.id, name: "Currently Reading")
+    @read_shelf = Bookshelf.create!(user_id: self.id, name: "Read")
+    @reading_shelf = Bookshelf.create!(user_id: self.id, name: "Want to Read")
+    @will_read_shelf = Bookshelf.create!(user_id: self.id, name: "Currently Reading")
   end
+
 end

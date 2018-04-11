@@ -5,7 +5,9 @@ Rails.application.routes.draw do
       resources :bookshelves, only: %i(show create update destroy)
     end
     resource :session, only: %i(create destroy)
-    resources :books, only: %i(index show)
+    resources :books, only: %i(index show) do
+      resources :reviews, only: :index
+    end
     resources :reviews, only: %i(show create update destroy)
   end
 

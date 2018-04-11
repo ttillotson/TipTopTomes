@@ -22,4 +22,8 @@ class Bookshelf < ApplicationRecord
 
   has_many :books,
   through: :memberships
+
+  def ensure_unique_shelving(book)
+
+  end
 end

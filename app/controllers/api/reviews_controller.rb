@@ -1,4 +1,14 @@
 class Api::ReviewsController < ApplicationController
+  def index
+    @book = Book.includes(:reviews).find(params[:book_id])
+
+    if @book
+      render :index
+    else
+      render @book.errors.full_messages, status: 422
+    end
+  end
+
   def create
     @review = Review.new(review_params)
     @review.author_id = current_user.id

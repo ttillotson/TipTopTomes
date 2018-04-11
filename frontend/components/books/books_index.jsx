@@ -14,7 +14,6 @@ class BooksIndex extends React.Component {
 
     if (loading) {return <LoadingIcon />; }
 
-
     const bookItems = books.map( book => {
       return (
         <BookIndexItem

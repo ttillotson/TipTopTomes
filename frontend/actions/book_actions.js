@@ -34,7 +34,7 @@ export const receiveErrors = (errors) => ({
 
 
 export const fetchBook = (bookId) => (dispatch) => {
-  dispatch(startLoadingSingleBook);
+  dispatch(startLoadingSingleBook());
   return BooksApiUtil.fetchBook(bookId).then(ajaxBook =>
     (dispatch(receiveBook(ajaxBook))
   ), errors => (
@@ -43,7 +43,7 @@ export const fetchBook = (bookId) => (dispatch) => {
 };
 
 export const fetchBooks = () => (dispatch) => {
-  dispatch(startLoadingBooks);
+  dispatch(startLoadingBooks());
   return BooksApiUtil.fetchBooks().then(ajaxBooks =>
     (dispatch(receiveBooks(ajaxBooks))
   ), errors => (

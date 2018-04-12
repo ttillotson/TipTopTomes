@@ -29,5 +29,4 @@ class ShelfMembership < ApplicationRecord
   def ensure_destruction
 
   end
-
 end

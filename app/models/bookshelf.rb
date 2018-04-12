@@ -31,6 +31,10 @@ class Bookshelf < ApplicationRecord
     end
   end
 
+  def owner?
+    self.user == current_user
+  end
+
   private
 
   def is_default_shelf?

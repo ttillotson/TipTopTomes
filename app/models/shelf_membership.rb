@@ -10,11 +10,24 @@
 #
 
 class ShelfMembership < ApplicationRecord
+  before_save :ensure_creation 
+  before_destroy :ensure_destruction
 
   belongs_to :shelf,
   class_name: :Bookshelf,
   foreign_key: :shelf_id
 
+  has_one :owner,
+  through: :shelf
 
   belongs_to :book
+
+  def ensure_creation
+
+  end
+
+  def ensure_destruction
+
+  end
+
 end

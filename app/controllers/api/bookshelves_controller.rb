@@ -3,12 +3,13 @@ class Api::BookshelvesController < ApplicationController
 
   def index
     @shelves = Bookshelf.includes(:books).where(user_id: params[:user_id])
+    @books = @shelves.map{|shelf| shelf.book_ids}.flatten
     render 'api/bookshelves/combined'
   end
 
   def show
     @shelf = Bookshelf.find(params[:id])
-
+    # debugger
     if @shelf 
       render :show 
     else

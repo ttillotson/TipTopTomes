@@ -32,6 +32,6 @@ class Book < ApplicationRecord
   end
 
   def average_rating
-    self.ratings.reduce(:+).to_f / self.ratings.length
+    (self.ratings.reduce(:+).to_f / self.ratings.length * 100).round / 100.0
   end
 end

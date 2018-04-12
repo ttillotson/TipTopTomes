@@ -22,8 +22,8 @@ class Shelf extends React.Component {
 
   render() {
     const { shelf, loading, currentUser, deleteShelfItem } = this.props;
-    
-    if (loading){ return LoadingIcon; }
+
+    if (loading){ return LoadingIcon(); }
 
     const isOwner = currentUser.id === this.props.match.params.userId;
 
@@ -41,9 +41,14 @@ class Shelf extends React.Component {
         <h1>Bookshelf</h1>
         <table>
           <tbody>
-            <tr>
-              <td>Books</td>
-            </tr>
+            <th>
+              <td>cover</td>
+              <td>title</td>
+              <td>avg rating</td>
+              <td>rating</td>
+              <td>shelves</td>
+              <td>date added</td>
+            </th>
               { membershipItems }
           </tbody>
         </table>

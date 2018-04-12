@@ -9,6 +9,7 @@ json.memberships do
       json.extract! membership, :id, :created_at
       json.book do 
         json.partial! 'api/books/book', book: membership.book
+        json.avg_rating membership.book.average_rating
       end
 
       current_user_review = membership.book

@@ -22,7 +22,7 @@ export default ({ shelfItem, deleteShelfItem, isOwner }) => {
       >&#10005</button>
     </td>
   );
-  debugger
+  
   return(
     <tr className='bookshelf_item'>
       <td className='shelf_cover'>

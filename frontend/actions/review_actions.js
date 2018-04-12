@@ -36,7 +36,7 @@ const startLoadingReview = () => ({
 });
 
 export const fetchReviews = (bookId) => (dispatch) => {
-  dispatch(startLoadingReviews);
+  dispatch(startLoadingReviews());
   return ReviewApiUtil.fetchReviews(bookId).then(ajaxReviews =>
     (dispatch(receiveAllReviews(ajaxReviews))
   ), errors => (
@@ -45,7 +45,7 @@ export const fetchReviews = (bookId) => (dispatch) => {
 };
 
 export const fetchReview = (reviewId) => (dispatch) => {
-  dispatch(startLoadingReview);
+  dispatch(startLoadingReview());
   return ReviewApiUtil.fetchReview(reviewId).then(ajaxReview =>
     (dispatch(receiveReview(ajaxReview))
   ), errors => (

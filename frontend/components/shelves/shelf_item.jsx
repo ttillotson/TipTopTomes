@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 export default ({ shelfItem, deleteShelfItem, isOwner }) => {
-  
   const book = shelfItem.book;
   const review = shelfItem.review;
   const addedAt = new Date(shelfItem.createdAt).toDateString().slice(4);

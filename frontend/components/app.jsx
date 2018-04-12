@@ -36,11 +36,11 @@ const App = () => (
         <AuthRoute exact path='/users/new'
           component={CreateUserContainer} />
 
-        <Route path ='/bookshelf/:userId'
-          component={CombinedShelvesContainer} />
-
         <Route path ='/bookshelf/:userId/:bookshelfId'
           component={SingleShelfContainer} />
+
+        <Route path ='/bookshelf/:userId'
+          component={CombinedShelvesContainer} />
 
         <AuthRoute exact path='/session/new'
           component={CreateSessionContainer}/>

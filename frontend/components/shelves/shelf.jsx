@@ -22,14 +22,15 @@ class Shelf extends React.Component {
   }
 
   render() {
-    const { shelf, loading } = this.props;
-
+    const { shelf, loading, currentUser, deleteShelfItem } = this.props;
+    
     if (loading) return LoadingIcon;
 
-    const isOwner = 
-
-    const membershipItems = shelf.memberships.map(shelfItem => (
-      <ShelfItem  
+    const isOwner = currentUser.id === this.props.match.params.userId;
+    debugger;
+    const membershipItems = Object.values(shelf.memberships).map(shelfItem => (
+      <ShelfItem
+        key={`shelfItem-${shelfItem.id}`}
         shelfItem={shelfItem}
         isOwner={isOwner}
         deleteShelfItem={deleteShelfItem}
@@ -39,6 +40,14 @@ class Shelf extends React.Component {
     return (
       <div className='bookshelf'>
         <h1>Bookshelf</h1>
+        <table>
+          <tbody>
+            <tr>
+              Books
+            </tr>
+            {membershipItems}
+          </tbody>
+        </table>
       </div>
     );
   }

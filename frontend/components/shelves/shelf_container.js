@@ -3,7 +3,6 @@ import Shelf from './shelf';
 import {
   fetchShelf,
   createShelf,
-  createShelfItem,
   updateShelf,
   deleteShelf,
   deleteShelfItem,
@@ -11,9 +10,10 @@ import {
 } from '../../actions/shelf_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger;
+  debugger;
   return ({
     shelf: state.entities.shelf,
+    currentUser: state.session.currentUser,
     loading: state.ui.loading.shelfLoading,
     errors: state.errors.shelf
   });
@@ -22,7 +22,6 @@ const mapStateToProps = (state, ownProps) => {
 const mapDispatchToProps = (dispatch) => ({
   fetchShelf: (userId) => dispatch(fetchShelf(userId)),
   createShelf: (shelf) => dispatch(createShelf(shelf)),
-  createShelfItem: (shelfItem) => dispatch(createShelfItem(shelfItem)),
   updateShelf: (shelf) => dispatch(updateShelf(shelf)),
   deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
   deleteShelfItem: (shelfItemId) => dispatch(deleteShelfItem(shelfItemId)),

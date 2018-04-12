@@ -10,7 +10,7 @@ import {
 } from '../../actions/shelf_actions';
 
 const mapStateToProps = (state, ownProps) => {
-  // debugger;
+
   return ({
     shelf: state.entities.shelf,
     currentUser: state.session.currentUser,

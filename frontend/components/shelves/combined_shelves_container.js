@@ -1,9 +1,12 @@
 import { connect } from 'react-redux';
 import Shelf from './shelf';
 import {
-  fetchShelf,
   fetchCombinedShelf,
+  createShelf,
+  createShelfItem,
+  updateShelf,
   deleteShelf,
+  deleteShelfItem,
   receiveErrors
 } from '../../actions/shelf_actions';
 
@@ -18,8 +21,13 @@ const mapStateToProps = (state, ownProps) => {
 
 const mapDispatchToProps = (dispatch) => ({
   fetchCombinedShelf: (userId) => dispatch(fetchCombinedShelf(userId)),
+  createShelf: (shelf) => dispatch(createShelf(shelf)),
+  createShelfItem: (shelfItem) => dispatch(createShelfItem(shelfItem)),
+  updateShelf: (shelf) => dispatch(updateShelf(shelf)),
   deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
-  clearShelf: () => dispatch(fetchShelf({})),
+  deleteShelfItem: (shelfItemId) => dispatch(deleteShelfItem(shelfItemId)),
+  clearShelf: (userId) => dispatch(fetchCombinedShelf(userId)),
+  clearErrors: (errors) => dispatch(receiveErrors(errors)),
 });
 
 export default connect(

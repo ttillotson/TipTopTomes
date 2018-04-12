@@ -37,6 +37,7 @@ const startLoadingShelf = () => ({
   type: START_LOADING_SHELF
 });
 
+
 export const fetchShelf = (shelfId) => (dispatch) => {
   dispatch(startLoadingShelf());
   return ShelfApiUtil.fetchShelf(shelfId).then(ajaxShelf => 
@@ -44,15 +45,6 @@ export const fetchShelf = (shelfId) => (dispatch) => {
   ), errors => ( 
     dispatch(receiveErrors(errors.responseJSON))
   ));
-};
-
-export const createShelfItem = (shelfItem) => (dispatch) => {
-  dispatch(startLoadingShelf());
-  return ShelfApiUtil.createShelfItem(shelfItem).then(ajaxShelfItem =>
-    (dispatch(receiveShelfItem(ajaxShelfItem))
-    ), errors => (
-      dispatch(receiveErrors(errors.responseJSON))
-    ));
 };
 
 export const fetchCombinedShelf = (userId) => (dispatch) => {
@@ -71,6 +63,15 @@ export const createShelf = (shelf) => (dispatch) => (
     dispatch(receiveErrors(errors.responseJSON))
   ))
 );
+
+export const createShelfItem = (shelfItem) => (dispatch) => {
+  dispatch(startLoadingShelf());
+  return ShelfApiUtil.createShelfItem(shelfItem).then(ajaxShelfItem =>
+    (dispatch(receiveShelfItem(ajaxShelfItem))
+    ), errors => (
+      dispatch(receiveErrors(errors.responseJSON))
+    ));
+};
 
 export const updateShelf = (shelf) => (dispatch) => (
   ShelfApiUtil.updateShelf(shelf).then(ajaxShelf => 

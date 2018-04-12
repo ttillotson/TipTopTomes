@@ -15,7 +15,8 @@ const mapStateToProps = (state, ownProps) => {
     shelf: state.entities.shelf,
     currentUser: state.session.currentUser,
     loading: state.ui.loading.shelfLoading,
-    errors: state.errors.shelf
+    errors: state.errors.shelf,
+    shelfType: 'Combined'
   });
 };
 

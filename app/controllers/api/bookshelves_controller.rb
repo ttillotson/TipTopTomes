@@ -3,15 +3,16 @@ class Api::BookshelvesController < ApplicationController
 
   def index
     @shelves = Bookshelf.includes(books: [:reviews]).where(user_id: params[:user_id])
-    @reviews = current_user.reviews
+    @shelf = @shelves.zip
     @books = @shelves.map{|shelf| shelf.book_ids}.flatten
+
     render 'api/bookshelves/combined'
   end
 
   def show
     @shelf = Bookshelf.includes(books: [:reviews]).find(params[:id])
-    @reviews = Review.joins(:user).where(users: {id: current_user.id})
-    @books = @shelf.book_ids
+    @shelves = @shelf.user.shelves.includes(:memberships)
+
     if @shelf 
       render :show 
     else

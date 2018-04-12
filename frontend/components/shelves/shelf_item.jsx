@@ -5,22 +5,24 @@ export default ({ shelfItem, deleteShelfItem, isOwner }) => {
   const book = shelfItem.book;
   const review = shelfItem.review;
   const addedAt = new Date(shelfItem.createdAt).toDateString().slice(4);
+  let reviewId = null;
+  if (review) { reviewId = review.id; }
 
   const editLink = (
     <td>
-      <Link to={`/reviews/${book.id}/${review.id}`}
+      <Link to={`/reviews/${book.id}/${reviewId}`}
       className='shelf_item_edit'
       >Edit Review</Link>
     </td>
   );
   const removeLink = (
     <td>
-      <button onClick={deleteShelfItem(shelfItem.id)}
+      <button onClick={() => deleteShelfItem(shelfItem.id)}
       className='shelf_item_remove'
       >&#10005</button>
     </td>
   );
-
+  debugger
   return(
     <tr className='bookshelf_item'>
       <td className='shelf_cover'>

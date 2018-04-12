@@ -8,7 +8,6 @@ class Shelf extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     if (this.props.match.params.bookshelfId) {
       this.props.fetchShelf(this.props.match.params.bookshelfId);
     } else {
@@ -24,10 +23,10 @@ class Shelf extends React.Component {
   render() {
     const { shelf, loading, currentUser, deleteShelfItem } = this.props;
     
-    if (loading) return LoadingIcon;
+    if (loading){ return LoadingIcon; }
 
     const isOwner = currentUser.id === this.props.match.params.userId;
-    debugger;
+
     const membershipItems = Object.values(shelf.memberships).map(shelfItem => (
       <ShelfItem
         key={`shelfItem-${shelfItem.id}`}
@@ -43,9 +42,9 @@ class Shelf extends React.Component {
         <table>
           <tbody>
             <tr>
-              Books
+              <td>Books</td>
             </tr>
-            {membershipItems}
+              { membershipItems }
           </tbody>
         </table>
       </div>

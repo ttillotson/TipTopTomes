@@ -1,12 +1,4 @@
 @shelves.each do |shelf|
-  json.shelves do 
-    json.set! shelf.id do 
-      json.name shelf.name
-      json.num_books shelf.book_ids.length
-    end
-  end
+  json.partial! 'api/bookshelves/shelf', shelf: shelf, shelves: @shelves
 end
 
-json.all_books do 
-  json.array! @books
-end

@@ -1,5 +1,6 @@
 import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
+import ShelfItem from './shelf_item';
 
 class Shelf extends React.Component {
   constructor(props) {
@@ -21,6 +22,19 @@ class Shelf extends React.Component {
   }
 
   render() {
+    const { shelf, loading } = this.props;
+
+    if (loading) return LoadingIcon;
+
+    const isOwner = 
+
+    const membershipItems = shelf.memberships.map(shelfItem => (
+      <ShelfItem  
+        shelfItem={shelfItem}
+        isOwner={isOwner}
+        deleteShelfItem={deleteShelfItem}
+      />
+    ));
 
     return (
       <div className='bookshelf'>

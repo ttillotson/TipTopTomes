@@ -22,14 +22,21 @@ class ShelfMembership < ApplicationRecord
 
   belongs_to :book
 
+  has_many :reviews,
+    through: :book
+
+  def review
+    self.reviews.find_by(author_id: current_user.id)
+  end
+
   def handle_creation
-    break unless self.valid? 
+    return unless self.valid? 
     default_member = self.user.default_membership(self.book_id)
     default_member.destroy if !!default_member
   end
 
   def handle_destruction
-    break if self.user != current_user
+    return if self.user != current_user
     if !!self.user.default_membership(self.book_id)
       shelf_members = self.user.shelf_memberships
                    .where(book_id: self.book_id)

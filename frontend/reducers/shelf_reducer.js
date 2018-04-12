@@ -5,18 +5,21 @@ import { RECEIVE_SHELF,
         } from '../actions/shelf_actions';
 import merge from 'lodash/merge';
 
-const BookShelfReducer = (state={}, action) => {
+const defaultState = {name: '', memberships: {}};
+
+const BookShelfReducer = (state=defaultState, action) => {
   Object.freeze(state);
   let newState = merge({}, state);
   switch(action.type) {
     case RECEIVE_SHELF:
-      return merge(newState, action.shelf);
+      newState = merge(newState.memberships, action.shelf.memberships);
+      return merge(newState.name, action.shelf.name);
     case RECEIVE_SHELF_ITEM:
-      return merge(newState, {[action.shelfItemId]: action.shelfItem});
+      return merge(newState.memberships, {[action.shelfItemId]: action.shelfItem});
     case REMOVE_SHELF: 
-      return {};
+      return defaultState;
     case REMOVE_SHELF_ITEM: 
-      delete newState[action.shelfItemId];
+      delete newState.memberships[action.shelfItemId];
       return newState;
     default: 
       return state;

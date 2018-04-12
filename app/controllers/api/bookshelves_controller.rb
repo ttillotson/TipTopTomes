@@ -2,14 +2,14 @@ class Api::BookshelvesController < ApplicationController
   before_action :require_logged_in, only: [:create, :update]
 
   def index
-    @shelves = Bookshelf.includes(:books).where(user_id: params[:user_id])
+    @shelves = Bookshelf.includes(books: [:reviews]).where(user_id: params[:user_id])
     @books = @shelves.map{|shelf| shelf.book_ids}.flatten
     render 'api/bookshelves/combined'
   end
 
   def show
-    @shelf = Bookshelf.find(params[:id])
-    # debugger
+    @shelf = Bookshelf.includes(books: [:reviews]).find(params[:id])
+
     if @shelf 
       render :show 
     else

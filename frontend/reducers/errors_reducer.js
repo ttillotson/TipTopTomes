@@ -1,8 +1,10 @@
 import sessions from './session_errors_reducer';
-import review from './reviews_error_reducer';
+import reviews from './reviews_error_reducer';
+import shelf from './shelf_errors_reducer';
 import { combineReducers } from 'redux';
 
 export default combineReducers({
   sessions,
-  review
+  reviews,
+  shelf,
 });

@@ -1,4 +1,4 @@
-import * as ShelfApiUtil from 'shelf_api_util';
+import * as ShelfApiUtil from '../util/shelf_api_util';
 import { REMOVE_REVIEW } from './review_actions';
 
 export const RECEIVE_SHELF = 'RECEIVE_SHELF';

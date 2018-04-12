@@ -10,23 +10,31 @@
 #
 
 class ShelfMembership < ApplicationRecord
-  before_save :ensure_creation 
-  before_destroy :ensure_destruction
+  before_save :handle_creation 
+  before_destroy :handle_destruction
 
   belongs_to :shelf,
-  class_name: :Bookshelf,
-  foreign_key: :shelf_id
+    class_name: :Bookshelf,
+    foreign_key: :shelf_id
 
-  has_one :owner,
-  through: :shelf
+  has_one :user,
+    through: :shelf
 
   belongs_to :book
 
-  def ensure_creation
-
+  def handle_creation
+    break unless self.valid? 
+    default_member = self.user.default_membership(self.book_id)
+    default_member.destroy if !!default_member
   end
 
-  def ensure_destruction
-
+  def handle_destruction
+    if !!self.user.default_membership(self.book_id)
+      shelf_members = self.user.shelf_memberships
+                   .where(book_id: self.book_id)
+      shelf_members.each do |book|
+        book.destroy
+      end
+    end
   end
 end

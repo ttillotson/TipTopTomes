@@ -30,17 +30,3 @@ end
 
 
 
-# ShelfMembership.create(shelf_id:(1 * user_count) , book_id: 55)
-# ShelfMembership.create(shelf_id:(1 * user_count) , book_id: 45)
-# ShelfMembership.create(shelf_id:(1 * user_count) , book_id: 37)
-# ShelfMembership.create(shelf_id:(1 * user_count) , book_id: 96)
-# ShelfMembership.create(shelf_id:(1 * user_count) , book_id: 71)
-# ShelfMembership.create(shelf_id:(1 * user_count) , book_id: 1)
-# ShelfMembership.create(shelf_id:(2 * user_count) , book_id: 5)
-# ShelfMembership.create(shelf_id:(2 * user_count) , book_id: 19)
-# ShelfMembership.create(shelf_id:(2 * user_count) , book_id: 18)
-# ShelfMembership.create(shelf_id:(2 * user_count) , book_id: 43)
-# ShelfMembership.create(shelf_id:(2 * user_count) , book_id: 112)
-# ShelfMembership.create(shelf_id:(1 * user_count) , book_id: 26)
-# ShelfMembership.create(shelf_id:(3 * user_count) , book_id: 31)
-# ShelfMembership.create(shelf_id:(3 * user_count) , book_id: 77)

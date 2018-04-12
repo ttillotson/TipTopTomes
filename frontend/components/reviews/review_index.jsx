@@ -13,7 +13,7 @@ class ReviewIndex extends React.Component {
 
     if (loading){ return LoadingIcon; }
 
-    const reviewItems = Object.values(reviews).map((review, i) => (
+    const reviewItems = Object.values(reviews).reverse().map((review, i) => (
       <ReviewItem
         key={`review-${review.id}`}
         review={review}

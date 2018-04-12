@@ -1,20 +1,28 @@
 import { connect } from 'react-redux';
-import CombinedShelves from './combined_shelves';
+import Shelf from './shelf';
+import {
+  fetchShelf,
+  fetchCombinedShelf,
+  deleteShelf,
+  receiveErrors
+} from '../../actions/shelf_actions';
 
 const mapStateToProps = (state, ownProps) => {
-    debugger;
+  // debugger;
   return ({
     shelf: state.entities.shelf,
-    loading: state.ui.loading.shelfLoading
+    loading: state.ui.loading.shelfLoading,
+    errors: state.errors.shelf
   });
 };
 
 const mapDispatchToProps = (dispatch) => ({
-
-  clearShelf: () => dispatch(receiveShelf({})),
+  fetchCombinedShelf: (userId) => dispatch(fetchCombinedShelf(userId)),
+  deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
+  clearShelf: () => dispatch(fetchShelf({})),
 });
 
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(CombinedShelves);
+)(Shelf);

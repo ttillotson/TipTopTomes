@@ -49,12 +49,12 @@ class User < ApplicationRecord
     shelf_memberships.flatten
   end
 
-  def default_membership?(book_id)
+  def default_membership(book_id)
     shelf_book = self.shelves
     .includes(:memberships)
     .limit(3)
     .find(book_id: book_id)
-    return !!shelf_book
+    return shelf_book
   end
 
 

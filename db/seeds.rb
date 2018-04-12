@@ -11,7 +11,6 @@ require_relative 'seed_data/shelf_seed_script'
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # User Seeds
-user0 = User.create(username: 'AppAcademy', password: 'majestic_corgi', email: 'appacademy@aa.io')
 user1 = User.create(username: 'LoveBooks', password: 'lovebooks', email: 'totallyrealemail@emails.com')
 user2 = User.create(username: 'BookLove', password: 'mmmbooks', email: 'hardcovers@emails.com')
 user3 = User.create(username: 'IAmTipTop', password: 'in_the_tulips', email: 'tables@emails.com')
@@ -27,6 +26,7 @@ user12 = User.create(username: 'caughttherye', password: 'caulfield', email: 'al
 user13 = User.create(username: 'raisinsoffury', password: 'better_than_grapes', email: 'steinbeck@emails.com')
 user14 = User.create(username: 'Rincewind', password: 'wizzard', email: 'discworld@emails.com')
 user15 = User.create(username: 'Vetinari', password: 'ankh_morpork', email: 'witty_remark@emails.com')
+user16 = User.create(username: 'AppAcademy', password: 'majestic_corgi', email: 'appacademy@aa.io')
 demo = User.create(username: 'DemoUser', password: 'password', email: 'demo_user@demos.com')
 admin = User.create(username: 'admin', password: 'password', email: 'admin')
 

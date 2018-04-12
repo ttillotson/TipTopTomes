@@ -29,6 +29,7 @@ class ShelfMembership < ApplicationRecord
   end
 
   def handle_destruction
+    break if self.user != current_user
     if !!self.user.default_membership(self.book_id)
       shelf_members = self.user.shelf_memberships
                    .where(book_id: self.book_id)

@@ -25,7 +25,6 @@ class ShelfItemForm extends React.Component {
     // }
 
     addToShelf(e) {
-        debugger
         this.props.createShelfItem({ shelfId: e, bookId: this.props.bookId });
     }
 

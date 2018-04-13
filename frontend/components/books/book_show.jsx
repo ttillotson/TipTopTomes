@@ -21,7 +21,7 @@ class BookShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
       this.props.fetchBook(nextProps.match.params.bookId);
-      this.setState({shelfForm: false })
+      this.setState({shelfForm: false });
     }
   }
 
@@ -38,10 +38,10 @@ class BookShow extends React.Component {
 
     const avgRating = book.averageRating;
 
-    let addButton = <button className='add_button' onClick={() => this.triggerForm()}>Add to Shelf</button>
+    let addButton = <button className='add_button' onClick={() => this.triggerForm()}>Add to Shelf</button>;
 
     const shelfLogic = this.state.shelfForm ? <ShelfItemFormContainer bookId={book.id} /> : addButton;
-    debugger
+
     return (
       <div className='book_show_container'>
         <article className='book_show'>
@@ -50,7 +50,7 @@ class BookShow extends React.Component {
               <img className='book_show_image'
                 src={`${book.imgUrl}`}
                 alt={`Book Cover`} />
-                { shelfLogic }
+                {/* { shelfLogic } */}
             </section>
 
             <section className='book_info_detail'>

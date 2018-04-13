@@ -2,7 +2,6 @@ json.extract! shelf, :name
 username = shelf.user.username
 json.owner  username
 json.memberships do 
-  # debugger
   if shelf.memberships.length > 1
     shelf.memberships.each do |membership|
       owner_review = membership.book.reviews

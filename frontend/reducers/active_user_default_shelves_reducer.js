@@ -2,18 +2,17 @@ import { RECEIVE_BOOK } from '../actions/book_actions';
 import { RECEIVE_SHELF } from '../actions/shelf_actions';
 import merge from 'lodash/merge';
 
-const ActiveUserShelvesReducer = (state = {}, action) => {
+const ActiveUserDefaultShelvesReducer = (state = {}, action) => {
     Object.freeze(state);
     let newState = merge({}, state);
     switch (action.type) {
         case RECEIVE_BOOK:
-            debugger;
-            return merge({}, action.book.activeShelves);
+            return  action.book.activeDefaultShelves;
         case RECEIVE_SHELF:
-            return merge(newState[action.review]);
+            return  action.shelf.activeDefaultShelves;
         default:
             return state;
     }
 };
 
-export default ActiveUserShelvesReducer;
+export default ActiveUserDefaultShelvesReducer;

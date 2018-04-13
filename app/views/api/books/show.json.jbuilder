@@ -1,6 +1,11 @@
 json.book do 
   json.partial! 'book', book: @book
   json.extract! @book, :average_rating, :description, :published, :ISBN
+  if current_user 
+    json.shelves do 
+      json.array! @book_shelves.pluck(:name)
+    end
+end
 end
 json.reviews do 
   @book.reviews.each do |review|
@@ -12,23 +17,8 @@ json.reviews do
     end
   end
 end
-# if current_user
-#   json.active_default_books do 
-#     @user_default_memberships.each do |shelf|
-#       shelf.each do |membership|
-#         json.set! membership.book_id do 
-#           json.name membership.shelf.name 
-#           json.shelf_id membership.shelf_id
-#         end
-#       end
-#     end
-#   end
-#   json.active_shelves do 
-#     json.array! @user_shelves do |shelf|
-#       json.extract! shelf, :name, :book_ids
-#     end
-#   end
-# end
+
+
 json.partial! 'api/shared/user_actives',
   user_made_shelves: @user_made_shelves,
   user_default_shelves: @user_default_shelves, 

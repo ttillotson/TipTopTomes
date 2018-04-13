@@ -8,7 +8,7 @@ class  UserContent extends React.Component {
   }
 
   render() {
-    const { currentUser, book, reviews } = this.props;
+    const { currentUser, book, reviews, status } = this.props;
     let userReview = undefined;
     let reviewComponent;
     let editReview;
@@ -21,8 +21,23 @@ class  UserContent extends React.Component {
 
       editReview = <Link to={`/reviews/${book.id}/${userReview.id}`}
                     className='add_review_link'>
-                    Edit your Review</Link
-                    >;
+                    Edit your Review
+                    </Link>;
+
+      // debugger
+      let bookStatus= null;
+      if (status) {
+        bookStatus = status.name;
+      }
+      let shelves = null;
+      if (book.shelves.length > 0){
+        shelves = (
+          <ul>
+            { book.shelves.map((shelfStr, i) => <li key={`shelf-${i}`}>{shelfStr}</li>) } 
+          </ul>
+        );
+      }
+
 
       reviewComponent = (
         <table>
@@ -37,11 +52,11 @@ class  UserContent extends React.Component {
             </tr>
             <tr>
               <td className='row_key'>Shelves</td>
-              <td className='row_value'></td>
+              <td className='row_value'>{ shelves }</td>
             </tr>
             <tr>
               <td className='row_key'>Status</td>
-              <td className='row_value'></td>
+              <td className='row_value'>{ bookStatus }</td>
             </tr>
             <tr>
               <td className='row_key'>Review</td>

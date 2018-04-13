@@ -7,9 +7,11 @@ const ActiveUserDefaultShelvesReducer = (state = {}, action) => {
     let newState = merge({}, state);
     switch (action.type) {
         case RECEIVE_BOOK:
-            return  action.book.activeDefaultShelves;
+            if (action.book.activeDefaultShelves) return action.book.activeDefaultShelves;
+            return state;
         case RECEIVE_SHELF:
-            return  action.shelf.activeDefaultShelves;
+            if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
+            return state;
         default:
             return state;
     }

@@ -5,6 +5,7 @@ class Api::BooksController < ApplicationController
 
   def show
     @book = Book.includes(reviews: [:user]).find(params[:id])
+    @book_shelves = @book.shelves.where(user: current_user)
     if current_user 
       @user_default_memberships = current_user.default_books
       @user_made_shelves = current_user.shelves.includes(:books).offset(3)

@@ -26,6 +26,9 @@ class Book < ApplicationRecord
   dependent: :destroy,
   inverse_of: :book
 
+  has_many :shelves,
+  through: :memberships
+
 
   def ratings
     self.reviews.map(&:rating)

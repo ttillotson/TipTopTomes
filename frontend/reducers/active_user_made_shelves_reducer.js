@@ -4,13 +4,13 @@ import merge from 'lodash/merge';
 
 const ActiveUserMadeShelvesReducer = (state = {}, action) => {
     Object.freeze(state);
-    let newState = merge({}, state);
     switch (action.type) {
         case RECEIVE_BOOK:
-            debugger;
-            return action.book.activeMadeShelves;
+            if (action.book.activeMadeShelves) return action.book.activeMadeShelves;
+            return state;
         case RECEIVE_SHELF:
-            return action.shelf.activeMadeShelves;
+            if (Boolean(action.shelf.activeMadeShelves)) return action.shelf.activeMadeShelves;
+            return state;
         default:
             return state;
     }

@@ -5,6 +5,10 @@ class Api::BookshelvesController < ApplicationController
     @shelves = Bookshelf.includes(books: [:reviews]).where(user_id: params[:user_id])
     @shelf = @shelves.zip
     @books = @shelves.map{|shelf| shelf.book_ids}.flatten
+    @user_default_memberships = current_user.default_books
+    @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+    @user_default_shelves = current_user.shelves.includes(:books).limit(3)
+
 
     render 'api/bookshelves/combined'
   end

@@ -8,16 +8,17 @@ import {
   deleteShelfItem,
   receiveErrors
 } from '../../actions/shelf_actions';
+import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => ({
-  shelves: state.entities.shelf
+  shelf: state.entities.shelf
 });
 
 const mapDispatchToProps = (dispatch) => ({
-
+  deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
 });
 
-export default connect(
+export default withRouter(connect(
   mapStateToProps,
   mapDispatchToProps
-)(ShelfNav);
+)(ShelfNav));

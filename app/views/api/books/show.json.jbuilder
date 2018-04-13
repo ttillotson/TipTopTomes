@@ -1,6 +1,6 @@
 json.book do 
   json.partial! 'book', book: @book
-  json.extract! @book, :average_rating
+  json.extract! @book, :average_rating, :description, :published, :ISBN
 end
 json.reviews do 
   @book.reviews.each do |review|

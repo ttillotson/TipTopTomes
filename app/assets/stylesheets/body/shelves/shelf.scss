@@ -2,6 +2,11 @@
   width: 960px;
   margin: auto;
   display: flex;
+
+  .bookshelf_nav {
+    width: 210px;
+  }
+
   .bookshelf {
     margin-top: 20px;
     order: 2;
@@ -18,6 +23,36 @@
         font-size: 12px;
       }
     }
+    col {
+      .cover {
+        width: 105px;
+      }
+      .title {
+        width: 182px;
+      }
+      .author {
+        width: 120px;
+      }
+      .avg_rating {
+        width: 58px;
+      }
+      .rating {
+        width: 40px;
+      }
+      .shelves {
+        width: 68px;
+      }
+      .date_added {
+        width: 75px;
+      }
+      .edit_link {
+        width: 50px;
+      }
+      .remove_link {
+        width: 20px;
+      }
+    }
+
     .bookshelf_item {
       height: 150px;
       vertical-align: top;
@@ -31,25 +66,7 @@
       .shelf_cover {
         width: 105px;
         height: 150px;
-      }
-      .shelf_item_title{
-        width: 182px;
-      }
-      .shelf_item_author {
-        max-width: 120px;
-      }
-      .shelf_item_rating {
-        max-width: 40px;
-      }
-      .item_created_at {
-
-      }
-      .shelf_item_remove {
-
-      }
-      .shelf_item_edit {
-
-      }
+      }    
     }
   }
 }

@@ -12,7 +12,7 @@ class ShelfNav extends React.Component {
 
 
   componentWillReceiveProps(nextProps) {
-    debugger
+    debugger;
   }
 
   update() {
@@ -20,8 +20,9 @@ class ShelfNav extends React.Component {
   }
 
   render () {
-    let shelves = Object.values(this.props.shelf.shelves);
-    let shelfIds = Object.keys(this.props.shelf.shelves);
+    const { createShelf, isOwner, shelf } = this.props;
+    let shelves = Object.values(shelf.shelves);
+    let shelfIds = Object.keys(shelf.shelves);
     let shelvesInfo = shelves.map((aShelf, i )=> [ shelfIds[i], aShelf.name, aShelf.books.length] );
 
     let shelfOwner = this.props.match.params.userId;
@@ -32,11 +33,11 @@ class ShelfNav extends React.Component {
       </li> 
     );
 
+    
     let addButton = <button onClick={() => this.update()}  className='add_shelf' >Add Shelf</button>;
-
-    let addButtonLogic = this.state.addForm ? <AddShelfForm /> : addButton; 
-
-    const isOwner = this.props.isOwner;
+    
+    let addButtonLogic = this.state.addForm ? <AddShelfForm createShelf={createShelf}/> : addButton; 
+    
 
     return (
       <ul>

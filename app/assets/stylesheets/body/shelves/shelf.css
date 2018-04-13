@@ -1,21 +1,20 @@
 /*
 Error: Undefined variable: "$book_info_font".
-        on line 6 of shelf.scss
+        on line 5 of shelf.scss
 
 1: .bookshelf_page {
 2:     width: 960px;
 3:     margin: auto;
-4: 
-5:     .heading {
-6:         font-family: $book_info_font;
-7:         font-size: 20px;
-8:         font-weight: 700;
-9:         text-align: left;
-10:         margin-top: 10px;
-11:     }
+4:     .heading {
+5:         font-family: $book_info_font;
+6:         font-size: 20px;
+7:         font-weight: 700;
+8:         text-align: left;
+9:         margin-top: 20px;
+10:     }
 
 Backtrace:
-shelf.scss:6
+shelf.scss:5
 /Users/travist/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Users/travist/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
 /Users/travist/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -80,4 +79,4 @@ shelf.scss:6
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$book_info_font\".\A         on line 6 of shelf.scss\A \A 1: .bookshelf_page {\A 2:     width: 960px;\A 3:     margin: auto;\A 4: \A 5:     .heading {\A 6:         font-family: $book_info_font;\A 7:         font-size: 20px;\A 8:         font-weight: 700;\A 9:         text-align: left;\A 10:         margin-top: 10px;\A 11:     }"; }
+  content: "Error: Undefined variable: \"$book_info_font\".\A         on line 5 of shelf.scss\A \A 1: .bookshelf_page {\A 2:     width: 960px;\A 3:     margin: auto;\A 4:     .heading {\A 5:         font-family: $book_info_font;\A 6:         font-size: 20px;\A 7:         font-weight: 700;\A 8:         text-align: left;\A 9:         margin-top: 20px;\A 10:     }"; }

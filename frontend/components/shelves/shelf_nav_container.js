@@ -12,7 +12,6 @@ import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => ({
   shelf: state.entities.shelf,
-  currentUser: state.session.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({

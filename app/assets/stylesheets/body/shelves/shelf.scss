@@ -1,14 +1,23 @@
 .bookshelf_page {
     width: 960px;
     margin: auto;
-
     .heading {
         font-family: $book_info_font;
         font-size: 20px;
         font-weight: 700;
         text-align: left;
-        margin-top: 10px;
+        margin-top: 20px;
     }
+}
+
+.add_shelf {
+    color: #333333;
+    margin-top: 7px;
+    padding: 3px 9px;
+    border: 1px solid #D6D0C4;
+    border-radius: 3px;
+    background-color: #F4F1EA;
+    font-size: 11px;
 }
 
 .bookshelf_container {
@@ -17,23 +26,31 @@
     display: flex;
     font-family: $text_font;
     .bookshelf_nav {
-        width: 160px;
-        margin-top: 35px;
-
-        h3{
-          font-size: 14px;
-          font-weight: 700;
-          text-transform: uppercase;
-          margin-bottom: 3px;
+        width: 190px;
+        margin-top: 27px;
+        h3 {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 3px;
         }
-
         li {
-          padding: 1px 0;
-          color: #00635D;
+            padding: 1px 0;
+            color: #00635D;
+        }
+        .shelf_input {
+            margin-top: 4px;
+            padding: 3px 4px;
+            font-size: 13px;
+            line-height: 14px;
+            background-color: #FFFFFF;
+            border: 1px solid #D6D6CC;
+            border-radius: 3px;
+            color: #333;
         }
     }
     .bookshelf {
-        margin-top: 15px;
+        margin-top: 7px;
         order: 2;
         width: 750px;
         border-collapse: collapse;

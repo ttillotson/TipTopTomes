@@ -23,18 +23,16 @@ class AddShelfForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.submitReview(this.state);
+    this.props.createShelf(this.state);
   }
 
   render() {
-    const { review, loading, book } = this.props;
-    if (loading) { return <LoadingIcon />; }
-    if (!book) { return null; }
-    if (!review) { return <LoadingIcon />; }
+
 
     return (
-      <form className='add_shelf_form'>
-
+      <form className='add_shelf_form' onSubmit={this.handleSubmit}>
+        <input className='shelf_input' type="text" value={this.state.name}/>
+        <button className='add_shelf'>Add</button>
       </form>
     );
   }

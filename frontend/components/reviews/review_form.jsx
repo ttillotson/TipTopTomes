@@ -82,7 +82,7 @@ class ReviewForm extends React.Component {
                 <select value={this.state.rating}
                   onChange={this.update('rating')}
                   >
-                  <option disabled defaultValue value='1'> - </option>
+                  <option defaultValue value='1'> - </option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
                   <option value='4'>4</option>

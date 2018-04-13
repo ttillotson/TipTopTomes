@@ -7,13 +7,13 @@ import {
 } from '../../actions/shelf_actions';
 import { withRouter } from 'react-router';
 
-const mapStateToProps = (state, ownProps) => {
-    debugger;
-    return ({
-        defaultShelf: state.entities.activeUserBooks[ownProps.bookId],
-        allShelves: null,
-    });
-};
+const mapStateToProps = (state, ownProps) => ({
+    defaultShelf: state.entities.activeUserBooks[ownProps.bookId],
+    defaultShelves: state.entities.activeUserDefaultShelves,
+    createdShelves: state.entities.activeUserMadeShelves,
+    inShelves: null,
+});
+
 
 const mapDispatchToProps = (dispatch) => ({
     createShelfItem: (shelfItem) => dispatch(createShelfItem(shelfItem)),

@@ -24,16 +24,16 @@ class  UserContent extends React.Component {
                     Edit your Review
                     </Link>;
 
-      // debugger
       let bookStatus= null;
       if (status) {
         bookStatus = status.name;
       }
       let shelves = null;
-      if (book.shelves.length > 0){
+
+      if (Object.values(book.shelves).length > 0){
         shelves = (
           <ul>
-            { book.shelves.map((shelfStr, i) => <li key={`shelf-${i}`}>{shelfStr}</li>) } 
+            {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
           </ul>
         );
       }

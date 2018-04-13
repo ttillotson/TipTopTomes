@@ -6,6 +6,7 @@ class ShelfItemForm extends React.Component {
         this.state = {
 
         };
+        debugger
     }
 
     componentWillUnmount() {

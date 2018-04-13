@@ -21,7 +21,7 @@ class Shelf extends React.Component {
   }
 
   render() {
-    const { shelf, loading, currentUser, deleteShelfItem } = this.props;
+    const { shelf, loading, currentUser, deleteShelfItem, shelves } = this.props;
 
     if (loading){ return LoadingIcon(); }
 
@@ -33,22 +33,26 @@ class Shelf extends React.Component {
         shelfItem={shelfItem}
         isOwner={isOwner}
         deleteShelfItem={deleteShelfItem}
+        shelf={shelf}
       />
     ));
 
     return (
-      <div className='bookshelf'>
+      <div className='bookshelf_container'>
         <h1>Bookshelf</h1>
-        <table>
+        <table className='bookshelf' >
+          <thead>
+            <tr>
+              <th>cover</th>
+              <th>title</th>
+              <th>author</th>
+              <th>avg rating</th>
+              <th>rating</th>
+              <th>shelves</th>
+              <th>date added</th>
+            </tr>
+          </thead>
           <tbody>
-            <th>
-              <td>cover</td>
-              <td>title</td>
-              <td>avg rating</td>
-              <td>rating</td>
-              <td>shelves</td>
-              <td>date added</td>
-            </th>
               { membershipItems }
           </tbody>
         </table>

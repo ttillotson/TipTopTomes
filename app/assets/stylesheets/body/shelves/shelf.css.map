@@ -1,7 +1,7 @@
 {
 "version": 3,
-"mappings": "",
-"sources": [],
+"mappings": "AAAA,oBAAqB;EACnB,KAAK,EAAE,KAAK;EACZ,MAAM,EAAE,IAAI;EACZ,+BAAW;IACT,KAAK,EAAE,KAAK",
+"sources": ["shelf.scss"],
 "names": [],
 "file": "shelf.css"
 }

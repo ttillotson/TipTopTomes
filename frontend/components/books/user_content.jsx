@@ -30,7 +30,7 @@ class  UserContent extends React.Component {
       }
       let shelves = null;
 
-      if (Object.values(book.shelves).length > 0){
+      if (book.shelves && Object.values(book.shelves).length > 0){
         shelves = (
           <ul>
             {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 

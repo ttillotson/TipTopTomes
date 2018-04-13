@@ -17,6 +17,7 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   createShelf: (shelf) => dispatch(createShelf(shelf)),
   deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
+  clearErrors: (errors) => dispatch(receiveErrors(errors)),
 });
 
 export default withRouter(connect(

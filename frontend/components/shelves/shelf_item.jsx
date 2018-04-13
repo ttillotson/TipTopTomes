@@ -37,9 +37,15 @@ export default ({ shelfItem, deleteShelfItem, isOwner, shelf }) => {
   return(
     <tr className='bookshelf_item'>
       <td className='shelf_cover_container'>
-        <img className='shelf_cover' src={book.imgUrl} />
+        <Link to={`/books/${book.id}`}>
+          <img className='shelf_cover' src={book.imgUrl} />
+        </Link>
       </td>
-      <td className='shelf_item_title'>{book.title}</td>
+      <td className='shelf_item_title'>
+        <Link to={`/books/${book.id}`}>
+          {book.title}
+        </Link>
+      </td>
       <td className='shelf_item_author'>{book.author}</td>
       <td className='shelf_item_rating' >{book.avgRating}</td>
       <td>{ book.rating }</td>

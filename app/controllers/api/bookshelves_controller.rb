@@ -23,7 +23,8 @@ class Api::BookshelvesController < ApplicationController
   def create
     @shelf = Bookshelf.new(bookshelf_params)
     @shelf.user_id = current_user.id
-    debugger
+    @shelves = @shelf.user.shelves.includes(:memberships)
+
     if @shelf.save!
       render :show
     else

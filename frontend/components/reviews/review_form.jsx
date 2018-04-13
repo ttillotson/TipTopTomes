@@ -46,6 +46,12 @@ class ReviewForm extends React.Component {
     if (!book) { return null; }
     if (!review) { return <LoadingIcon />; }
 
+
+
+
+
+
+
     return (
       <div className='review_form_container'>
         <div className='review_content'>
@@ -76,8 +82,7 @@ class ReviewForm extends React.Component {
                 <select value={this.state.rating}
                   onChange={this.update('rating')}
                   >
-                  <option disabled defaultValue value='0'> - </option>
-                  <option value='1'>1</option>
+                  <option disabled defaultValue value='1'> - </option>
                   <option value='2'>2</option>
                   <option value='3'>3</option>
                   <option value='4'>4</option>
@@ -89,13 +94,10 @@ class ReviewForm extends React.Component {
             <fieldset className='form_item'>
               <legend className='bookshelves'>
                 Bookshelves
-                <select onChange={this.update()}>
+                <select onChange={this.update('shelf')}>
                   <option disabled defaultValue>Read</option>
                   <option disabled value='1'>1</option>
                   <option disabled value='2'>2</option>
-                  <option disabled value='3'>3</option>
-                  <option disabled value='4'>4</option>
-                  <option disabled value='5'>5</option>
                 </select>
               </legend>
             </fieldset>

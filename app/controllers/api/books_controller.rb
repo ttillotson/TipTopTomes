@@ -5,6 +5,10 @@ class Api::BooksController < ApplicationController
 
   def show
     @book = Book.includes(reviews: [:user]).find(params[:id])
+    if current_user 
+      @user_memberships = current_user.memberships
+      # current_user.memberships.includes(:shelf)
+    end
     if @book
       render :show
     else

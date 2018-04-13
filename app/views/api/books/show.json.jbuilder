@@ -13,7 +13,12 @@ json.reviews do
   end
 end
 if current_user
-  json.shelves do 
-    json.array! current_user.shelves, :id, :name, :book_ids
+  json.active_books do 
+    @user_memberships.each do |membership|
+      json.set! membership.book_id do 
+        json.name membership.shelf.name 
+        json.shelf_id membership.shelf_id
+      end
+    end
   end
 end

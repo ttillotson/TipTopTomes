@@ -20,7 +20,7 @@ class ShelfNav extends React.Component {
   }
 
   render () {
-    const { createShelf, isOwner, shelf } = this.props;
+    const { createShelf, clearErrors, isOwner, shelf } = this.props;
     let shelves = Object.values(shelf.shelves);
     let shelfIds = Object.keys(shelf.shelves);
     let shelvesInfo = shelves.map((aShelf, i )=> [ shelfIds[i], aShelf.name, aShelf.books.length] );
@@ -33,10 +33,11 @@ class ShelfNav extends React.Component {
       </li> 
     );
 
+    const addShelfForm = <AddShelfForm clearErrors={clearErrors} createShelf={createShelf} />;
     
     let addButton = <button onClick={() => this.update()}  className='add_shelf' >Add Shelf</button>;
     
-    let addButtonLogic = this.state.addForm ? <AddShelfForm createShelf={createShelf}/> : addButton; 
+    let addButtonLogic = this.state.addForm ? addShelfForm : addButton; 
     
 
     return (

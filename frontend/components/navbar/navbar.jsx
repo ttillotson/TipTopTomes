@@ -13,6 +13,17 @@ class NavBar extends React.Component {
 
   render() {
     let { currentUser, signout, signin } = this.props;
+
+    let myBooks = null ;
+
+    if (currentUser){
+      myBooks = (<Link to={`/bookshelf/${currentUser.id}`}>
+                  <li>
+                    My Books
+                  </li>
+                </Link>)
+    }
+
     return (
       <div className='nav_bar_container'>
         <nav className='nav_bar'>
@@ -22,11 +33,7 @@ class NavBar extends React.Component {
               Home
             </li>
           </Link>
-          <Link to={`/bookshelf/${currentUser.id}`}>
-            <li>
-              My Books
-            </li>
-          </Link>
+          { myBooks }
         </ul>
 
         <SessionButtons

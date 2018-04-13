@@ -31,6 +31,8 @@ class User < ApplicationRecord
   foreign_key: :user_id,
   dependent: :destroy
 
+  has_many :memberships,
+  through: :shelves
 
   has_many :books,
   through: :shelves

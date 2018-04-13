@@ -91,8 +91,6 @@ class ReviewForm extends React.Component {
               </legend>
             </fieldset>
 
-            <ShelfItemFormContainer bookId={book.id} />
-
             <fieldset className='form_item'>
               <legend> What did you think?</legend>
               <textarea

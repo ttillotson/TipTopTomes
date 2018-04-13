@@ -12,7 +12,7 @@ if current_user
     json.active_default_shelves do 
         user_default_shelves.each do |shelf|
             json.set! shelf.id do 
-                json.extract! shelf, :name, :book_ids
+                json.extract! shelf, :id, :name, :book_ids
             end
         end
     end

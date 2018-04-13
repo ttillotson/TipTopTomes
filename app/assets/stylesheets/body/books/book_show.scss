@@ -65,3 +65,27 @@
     }
   }
 }
+.add_shelf_form {
+  border: 1px solid #dddddd;
+  background-color: rgba(242, 242, 242, 0.97);
+  width: 150px;
+  float: right;
+  position: absolute;
+  top: 373px;
+  left: 63px;
+  z-index: 2;
+
+  .shelf_option {
+    margin: 2px 0;
+    padding: 1px 3px;
+    font-size: 13px;
+    font-family: $text-font;
+    font-weight: 700;
+    text-align: right;
+    color: #181818;
+
+  }
+  .shelf_option:hover {
+    cursor: pointer;
+  }
+}

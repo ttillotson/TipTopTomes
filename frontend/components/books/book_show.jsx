@@ -6,6 +6,14 @@ import UserContentContainer from './user_content_container';
 import ShelfItemFormContainer from '../shelves/shelf_item_form_container';
 
 class BookShow extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      shelfForm: false
+    };
+  }
+
+
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.bookId);
   }
@@ -13,11 +21,16 @@ class BookShow extends React.Component {
   componentWillReceiveProps(nextProps) {
     if (this.props.match.params.bookId !== nextProps.match.params.bookId) {
       this.props.fetchBook(nextProps.match.params.bookId);
+      this.setState({shelfForm: false })
     }
   }
 
+  triggerForm() {
+    this.setState({ shelfForm: true });
+  }
+
   render() {
-    const { book, bookLoading, reviewLoading, currentUser } = this.props;
+    const { book, bookLoading, reviewLoading, currentUser, defaultShelf } = this.props;
 
     if (bookLoading) { return <LoadingIcon />; }
     if (reviewLoading) { return <LoadingIcon />; }
@@ -25,6 +38,10 @@ class BookShow extends React.Component {
 
     const avgRating = book.averageRating;
 
+    let addButton = <button className='add_button' onClick={() => this.triggerForm()}>Add to Shelf</button>
+
+    const shelfLogic = this.state.shelfForm ? <ShelfItemFormContainer bookId={book.id} /> : addButton;
+    debugger
     return (
       <div className='book_show_container'>
         <article className='book_show'>
@@ -33,7 +50,7 @@ class BookShow extends React.Component {
               <img className='book_show_image'
                 src={`${book.imgUrl}`}
                 alt={`Book Cover`} />
-                <ShelfItemFormContainer bookId={book.id}/>
+                { shelfLogic }
             </section>
 
             <section className='book_info_detail'>

@@ -24,24 +24,20 @@ export default ({ shelfItem, deleteShelfItem, isOwner, shelf }) => {
 
 
   const editLink = (
-    <td>
       <Link to={`/reviews/${book.id}/${reviewId}`}
       className='shelf_item_edit'
       >Edit Review</Link>
-    </td>
   );
   const removeLink = (
-    <td>
       <button onClick={() => deleteShelfItem(shelfItem.id)}
       className='shelf_item_remove'
       >&#10005</button>
-    </td>
   );
   
   return(
     <tr className='bookshelf_item'>
-      <td className='shelf_cover'>
-        <img src={book.imgUrl} />
+      <td className='shelf_cover_container'>
+        <img className='shelf_cover' src={book.imgUrl} />
       </td>
       <td className='shelf_item_title'>{book.title}</td>
       <td className='shelf_item_author'>{book.author}</td>
@@ -49,8 +45,8 @@ export default ({ shelfItem, deleteShelfItem, isOwner, shelf }) => {
       <td>{ book.rating }</td>
       <td>{ shelves }</td>
       <td className='item_created_at'>{addedAt}</td>
-      { isOwner ? editLink : null }
-      { isOwner ? removeLink : null }
+      <td>{isOwner ? editLink : null}</td>
+      <td>{isOwner ? removeLink : null}</td>
     </tr>
   );
 };

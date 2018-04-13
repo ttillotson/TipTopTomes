@@ -165,7 +165,7 @@ BOOKS = [
 ", "9780345380371
 "],
 ["Micro: A Novel
-", "sMichael Crichton, Richard Preston
+", "Michael Crichton, Richard Preston
 ", "Harper Collins, 2011
 ", "9780062094735
 "],
@@ -175,7 +175,7 @@ BOOKS = [
 ", "9780061750328
 "],
 ["Drug of Choice: A Novel
-", "sMichael Crichton, John Lange
+", "Michael Crichton, John Lange
 ", "Open Road Meida, 2013
 ", "9781453299272
 "],
@@ -195,22 +195,22 @@ BOOKS = [
 ", "9781101204207
 "],
 ["Havana Storm: A Dirk Pitt Adventure
-", "sClive Cussler, Dirk Cussler
+", "Clive Cussler, Dirk Cussler
 ", "Penguin, 2014
 ", "9780698183605
 "],
 ["Crescent Dawn: A Dirk Pitt Adventure
-", "sClive Cussler, Dirk Cussler
+", "Clive Cussler, Dirk Cussler
 ", "Penguin Books Limited, 2011
 ", "9780718159597
 "],
 ["Arctic Drift
-", "sClive Cussler, Dirk Cussler
+", "Clive Cussler, Dirk Cussler
 ", "Penguin, 2009
 ", "9781101151501
 "],
 ["Treasure of Khan: Dirk Pitt
-", "sClive Cussler, Dirk Cussler
+", "Clive Cussler, Dirk Cussler
 ", "Penguin Books Limited, 2012
 ", "9781405909518
 "],
@@ -240,7 +240,7 @@ BOOKS = [
 ", "9781101543368
 "],
 ["The Complete Idiot's Guide to Gluten-Free Vegan Cooking
-", "sBeverly Bennett, Julieanna Hever
+", "Beverly Bennett, Julieanna Hever
 ", "Penguin, 2011
 ", "9781101559154
 "],
@@ -255,7 +255,7 @@ BOOKS = [
 ", "9781465469731
 "],
 ["Computational Thinking and Coding for Every Student
-", "sJane Krauss, Kiki Prottsman
+", "Jane Krauss, Kiki Prottsman
 ", "Corwin Press, 2016
 ", "9781506341309
 "],
@@ -295,7 +295,7 @@ BOOKS = [
 ", "9781491926222
 "],
 ["Jumper: A Novel
-", "Steven GouldEditionreprint, reissue
+", "Steven Gould
 ", "Macmillan, 2008
 ", "9780765357694
 "],

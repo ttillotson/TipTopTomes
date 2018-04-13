@@ -1,6 +1,7 @@
 import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
 import ShelfItem from './shelf_item';
+import ShelfNav from './shelf_nav';
 
 class Shelf extends React.Component {
   constructor(props) {
@@ -39,8 +40,10 @@ class Shelf extends React.Component {
 
     return (
       <div className='bookshelf_container'>
-        <h1>Bookshelf</h1>
-        <table className='bookshelf' >
+        <section className='bookshelf_nav' >
+          { ShelfNav }
+        </section>
+        <table className='bookshelf'>
           <thead>
             <tr>
               <th>cover</th>

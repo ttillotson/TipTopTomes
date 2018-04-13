@@ -3,10 +3,11 @@
   margin: auto;
   display: flex;
   .bookshelf {
+    margin-top: 20px;
     order: 2;
     width: 750px;
+    border-collapse: collapse;
     tr{
-      border-collapse: collapse;
       font-family: $text_font;
       font-size: 14px;
       line-height: 18px;
@@ -18,7 +19,37 @@
       }
     }
     .bookshelf_item {
-      height: 100px;
+      height: 150px;
+      vertical-align: top;
+      border-top: 1px solid #EEE;
+      border-bottom: 1px solid #EEE;
+
+      td {
+        padding: 12px 7px 5px 0;
+        font-size: 15px;
+      }
+      .shelf_cover {
+        width: 105px;
+        height: 150px;
+      }
+      .shelf_item_title{
+        width: 182px;
+      }
+      .shelf_item_author {
+        max-width: 120px;
+      }
+      .shelf_item_rating {
+        max-width: 40px;
+      }
+      .item_created_at {
+
+      }
+      .shelf_item_remove {
+
+      }
+      .shelf_item_edit {
+
+      }
     }
   }
 }

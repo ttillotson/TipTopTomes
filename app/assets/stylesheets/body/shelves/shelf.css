@@ -1,21 +1,21 @@
 /*
 Error: Undefined variable: "$text_font".
-        on line 10 of shelf.scss
+        on line 11 of shelf.scss
 
-5:   .bookshelf {
-6:     order: 2;
-7:     width: 750px;
-8:     tr{
-9:       border-collapse: collapse;
-10:       font-family: $text_font;
-11:       font-size: 14px;
-12:       line-height: 18px;
-13:       text-align: left;
-14:       th {
-15:         vertical-align: bottom;
+6:     margin-top: 20px;
+7:     order: 2;
+8:     width: 750px;
+9:     border-collapse: collapse;
+10:     tr{
+11:       font-family: $text_font;
+12:       font-size: 14px;
+13:       line-height: 18px;
+14:       text-align: left;
+15:       th {
+16:         vertical-align: bottom;
 
 Backtrace:
-shelf.scss:10
+shelf.scss:11
 /Users/travist/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/variable.rb:49:in `_perform'
 /Users/travist/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/script/tree/node.rb:50:in `perform'
 /Users/travist/.rbenv/versions/2.5.0/lib/ruby/gems/2.5.0/gems/sass-3.5.6/lib/sass/tree/visitors/perform.rb:402:in `visit_prop'
@@ -91,4 +91,4 @@ shelf.scss:10
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: Undefined variable: \"$text_font\".\A         on line 10 of shelf.scss\A \A 5:   .bookshelf {\A 6:     order: 2;\A 7:     width: 750px;\A 8:     tr{\A 9:       border-collapse: collapse;\A 10:       font-family: $text_font;\A 11:       font-size: 14px;\A 12:       line-height: 18px;\A 13:       text-align: left;\A 14:       th {\A 15:         vertical-align: bottom;"; }
+  content: "Error: Undefined variable: \"$text_font\".\A         on line 11 of shelf.scss\A \A 6:     margin-top: 20px;\A 7:     order: 2;\A 8:     width: 750px;\A 9:     border-collapse: collapse;\A 10:     tr{\A 11:       font-family: $text_font;\A 12:       font-size: 14px;\A 13:       line-height: 18px;\A 14:       text-align: left;\A 15:       th {\A 16:         vertical-align: bottom;"; }

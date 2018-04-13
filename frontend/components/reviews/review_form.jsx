@@ -2,7 +2,7 @@ import React from 'react';
 import LoadingIcon from '../shared/loading_icon';
 import { Link } from 'react-router-dom';
 import { snakeCase } from 'lodash';
-
+import ShelfItemFormContainer from '../shelves/shelf_item_form_container';
 
 class ReviewForm extends React.Component {
   constructor(props) {
@@ -91,7 +91,7 @@ class ReviewForm extends React.Component {
               </legend>
             </fieldset>
 
-            <fieldset className='form_item'>
+            {/* <fieldset className='form_item'>
               <legend className='bookshelves'>
                 Bookshelves
                 <select onChange={this.update('shelf')}>
@@ -100,7 +100,9 @@ class ReviewForm extends React.Component {
                   <option disabled value='2'>2</option>
                 </select>
               </legend>
-            </fieldset>
+            </fieldset> */}
+
+            <ShelfItemFormContainer bookId={book.id} />
 
             <fieldset className='form_item'>
               <legend> What did you think?</legend>

@@ -9,11 +9,27 @@ class ShelfNav extends React.Component {
       addForm: false
     };
   }
+  
+  componentWillReceiveProps(nextProps) {
+    let currentShelves = Object.keys(this.props.shelf.shelves);
+    let nextShelves = Object.keys(nextProps.shelf.shelves);
+    const isEqual = function (arr1, arr2) {
+      if (arr1.length !== arr2.length ) return false;
+      for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) return false;
+      }
+      return true;
+    };
+    if (!isEqual(currentShelves, nextShelves)) {
+      this.setState({ addForm: false });
+    }
 
-
-  // componentWillReceiveProps(nextProps) {
-  //   debugger;
-  // }
+    if (this.props.match.params.bookshelfId) {
+      this.props.fetchShelf(this.props.match.params.bookshelfId);
+    } else {
+      this.props.fetchCombinedShelf(this.props.match.params.userId);
+    }
+  }
 
   update() {
     this.setState({ addForm: true });

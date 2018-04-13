@@ -44,6 +44,12 @@ class User < ApplicationRecord
     self.shelves.limit(3)
   end
 
+  def default_books
+    self.shelves.includes(:memberships).limit(3).map do |shelf|
+      shelf.memberships
+    end
+  end
+
   def default_memberships
     shelf_memberships = self.shelves.includes(:memberships).limit(3).map do |shelf|
       shelf.memberships

@@ -11,9 +11,9 @@ class ShelfNav extends React.Component {
   }
 
 
-  componentWillReceiveProps(nextProps) {
-    debugger;
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   debugger;
+  // }
 
   update() {
     this.setState({ addForm: true });

@@ -22,7 +22,7 @@ class NavBar extends React.Component {
               Home
             </li>
           </Link>
-          <Link to={`/bookshelf`}>
+          <Link to={`/bookshelf/${currentUser.id}`}>
             <li>
               My Books
             </li>

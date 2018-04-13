@@ -1,5 +1,5 @@
 class Api::BookshelvesController < ApplicationController
-  before_action :require_logged_in, only: [:create, :update]
+  before_action :require_sign_in, only: [:create, :update]
 
   def index
     @shelves = Bookshelf.includes(books: [:reviews]).where(user_id: params[:user_id])
@@ -23,7 +23,8 @@ class Api::BookshelvesController < ApplicationController
   def create
     @shelf = Bookshelf.new(bookshelf_params)
     @shelf.user_id = current_user.id
-    if @shelf.save
+    debugger
+    if @shelf.save!
       render :show
     else
       render json: @shelf.errors.full_messages, status: 422
@@ -38,6 +39,6 @@ class Api::BookshelvesController < ApplicationController
   private
 
   def bookshelf_params
-    params.require(:bookshelf).permit(:user_id, :name)
+    params.require(:shelf).permit(:user_id, :name)
   end
 end

@@ -35,13 +35,14 @@ class Shelf extends React.Component {
     const { shelf, loading, currentUser, deleteShelfItem, shelves } = this.props;
 
     if (loading){ return LoadingIcon(); }
+    if (Object.keys(shelf).length < 1) return null;
     let isOwner;
     if (currentUser) {
       isOwner = `${currentUser.id}` === this.props.match.params.userId;
     } else {
       isOwner = false;
     }
-    
+
     let pageHeading;
 
     if (this.props.shelfType === 'Single'){
@@ -49,8 +50,12 @@ class Shelf extends React.Component {
     } else {
       pageHeading = `${shelf.owner}'s Complete Bookshelf`;
     }
+    let memberships = [];
+    if (shelf.memberships) {
+      memberships = Object.values(shelf.memberships);
+    }
     
-    const membershipItems = Object.values(shelf.memberships).map(shelfItem => (
+    const membershipItems = memberships.map(shelfItem => (
       <ShelfItem
         key={`shelfItem-${shelfItem.id}`}
         shelfItem={shelfItem}

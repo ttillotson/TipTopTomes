@@ -28,7 +28,7 @@ const removeShelfItem = (shelfItemId) => ({
   shelfItemId
 });
 
-const receiveErrors = (errors) => ({
+export const receiveErrors = (errors) => ({
   type: RECEIVE_SHELF_ERRORS,
   errors
 });

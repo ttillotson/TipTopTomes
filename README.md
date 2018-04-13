@@ -18,7 +18,7 @@ TipTopTomes was created in 10 days, though further development is expected.
 
 + (DEVELOPMENT) Books can be added to the shelves
 
-
+![Login Demo](https://giphy.com/embed/pyricpQKCGBBLFmek1/gif) 
 
 
 

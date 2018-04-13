@@ -38,4 +38,7 @@ shelves.each do |shelf|
     end
   end
 end
-
+json.partial! 'api/shared/user_actives',
+  user_made_shelves: @user_made_shelves,
+  user_default_shelves: @user_default_shelves, 
+  user_default_memberships: @user_default_memberships

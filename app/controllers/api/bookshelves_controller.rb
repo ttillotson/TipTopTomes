@@ -12,7 +12,9 @@ class Api::BookshelvesController < ApplicationController
   def show
     @shelf = Bookshelf.includes(books: [:reviews]).find(params[:id])
     @shelves = @shelf.user.shelves.includes(:memberships)
-
+    @user_default_memberships = current_user.default_books
+    @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+    @user_default_shelves = current_user.shelves.includes(:books).limit(3)
     if @shelf 
       render :show 
     else

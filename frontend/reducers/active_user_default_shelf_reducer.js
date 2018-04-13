@@ -1,7 +1,7 @@
 import { RECEIVE_BOOK } from '../actions/book_actions';
-import merge from 'lodash/merge'
+import merge from 'lodash/merge';
 
-const ActiveUserReducer = (state={}, action) => {
+const ActiveUserDefaultReducer = (state={}, action) => {
     Object.freeze(state);
     let newState = merge({}, state);
     switch(action.type){
@@ -14,4 +14,4 @@ const ActiveUserReducer = (state={}, action) => {
     }
 };
 
-export default ActiveUserReducer;
+export default ActiveUserDefaultReducer;

@@ -7,8 +7,8 @@ class Api::BooksController < ApplicationController
     @book = Book.includes(reviews: [:user]).find(params[:id])
     if current_user 
       @user_default_memberships = current_user.default_books
-      @user_shelves = current_user.shelves.includes(:books)
-      # current_user.memberships.includes(:shelf)
+      @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+      @user_default_shelves = current_user.shelves.includes(:books).limit(3)
     end
     if @book
       render :show

@@ -15,6 +15,7 @@ class ShelfMembershipsController < ApplicationController
       @new_membership.destroy
     else
       render json: ['Could not find book in your shelves.'], status: 404
+    end
   end
 
   private 

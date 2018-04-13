@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
     defaultShelf: state.entities.activeUserBooks[ownProps.bookId],
     defaultShelves: state.entities.activeUserDefaultShelves,
     createdShelves: state.entities.activeUserMadeShelves,
-    inShelves: null,
+    inShelves: state.entities.book.shelves,
 });
 
 

@@ -91,17 +91,6 @@ class ReviewForm extends React.Component {
               </legend>
             </fieldset>
 
-            {/* <fieldset className='form_item'>
-              <legend className='bookshelves'>
-                Bookshelves
-                <select onChange={this.update('shelf')}>
-                  <option disabled defaultValue>Read</option>
-                  <option disabled value='1'>1</option>
-                  <option disabled value='2'>2</option>
-                </select>
-              </legend>
-            </fieldset> */}
-
             <ShelfItemFormContainer bookId={book.id} />
 
             <fieldset className='form_item'>

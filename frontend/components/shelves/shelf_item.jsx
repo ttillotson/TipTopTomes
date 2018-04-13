@@ -29,11 +29,11 @@ export default ({ shelfItem, deleteShelfItem, isOwner, shelf }) => {
       >Edit Review</Link>
   );
   const removeLink = (
-      <button onClick={() => deleteShelfItem(shelfItem.id)}
+      <div onClick={() => deleteShelfItem(shelfItem.id)}
       className='shelf_item_remove'
-      >&#10005</button>
+      ></div>
   );
-  
+
   return(
     <tr className='bookshelf_item'>
       <td className='shelf_cover_container'>

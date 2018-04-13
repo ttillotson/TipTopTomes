@@ -11,10 +11,12 @@ import {
 import { withRouter } from 'react-router';
 
 const mapStateToProps = (state) => ({
-  shelf: state.entities.shelf
+  shelf: state.entities.shelf,
+  currentUser: state.session.currentUser,
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  createShelf: (shelf) => dispatch(createShelf(shelf)),
   deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
 });
 

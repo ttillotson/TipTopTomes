@@ -1,5 +1,6 @@
 json.extract! shelf, :name
-
+username = shelf.user.username
+json.owner  username
 json.memberships do 
   shelf.memberships.each do |membership|
     owner_review = membership.book.reviews
@@ -13,8 +14,11 @@ json.memberships do
         json.rating owner_review.rating if owner_review
       end
 
-      current_user_review = membership.book
-      .reviews.select{ |review| review.author_id == current_user.id }[0]
+      if current_user
+        current_user_review = membership.book
+        .reviews.select{ |review| review.author_id == current_user.id }[0] 
+      end
+
       if current_user_review
         json.review do 
           json.extract! current_user_review, :id, :rating

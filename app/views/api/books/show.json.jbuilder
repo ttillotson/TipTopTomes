@@ -12,3 +12,8 @@ json.reviews do
     end
   end
 end
+if current_user
+  json.shelves do 
+    json.array! current_user.shelves, :id, :name, :book_ids
+  end
+end

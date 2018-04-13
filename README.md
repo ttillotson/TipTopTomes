@@ -8,6 +8,8 @@ TipTopTomes was created in 10 days, though further development is expected.
 
 ## Features
 
+![Login Demo](https://res.cloudinary.com/tiptoptomes/image/upload/v1523659373/Login_Demo.gif)
+
 + Secure backend to frontend user authentication powered by BCrypt.
 
 + Create custom bookshelves to track your stationary series
@@ -16,14 +18,53 @@ TipTopTomes was created in 10 days, though further development is expected.
 
 + Books can be rated and reviewed
 
-+ (DEVELOPMENT) Books can be added to the shelves
 
-![Login Demo](https://giphy.com/embed/pyricpQKCGBBLFmek1/gif) 
+### Books
+![Book Show Demo](https://res.cloudinary.com/tiptoptomes/image/upload/v1523658663/Show_Page.gif)
+Books display standard book information with a user-specifc box if a review has been made. Unfortunately User's will not be allowed to add books to the library due to this being a demo site.
+
+### Reviews
+![Review CRUD](https://res.cloudinary.com/tiptoptomes/image/upload/v1523658676/Review_CRUD.gif)
+Reviews are displayed in a most recent fashion with a user content box at the top appearing for every reviewed book. User's have full CRUD access to Reviews. 
+
+### Bookshelves 
+![Bookshelf](https://res.cloudinary.com/tiptoptomes/image/upload/v1523657814/Screen_Shot_2018-04-13_at_2.56.06_PM.png)
+Showcases all books in a given collection with links to the books and other shelves belonging to the reader.  
 
 
+## Things Learned
 
+As a whole this was a very instructional project (as all tend to be) with React/Redux's pairing functionality coming together as the project wore on. As with any project, there are many things I wish I could have done better knwoing what I do now. With that in mind, here are a couple of things I wish I had known goign in and what I would've done differently.
 
++ Ideal Redux State and Store
+    + Flat State is a Friendly State: I nested quite a bit of my state because I saw an association between the data. Towards the end, this became very problematic to deal with as I needed to pull info from nested data, where I should've dedicated a slice of state to any information I needed, and update the state as needed by the page. 
 
+    + Associations and Rails do Heavy Lifting: because I was nexting my state, I was pulling the specific information I needed rather than pulling the relevant association and accessing the store for it as the react way of doing things. 
+        ```
+            json.extract! shelf, :name
+            username = shelf.user.username
+            json.owner  username
+            json.memberships do 
+            if shelf.memberships.length > 1
+                shelf.memberships.each do |membership|
+                owner_review = membership.book.reviews
+                        .select{ |review| review.author_id == membership.user.id }[0]
+                
+                json.set! membership.id do 
+                    json.extract! membership, :id, :created_at
+                    json.book do 
+                    json.partial! 'api/books/book', book: membership.book
+                    json.avg_rating membership.book.average_rating
+                    json.rating owner_review.rating if owner_review
+                    end
+
+                    if current_user
+                    current_user_review = membership.book
+                    .reviews.select{ |review| review.author_id == current_user.id }[0] 
+                    end
+        
+        ```
+        + This hurts to look back on. Definitely worked on this towards the end of the project by partialing out components of calls to help separation of concerns. 
 
 
 
@@ -45,8 +86,4 @@ TipTopTomes was created in 10 days, though further development is expected.
 
 + Tags
 
-
-
-Users are able to create collections to use as a log/list of books. By default users are given will read, have read, and currently reading with the option to shift books between these as needed. Users may also create their own collections
-to track their books should they want something more custom: shelves by genre, 
-category, author etc. 
+#### [Further Information](https://github.com/ttillotson/TipTopTomes/wiki)

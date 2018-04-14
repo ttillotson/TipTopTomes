@@ -5,12 +5,23 @@ class ShelfItemForm extends React.Component {
     constructor(props) {
         super(props);
         let defaultShelf = this.props.defaultShelf;
-        let filteredShelves = Object.values(this.props.inShelves).filter(shelf => shelf.id !== defaultShelf);
+        let filteredShelves;
+        if (this.props.inShelves) {
+            filteredShelves= Object.values(this.props.inShelves).filter(shelf => shelf.id !== defaultShelf);
+        }
         this.state = {
             defaultShelf: this.props.defaultShelf,
             inShelves: filteredShelves,
         };
         this.addToShelf = this.addToShelf.bind(this);
+    }
+
+    componentDidMount() {
+        let filteredShelves;
+        if (this.props.inShelves) {
+            filteredShelves = Object.values(this.props.inShelves).filter(shelf => shelf.id !== this.props.defaultShelf);
+        }
+        this.setState({ inShelves: filteredShelves})
     }
 
     // componentWillUnmount() {

@@ -1,4 +1,4 @@
-class ShelfMembershipsController < ApplicationController
+class Api::ShelfMembershipsController < ApplicationController
   def create
     @new_membership = ShelfMembership.new(shelf_member_params)
 
@@ -21,6 +21,6 @@ class ShelfMembershipsController < ApplicationController
   private 
 
   def shelf_member_params 
-    params.require(:shelf_membership).permit(:book_id, :shelf_id)
+    params.require(:shelf_item).permit(:book_id, :shelf_id)
   end
 end

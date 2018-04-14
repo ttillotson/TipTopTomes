@@ -12,7 +12,7 @@
 class ShelfMembership < ApplicationRecord
   before_save :handle_creation 
   before_destroy :handle_destruction
-
+1
   belongs_to :shelf,
     class_name: :Bookshelf,
     foreign_key: :shelf_id

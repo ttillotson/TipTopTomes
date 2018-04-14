@@ -58,11 +58,15 @@ class User < ApplicationRecord
   end
 
   def default_membership(book_id)
-    shelf_book = self.shelves
-    .includes(:memberships)
-    .limit(3)
-    .find(book_id: book_id)
-    return shelf_book
+    # shelf_book = self.shelves
+    # .includes(:memberships)
+    # .limit(3)
+    # .find(book_id: book_id)
+    # return shelf_book
+    # shelf_book = self.books.select{ |book| book.id == bookId }[0]
+    # u.shelf_ids.include?(shelf_book.shelf_id) ? shelf_book : null
+    member = default_memberships.select{ |membership| membership.book_id == book_id }[0]
+    member ? member.book : false 
   end
 
 

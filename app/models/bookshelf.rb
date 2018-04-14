@@ -26,7 +26,7 @@ class Bookshelf < ApplicationRecord
   def ensure_unique_shelving(book_id)
     shelf_owner = self.user
     if is_default_shelf?
-      shelf_book = shelf_owner.default_memberships.find_by(book_id: book_id)
+      shelf_book = shelf_owner.default_memberships.select{|book| book.id == book_id}
       shelf_book.destroy if shelf_book
     end
   end

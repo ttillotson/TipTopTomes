@@ -34,7 +34,7 @@ Showcases all books in a given collection with links to the books and other shel
 
 ## Things Learned
 
-As a whole this was a very instructional project (as all tend to be) with React/Redux's pairing functionality coming together as the project wore on. As with any project, there are many things I wish I could have done better knwoing what I do now. With that in mind, here are a couple of things I wish I had known goign in and what I would've done differently.
+As a whole this was a very instructional project (as all tend to be) with React/Redux's pairing functionality coming together as the project wore on. As with any project, there are many things I wish I could have done better knowing what I do now. With that in mind, here are a couple of things I wish I had known going in and what I would've done differently.
 
 + Ideal Redux State and Store
     + Flat State is a Friendly State: I nested quite a bit of my state because I saw an association between the data. Towards the end, this became very problematic to deal with as I needed to pull info from nested data, where I should've dedicated a slice of state to any information I needed, and update the state as needed by the page. 
@@ -65,16 +65,6 @@ As a whole this was a very instructional project (as all tend to be) with React/
         
         ```
         + This hurts to look back on. Definitely worked on this towards the end of the project by partialing out components of calls to help separation of concerns. 
-
-
-
-
-
-
-
-
-
-
 
 
 

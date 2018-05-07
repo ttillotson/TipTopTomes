@@ -21,7 +21,8 @@
     border-radius: 3px;
     font-size: 16px;
     color: #333333;
-    margin-top: 25px; }
+    margin-top: 25px;
+    margin: 25px 15px 0 15px; }
 
 .session_form_inputs {
   width: 300px;

@@ -63,7 +63,7 @@ class ShelfItemForm extends React.Component {
 
 
         return (
-            <ul className='add_shelf_form'>
+            <ul className='add_to_shelf_form'>
                 { shelfOptions }
             </ul>
         );

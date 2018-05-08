@@ -1,7 +1,11 @@
+require 'byebug'
+
 class Api::ShelfMembershipsController < ApplicationController
   def create
-    @new_membership = ShelfMembership.new(shelf_member_params)
-
+    # debugger
+    @new_membership = ShelfMembership.new
+    @new_membership.book_id = params[:shelfItem][:bookId]
+    @new_membership.shelf_id = params[:shelfItem][:shelfId]
     if @new_membership.save
       render :show
     else
@@ -21,6 +25,6 @@ class Api::ShelfMembershipsController < ApplicationController
   private 
 
   def shelf_member_params 
-    params.require(:shelf_item).permit(:book_id, :shelf_id)
+    params.require(:shelfItem).permit(:bookId, :shelfId)
   end
 end

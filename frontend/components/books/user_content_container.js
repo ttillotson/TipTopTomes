@@ -6,6 +6,7 @@ const mapStateToProps = (state, ownProps) => ({
   book: state.entities.books[ownProps.match.params.bookId],
   reviews: state.entities.reviews,
   status: state.entities.activeUserBooks[ownProps.match.params.bookId],
+  // update status to trigger rerender -> ActiveUserDefaultBooksReducer
 });
 
 const mapDispatchToProps = (dispatch) => ({

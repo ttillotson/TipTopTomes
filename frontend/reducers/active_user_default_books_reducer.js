@@ -1,5 +1,5 @@
 import { RECEIVE_BOOK } from '../actions/book_actions';
-import { RECEIVE_SHELF } from '../actions/shelf_actions';
+import { RECEIVE_SHELF, RECEIVE_SHELF_ITEM } from '../actions/shelf_actions';
 import merge from 'lodash/merge';
 
 const ActiveUserDefaultReducer = (state={}, action) => {
@@ -10,6 +10,9 @@ const ActiveUserDefaultReducer = (state={}, action) => {
             return merge({}, action.book.activeDefaultBooks);
         case RECEIVE_SHELF:
             return merge(newState, action.shelf.activeDefaultBooks);
+        case RECEIVE_SHELF_ITEM:
+        debugger
+            // return merge(newState, action.shelf.activeDefaultBooks);
         default:
             return state;
     }

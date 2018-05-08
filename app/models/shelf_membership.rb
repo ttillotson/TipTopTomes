@@ -32,7 +32,7 @@ class ShelfMembership < ApplicationRecord
   def handle_creation
     return unless self.valid? 
     default_member = self.user.default_membership(self.book_id)
-    if !!default_member
+    if !!default_member && self.user.default_shelves.include?(self.shelf_id)
       default_member.shelf_id = self.shelf_id 
     end
   end

@@ -6,7 +6,9 @@ class Api::ShelfMembershipsController < ApplicationController
     @new_membership = ShelfMembership.new
     @new_membership.book_id = params[:shelfItem][:bookId]
     @new_membership.shelf_id = params[:shelfItem][:shelfId]
-    if current_user.default_shelves.include?(@new_membership.shelf_id)
+
+    default_ids = current_user.default_shelves.map(&:id)
+    if default_ids.include?(@new_membership.shelf_id)
       membership = current_user.default_membership(params[:shelfItem][:bookId])
       membership.shelf_id = params[:shelfItem][:shelfId]
     elsif @new_membership.save

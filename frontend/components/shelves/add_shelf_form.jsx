@@ -31,10 +31,12 @@ class AddShelfForm extends React.Component {
 
 
     return (
-      <form className='add_shelf_form' onSubmit={this.handleSubmit}>
-        <input onChange={this.update} className='shelf_input' type="text" value={this.state.name}/>
-        <button className='add_shelf'>Add</button>
-      </form>
+      <li>
+        <form className='add_shelf_form' onSubmit={this.handleSubmit}>
+          <input onChange={this.update} className='shelf_input' type="text" value={this.state.name}/>
+          <button className='add_shelf'>Add</button>
+        </form>
+      </li>
     );
   }
 }

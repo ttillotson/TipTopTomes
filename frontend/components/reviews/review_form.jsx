@@ -98,6 +98,7 @@ class ReviewForm extends React.Component {
                 className='review_body'
                 rows='12'
                 placeholder='Enter your review'
+                maxLength='1000'
                 onChange={this.update('body')}
                 value={this.state.body}
                 />

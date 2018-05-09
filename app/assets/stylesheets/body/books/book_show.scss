@@ -22,6 +22,7 @@
     .book_image_col {
       width: 200px;
       margin: 0 20px 10px 0;
+      position: relative;
 
       .book_show_image {
       text-align: center;
@@ -65,14 +66,14 @@
     }
   }
 }
-.add_shelf_form {
+.add_to_shelf_form {
   border: 1px solid #dddddd;
   background-color: rgba(242, 242, 242, 0.97);
   width: 150px;
   float: right;
   position: absolute;
-  top: 373px;
-  left: 63px;
+  top: 304px;
+  left: 25px;
   z-index: 2;
 
   .shelf_option {
@@ -87,5 +88,6 @@
   }
   .shelf_option:hover {
     cursor: pointer;
+    background-color: rgb(207, 206, 206);
   }
 }

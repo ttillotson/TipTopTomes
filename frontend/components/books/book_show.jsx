@@ -42,6 +42,8 @@ class BookShow extends React.Component {
 
     const shelfLogic = this.state.shelfForm ? <ShelfItemFormContainer bookId={book.id} /> : addButton;
 
+    let showButton = currentUser ? shelfLogic : null;
+
     return (
       <div className='book_show_container'>
         <article className='book_show'>
@@ -50,7 +52,7 @@ class BookShow extends React.Component {
               <img className='book_show_image'
                 src={`${book.imgUrl}`}
                 alt={`Book Cover`} />
-                {/* { shelfLogic } */}
+                { showButton }
             </section>
 
             <section className='book_info_detail'>

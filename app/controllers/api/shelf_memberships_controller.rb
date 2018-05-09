@@ -13,7 +13,9 @@ class Api::ShelfMembershipsController < ApplicationController
     if default_ids.include?(@new_membership.shelf_id) && existing_default
       existing_default.shelf_id = params[:shelfItem][:shelfId]
       @new_membership = existing_default
+      @new_membership.save
       @shelf = Bookshelf.find(params[:shelfItem][:shelfId])
+      # debugger
       render :show
     elsif @new_membership.save
       @shelf = @new_membership.shelf

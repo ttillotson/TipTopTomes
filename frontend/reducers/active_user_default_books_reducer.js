@@ -11,6 +11,7 @@ const ActiveUserDefaultReducer = (state={}, action) => {
         case RECEIVE_SHELF:
             return merge(newState, action.shelf.activeDefaultBooks);
         case RECEIVE_SHELF_ITEM:
+        // debugger;
             return merge(newState, action.shelfItem.status);
         default:
             return state;

@@ -45,7 +45,7 @@ class  UserContent extends React.Component {
           </ul>
         );
       }
-      debugger;
+      // debugger;
 
       reviewComponent = (
         <table>

@@ -8,10 +8,15 @@ class Api::ShelfMembershipsController < ApplicationController
     @new_membership.shelf_id = params[:shelfItem][:shelfId]
 
     default_ids = current_user.default_shelves.map(&:id)
-    if default_ids.include?(@new_membership.shelf_id)
-      membership = current_user.default_membership(params[:shelfItem][:bookId])
-      membership.shelf_id = params[:shelfItem][:shelfId]
+    
+    existing_default = current_user.default_membership(params[:shelfItem][:bookId].to_i)
+    if default_ids.include?(@new_membership.shelf_id) && existing_default
+      existing_default.shelf_id = params[:shelfItem][:shelfId]
+      @new_membership = existing_default
+      @shelf = Bookshelf.find(params[:shelfItem][:shelfId])
+      render :show
     elsif @new_membership.save
+      @shelf = @new_membership.shelf
       render :show
     else
       render @new_membership.errors.full_messages, status: 422

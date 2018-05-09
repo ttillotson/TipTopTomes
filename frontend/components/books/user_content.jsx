@@ -28,16 +28,24 @@ class  UserContent extends React.Component {
       if (status) {
         bookStatus = status.name;
       }
-      let shelves = null;
+      let shelfItems = null;
 
-      if (book.shelves && Object.values(book.shelves).length > 0){
-        shelves = (
+      // if (book.shelves && Object.values(book.shelves).length > 0){
+      //   debugger
+      //   shelves = (
+      //     <ul>
+      //       {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
+      //     </ul>
+      //   );
+
+      if (book.shelves.length > 0) {
+        shelfItems = (
           <ul>
-            {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
+            {book.shelves.map((id) => <li key={`shelf-${id}`}>{this.props.shelves[id].name}</li>) } 
           </ul>
         );
       }
-
+      debugger;
 
       reviewComponent = (
         <table>
@@ -52,7 +60,7 @@ class  UserContent extends React.Component {
             </tr>
             <tr>
               <td className='row_key'>Shelves</td>
-              <td className='row_value'>{ shelves }</td>
+              <td className='row_value'>{ shelfItems }</td>
             </tr>
             <tr>
               <td className='row_key'>Status</td>

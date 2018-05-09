@@ -31,7 +31,6 @@ class  UserContent extends React.Component {
       let shelfItems = null;
 
       // if (book.shelves && Object.values(book.shelves).length > 0){
-      //   debugger
       //   shelves = (
       //     <ul>
       //       {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
@@ -45,7 +44,6 @@ class  UserContent extends React.Component {
           </ul>
         );
       }
-      // debugger;
 
       reviewComponent = (
         <table>

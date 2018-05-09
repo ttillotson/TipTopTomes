@@ -1,8 +1,5 @@
-require 'byebug'
-
 class Api::ShelfMembershipsController < ApplicationController
   def create
-    # debugger
     @new_membership = ShelfMembership.new
     @new_membership.book_id = params[:shelfItem][:bookId]
     @new_membership.shelf_id = params[:shelfItem][:shelfId]
@@ -15,7 +12,6 @@ class Api::ShelfMembershipsController < ApplicationController
       @new_membership = existing_default
       @new_membership.save
       @shelf = Bookshelf.find(params[:shelfItem][:shelfId])
-      # debugger
       render :show
     elsif @new_membership.save
       @shelf = @new_membership.shelf

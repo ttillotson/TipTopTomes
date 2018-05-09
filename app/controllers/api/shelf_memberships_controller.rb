@@ -1,5 +1,3 @@
-require 'byebug'
-
 class Api::ShelfMembershipsController < ApplicationController
   def create
     # debugger

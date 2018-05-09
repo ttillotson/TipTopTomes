@@ -37,15 +37,15 @@ class  UserContent extends React.Component {
       //       {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
       //     </ul>
       //   );
+      // debugger;
 
-      if (book.shelves.length > 0) {
+      if (book.shelves && book.shelves.length > 0) {
         shelfItems = (
           <ul>
             {book.shelves.map((id) => <li key={`shelf-${id}`}>{this.props.shelves[id].name}</li>) } 
           </ul>
         );
       }
-      // debugger;
 
       reviewComponent = (
         <table>

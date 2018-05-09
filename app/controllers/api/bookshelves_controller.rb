@@ -30,6 +30,9 @@ class Api::BookshelvesController < ApplicationController
     @shelf = Bookshelf.new(bookshelf_params)
     @shelf.user_id = current_user.id
     @shelves = @shelf.user.shelves.includes(:memberships)
+    @user_default_memberships = current_user.default_books
+    @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+    @user_default_shelves = current_user.shelves.includes(:books).limit(3)
 
     if @shelf.save!
       render :show

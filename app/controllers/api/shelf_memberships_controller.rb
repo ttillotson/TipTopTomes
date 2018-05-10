@@ -5,13 +5,20 @@ class Api::ShelfMembershipsController < ApplicationController
     @new_membership.shelf_id = params[:shelfItem][:shelfId]
 
     default_ids = current_user.default_shelves.map(&:id)
-    
+    existing = ShelfMembership.find(params[:shelfItem][:bookId].to_i)
     existing_default = current_user.default_membership(params[:shelfItem][:bookId].to_i)
     if default_ids.include?(@new_membership.shelf_id) && existing_default
       existing_default.shelf_id = params[:shelfItem][:shelfId]
       @new_membership = existing_default
       @new_membership.save
       @shelf = Bookshelf.find(params[:shelfItem][:shelfId])
+<<<<<<< HEAD
+=======
+      render :show
+    elsif existing 
+      @new_membership = existing 
+      @shelf = existing.shelf
+>>>>>>> UpdateShelfOnBookShow
       render :show
     elsif @new_membership.save
       @shelf = @new_membership.shelf
@@ -33,12 +40,6 @@ class Api::ShelfMembershipsController < ApplicationController
   private 
 
   def shelf_member_params 
-    params.require(:shelfItem).permit(:bookId, :shelfId)
+    params.require(:shelf_item).permit(:book_id, :shelf_id)
   end
 end
-
-# Create
-
-# Check if an existing default book membership exists if new shelf is a default
-# If yes: update it 
-# If not: create a new 1

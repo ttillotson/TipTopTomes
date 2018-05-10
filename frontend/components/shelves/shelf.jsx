@@ -48,7 +48,7 @@ class Shelf extends React.Component {
     if (this.props.shelfType === 'Single'){
       pageHeading = `${shelf.owner}'s ${shelf.name} Bookshelf`;
     } else {
-      pageHeading = `${shelf.owner}'s Complete Bookshelf`;
+      pageHeading = `${shelf.owner}'s Combined Bookshelf`;
     }
     let memberships = [];
     if (shelf.memberships) {

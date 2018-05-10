@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AddShelfForm from './add_shelf_form';
+import ShelfListItemContainer from './shelf_list_item_container';
 
 class ShelfNav extends React.Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class ShelfNav extends React.Component {
   }
 
   render () {
-    const { createShelf, clearErrors, isOwner, shelf } = this.props;
+    const { createShelf, deleteShelf, updateShelf, clearErrors, isOwner, shelf } = this.props;
     let shelves = Object.values(shelf.shelves);
     let shelfIds = Object.keys(shelf.shelves);
     let shelvesInfo = shelves.map((aShelf, i )=> [ shelfIds[i], aShelf.name, aShelf.books.length] );
@@ -44,26 +45,28 @@ class ShelfNav extends React.Component {
     let shelfOwner = this.props.match.params.userId;
 
     let shelfItems = shelvesInfo.map(info => 
-      <li key={`shelf-${info[1]}`}>
-        <Link to={`/bookshelf/${shelfOwner}/${info[0]}`}>{info[1]}</Link>   <span>({info[2]})</span>
-      </li> 
+      <ShelfListItemContainer info={info} 
+                    owner={shelfOwner} 
+                    isOwner={isOwner}
+                    key={`shelf-${info[1]}`}
+                    />
     );
 
-    const addShelfForm = <AddShelfForm clearErrors={clearErrors} createShelf={createShelf} />;
+    const addShelfForm = <AddShelfForm clearErrors={clearErrors} shelfAction={createShelf} />;
     
-    let addButton = <button onClick={() => this.update()}  className='add_shelf' >Add Shelf</button>;
+    let addButton = <tr><td><button onClick={() => this.update()}  className='add_shelf' >Add Shelf</button></td></tr>;
     
     let addButtonLogic = this.state.addForm ? addShelfForm : addButton; 
     
-
     return (
-      <ul>
-        { shelfItems }
-        { isOwner ? addButtonLogic : null }
-      </ul>
+      <table>
+        <tbody>
+          { shelfItems }
+          { isOwner ? addButtonLogic : null }
+        </tbody>
+      </table>
     );
   }
 }
 
 export default ShelfNav;
-

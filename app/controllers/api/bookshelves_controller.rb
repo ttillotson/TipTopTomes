@@ -30,6 +30,9 @@ class Api::BookshelvesController < ApplicationController
     @shelf = Bookshelf.new(bookshelf_params)
     @shelf.user_id = current_user.id
     @shelves = @shelf.user.shelves.includes(:memberships)
+    @user_default_memberships = current_user.default_books
+    @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+    @user_default_shelves = current_user.shelves.includes(:books).limit(3)
 
     if @shelf.save!
       render :show
@@ -38,14 +41,30 @@ class Api::BookshelvesController < ApplicationController
     end
   end
 
+  def update
+    @shelf = Bookshelf.find(params[:shelf][:id])
+    @shelf.name = params[:shelf][:name]
+    if @shelf.save
+      @shelves = @shelf.user.shelves.includes(:memberships)
+      @user_default_memberships = current_user.default_books
+      @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+      @user_default_shelves = current_user.shelves.includes(:books).limit(3)
+      render :show
+    else
+      render json: @shelf.errors.full_messages, status: 422
+    end
+  end
+
   def destroy
-    @shelf = current_user.bookshelves.find(params[:id])
+    debugger
+    p params 
+    @shelf = current_user.shelves.find(params[:id])
     @shelf.destroy
   end
 
   private
 
   def bookshelf_params
-    params.require(:shelf).permit(:user_id, :name)
+    params.require(:shelf).permit(:user_id, :name, :id)
   end
 end

@@ -9,6 +9,7 @@ const mapStateToProps = (state, ownProps) => ({
   bookLoading: state.ui.loading.bookLoading,
   reviewLoading: state.ui.loading.reviewLoading,
   currentUser: state.session.currentUser,
+  status: state.entities.activeUserBooks[ownProps.match.params.bookId],
   review: state.entities.review,
   defaultShelf: state.entities.activeUserBooks[ownProps.bookId],
 });

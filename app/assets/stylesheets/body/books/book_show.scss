@@ -29,6 +29,18 @@
       width: 200px;
       height: 303px;
       }
+
+      .add_button {
+        margin: 5px 0 0 15px;
+        font-family: $text_font;
+        color: #000000;
+        background-color: #F2F2F2;
+        border: 1px solid rgb(221, 221, 221);
+        border-radius: 3px;
+        padding: 4px 9px;
+        width: 150px;
+        text-align: center;
+      }
     }
 
     .book_info_detail {

@@ -29,6 +29,10 @@ class BookShow extends React.Component {
     this.setState({ shelfForm: true });
   }
 
+  hideForm() {
+    this.setState({ shelfForm: false });
+  }
+
   render() {
     const { book, bookLoading, reviewLoading, currentUser, defaultShelf } = this.props;
 
@@ -38,9 +42,10 @@ class BookShow extends React.Component {
 
     const avgRating = book.averageRating;
 
-    let addButton = <button className='add_button' onClick={() => this.triggerForm()}>Add to Shelf</button>;
+    let form = <div onClick={() => this.hideForm() }><ShelfItemFormContainer bookId={book.id} /></div>;
 
-    const shelfLogic = this.state.shelfForm ? <ShelfItemFormContainer bookId={book.id} /> : addButton;
+    let addButton = <button className='add_button' onClick={() => this.triggerForm()}>Add to Shelf</button>;
+    const shelfLogic = this.state.shelfForm ? form : addButton;
 
     let showButton = currentUser ? shelfLogic : null;
 

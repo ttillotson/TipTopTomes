@@ -8,7 +8,7 @@ TipTopTomes was created in 10 days, though further development is expected.
 
 ## Features
 
-![Login Demo](https://user-images.githubusercontent.com/29738420/39853492-6c115edc-53d7-11e8-8ae3-af4040556bb3.gif)
+![Login Demo](https://user-images.githubusercontent.com/29738420/39853608-1074de22-53d8-11e8-9f6a-7d3cbd665993.gif)
 
 + Secure backend to frontend user authentication powered by BCrypt.
 
@@ -20,7 +20,7 @@ TipTopTomes was created in 10 days, though further development is expected.
 
 ### Books
 
-![Book Show Demo](https://user-images.githubusercontent.com/29738420/39853461-3ca61aa2-53d7-11e8-821e-8b4830e3dc03.gif)
+![Demo Show Page](https://user-images.githubusercontent.com/29738420/39853670-6bced5d4-53d8-11e8-9c9d-9a304c9a3bbf.gif)
 Books display standard book information with a user-specifc box if a review has been made. Unfortunately User's will not be allowed to add books to the library due to this being a demo site.
 
 ### Reviews

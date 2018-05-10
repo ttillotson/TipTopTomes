@@ -2,13 +2,13 @@
 
 [Live Demo](https://tiptoptomes.herokuapp.com/)
 
-TipTopTomes is a book review website inspired by Goodreads that allows users to browse, review and collect books. It runs a Rails/PostgreSQL backend with React/Redux powered frontend. 
+TipTopTomes is a book review website inspired by Goodreads that allows users to browse, review and collect books. It runs a Rails/PostgreSQL backend with React/Redux powered frontend.
 
 TipTopTomes was created in 10 days, though further development is expected.
 
 ## Features
 
-![Login Demo](https://res.cloudinary.com/tiptoptomes/image/upload/v1523659373/Login_Demo.gif)
+![Login Demo](https://user-images.githubusercontent.com/29738420/39853492-6c115edc-53d7-11e8-8ae3-af4040556bb3.gif)
 
 + Secure backend to frontend user authentication powered by BCrypt.
 
@@ -18,16 +18,18 @@ TipTopTomes was created in 10 days, though further development is expected.
 
 + Books can be rated and reviewed
 
-
 ### Books
-![Book Show Demo](https://res.cloudinary.com/tiptoptomes/image/upload/v1523658663/Show_Page.gif)
+
+![Book Show Demo](https://user-images.githubusercontent.com/29738420/39853461-3ca61aa2-53d7-11e8-821e-8b4830e3dc03.gif)
 Books display standard book information with a user-specifc box if a review has been made. Unfortunately User's will not be allowed to add books to the library due to this being a demo site.
 
 ### Reviews
-![Review CRUD](https://res.cloudinary.com/tiptoptomes/image/upload/v1523658676/Review_CRUD.gif)
+
+![Review CRUD](https://user-images.githubusercontent.com/29738420/39853481-56f8f618-53d7-11e8-95e3-f2423efac54b.gif)
 Reviews are displayed in a most recent fashion with a user content box at the top appearing for every reviewed book. User's have full CRUD access to Reviews. 
 
 ### Bookshelves 
+
 ![Bookshelf](https://res.cloudinary.com/tiptoptomes/image/upload/v1523657814/Screen_Shot_2018-04-13_at_2.56.06_PM.png)
 Showcases all books in a given collection with links to the books and other shelves belonging to the reader.  
 
@@ -44,7 +46,7 @@ As a whole this was a very instructional project (as all tend to be) with React/
             json.extract! shelf, :name
             username = shelf.user.username
             json.owner  username
-            json.memberships do 
+            json.memberships do
             if shelf.memberships.length > 1
                 shelf.memberships.each do |membership|
                 owner_review = membership.book.reviews
@@ -66,8 +68,6 @@ As a whole this was a very instructional project (as all tend to be) with React/
         ```
         + This hurts to look back on. Definitely worked on this towards the end of the project by partialing out components of calls to help separation of concerns. 
 
-
-
 ### Future Features
 
 + Search
@@ -75,5 +75,7 @@ As a whole this was a very instructional project (as all tend to be) with React/
 + Rank by Rating
 
 + Tags
+
++ Shelf Information on Book Show Page
 
 #### [Further Information](https://github.com/ttillotson/TipTopTomes/wiki)

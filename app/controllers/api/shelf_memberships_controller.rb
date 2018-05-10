@@ -12,13 +12,10 @@ class Api::ShelfMembershipsController < ApplicationController
       @new_membership = existing_default
       @new_membership.save
       @shelf = Bookshelf.find(params[:shelfItem][:shelfId])
-<<<<<<< HEAD
-=======
       render :show
     elsif existing 
       @new_membership = existing 
       @shelf = existing.shelf
->>>>>>> UpdateShelfOnBookShow
       render :show
     elsif @new_membership.save
       @shelf = @new_membership.shelf

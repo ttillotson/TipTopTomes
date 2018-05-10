@@ -26,7 +26,7 @@
     display: flex;
     font-family: $text_font;
     .bookshelf_nav {
-        width: 190px;
+        width: 210px;
         margin-top: 27px;
         h3 {
             font-size: 14px;
@@ -34,9 +34,14 @@
             text-transform: uppercase;
             margin-bottom: 3px;
         }
-        li {
+        td {
             padding: 1px 0;
             color: #00635D;
+        }
+        tr {
+            display: flex;
+            justify-content: space-between;
+            width: 205px;
         }
         .shelf_input {
             margin-top: 4px;
@@ -48,6 +53,28 @@
             border-radius: 3px;
             color: #333;
         }
+        .shelf_remove {
+            display: inline-block;
+            // margin-top: 5px;
+            width: 10px;
+            height: 10px;
+            margin: 0 4px;
+            background-image: url(https://res.cloudinary.com/tiptoptomes/image/upload/v1523593172/remove.png);
+            background-size: contain;
+        }
+        .shelf_edit {
+            display: inline-block;
+            // margin-top: 5px;
+            width: 12px;
+            height: 12px;
+            background-image: url(https://res.cloudinary.com/tiptoptomes/image/upload/v1525912295/edit_icon.png);
+            background-size: contain;
+        }
+        .shelf_edit:hover,
+        .shelf_delete:hover {
+            cursor: pointer;
+        }
+
     }
     .bookshelf {
         margin-top: 7px;

@@ -43,10 +43,10 @@ class ShelfItemForm extends React.Component {
         let defaultRadios = Object.values(this.props.defaultShelves).map((shelf, i) =>
             (<label> { shelf.name }
 
-            <input type='radio'
-            key={`dShelf-${shelf.id}`} 
-            value={shelf.id} 
-            />
+                <input type='radio'
+                key={`dShelf-${shelf.id}`} 
+                value={shelf.id} 
+                />
             </label>
             )
         );

@@ -21,7 +21,7 @@ class ShelfListItem extends React.Component {
                 <div className='shelf_edit' onClick={() => this.update()}>
                 </div>
 
-                <div className='shelf_remove' onClick={() => deleteShelf(info[1])}>
+                <div className='shelf_remove' onClick={() => deleteShelf(info[0])}>
                 </div>
             </td>
         );

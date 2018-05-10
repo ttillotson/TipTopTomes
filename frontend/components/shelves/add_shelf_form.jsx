@@ -18,7 +18,6 @@ class AddShelfForm extends React.Component {
   }
 
   componentDidMount() {
-    debugger;
     if (this.props.info) {
       this.setState({ 
         name: this.props.info[1],

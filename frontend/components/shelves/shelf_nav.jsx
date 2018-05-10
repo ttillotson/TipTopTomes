@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import AddShelfForm from './add_shelf_form';
-import ShelfListItem from './shelf_list_item';
+import ShelfListItemContainer from './shelf_list_item_container';
 
 class ShelfNav extends React.Component {
   constructor(props) {
@@ -44,26 +44,12 @@ class ShelfNav extends React.Component {
 
     let shelfOwner = this.props.match.params.userId;
 
-    // Original
-    // let shelfItems = shelvesInfo.map(info => 
-    //   <li key={`shelf-${info[1]}`}>
-    //     <Link to={`/bookshelf/${shelfOwner}/${info[0]}`}>{info[1]}</Link>   <span>({info[2]})</span>
-    //   </li> 
-    // );
-    // As a Table
     let shelfItems = shelvesInfo.map(info => 
-      // <tr key={`shelf-${info[1]}`}>
-      //   <td>
-      //     <Link to={`/bookshelf/${shelfOwner}/${info[0]}`}>{info[1]}</Link>   <span>({info[2]})</span>
-      //   </td>
-      //   <td>
-      //     <div className='shelf_edit'>
-      //     </div>
-      //     <div className='shelf_remove'>
-      //     </div>
-      //   </td>
-      // </tr> 
-      <ShelfListItem info={info} owner={shelfOwner} deleteShelf={deleteShelf} updateShelf={updateShelf}/>
+      <ShelfListItemContainer info={info} 
+                    owner={shelfOwner} 
+                    isOwner={isOwner}
+                    key={`shelf-${info[1]}`}
+                    />
     );
 
     const addShelfForm = <AddShelfForm clearErrors={clearErrors} shelfAction={createShelf} />;
@@ -72,7 +58,6 @@ class ShelfNav extends React.Component {
     
     let addButtonLogic = this.state.addForm ? addShelfForm : addButton; 
     
-
     return (
       <table>
         <tbody>

@@ -4,8 +4,6 @@
 
 TipTopTomes is a book review website inspired by Goodreads that allows users to browse, review and collect books. It runs a Rails/PostgreSQL backend with React/Redux powered frontend.
 
-TipTopTomes was created in 10 days, though further development is expected.
-
 ## Features
 
 ![Login Demo](https://user-images.githubusercontent.com/29738420/39853608-1074de22-53d8-11e8-9f6a-7d3cbd665993.gif)
@@ -21,26 +19,26 @@ TipTopTomes was created in 10 days, though further development is expected.
 ### Books
 
 ![Demo Show Page](https://user-images.githubusercontent.com/29738420/39853670-6bced5d4-53d8-11e8-9c9d-9a304c9a3bbf.gif)
-Books display standard book information with a user-specifc box if a review has been made. Unfortunately User's will not be allowed to add books to the library due to this being a demo site.
+Each book's display has standard book information with a user-content box if a review has been made. Unfortunately User's will not be allowed to add books to the library due to this being a demo site.
 
 ### Reviews
 
 ![Review CRUD](https://user-images.githubusercontent.com/29738420/39853481-56f8f618-53d7-11e8-95e3-f2423efac54b.gif)
-Reviews are displayed in a most recent fashion with a user content box at the top appearing for every reviewed book. User's have full CRUD access to Reviews.
+Reviews are displayed in a most recent fashion with the user-content box holding it's own copy of the review should the book be quite popular. User's have full CRUD access to Reviews.
 
 ### Bookshelves
 
 ![Bookshelf](https://res.cloudinary.com/tiptoptomes/image/upload/v1523657814/Screen_Shot_2018-04-13_at_2.56.06_PM.png)
-Showcases all books in a given collection with links to the books and other shelves belonging to the reader.  
+Showcases all books in a given collection with links to the books and other shelves belonging to the reader. The User's "Profile" is a combined bookshelves page, showcasing ever book from their collections.
 
 ## Things Learned
 
-As a whole this was a very instructional project (as all tend to be) with React/Redux's pairing functionality coming together as the project wore on. As with any project, there are many things I wish I could have done better knowing what I do now. With that in mind, here are a couple of things I wish I had known going in and what I would've done differently.
+As a whole this was a very instructional project (as all are) with React/Redux's pairing functionality coming together as the project wore on. Looking back, there are many things I wish I could have done better knowing what I do now. With that in mind, here are a couple of things I wish I had known going in and what I would've done differently.
 
 + Ideal Redux State and Store
-    + Flat State is a Friendly State: I nested quite a bit of my state because I saw an association between the data. Towards the end, this became very problematic to deal with as I needed to pull info from nested data, where I should've dedicated a slice of state to any information I needed, and update the state as needed by the page.
+    + Flat State is a Friendly State: I nested quite a bit of my state because I saw an association between the data and though the best approach would be to spoon-feed the data from my backend to my front for each specified use case. Towards the end, this became very problematic to deal with as I needed to pull info from nested data or risk having slices of state that were not in-sync. A better approach would've been to dedicate a slice of state to any information I needed, and update the state as needed.
 
-    + Associations and Rails do Heavy Lifting: because I was nexting my state, I was pulling the specific information I needed rather than pulling the relevant association and accessing the store for it as the react way of doing things.
+    + Associations and Rails do Heavy Lifting: because I was nesting my state, I was pulling the specific information I needed rather than pulling the relevant association and accessing the store for it as the react way of doing things.
         ```
             json.extract! shelf, :name
             username = shelf.user.username
@@ -75,7 +73,5 @@ As a whole this was a very instructional project (as all tend to be) with React/
 + Rank by Rating
 
 + Tags
-
-+ Shelf Information on Book Show Page
 
 #### [Further Information](https://github.com/ttillotson/TipTopTomes/wiki)

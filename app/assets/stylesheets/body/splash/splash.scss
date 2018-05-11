@@ -155,4 +155,9 @@
       }
     }
   }
+  @media only screen and (max-width: 1400px) {
+    .splash_body {
+      min-height: 380px;
+    }
+  }
 }

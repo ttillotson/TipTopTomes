@@ -66,7 +66,7 @@ As a whole this was a very instructional project (as all tend to be) with React/
                 end
         
         ```
-        + This hurts to look back on. Definitely worked on this towards the end of the project by partialing out components of calls to help separation of concerns. 
+    + This hurts to look back on. Definitely worked on this towards the end of the project by partialing out components of calls to help separation of concerns.
 
 ### Future Features
 

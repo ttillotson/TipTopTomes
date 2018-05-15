@@ -45,6 +45,7 @@ class  UserContent extends React.Component {
           </ul>
         );
       }
+      // debugger;
 
       reviewComponent = (
         <table>
@@ -57,10 +58,10 @@ class  UserContent extends React.Component {
               <td className='row_key'>Rating</td>
               <td className='row_value'>{userReview.rating}</td>
             </tr>
-            {/* <tr>
+            <tr>
               <td className='row_key'>Shelves</td>
               <td className='row_value'>{ shelfItems }</td>
-            </tr> */}
+            </tr>
             <tr>
               <td className='row_key'>Status</td>
               <td className='row_value'>{ bookStatus }</td>

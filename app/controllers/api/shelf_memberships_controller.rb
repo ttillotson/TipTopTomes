@@ -12,13 +12,16 @@ class Api::ShelfMembershipsController < ApplicationController
       @new_membership = existing_default
       @new_membership.save
       @shelf = Bookshelf.find(params[:shelfItem][:shelfId])
+      @shelves = @new_membership.book.shelves
       render :show
     elsif existing 
       @new_membership = existing 
       @shelf = existing.shelf
+      @shelves = @new_membership.book.shelves
       render :show
     elsif @new_membership.save
       @shelf = @new_membership.shelf
+      @shelves = @new_membership.book.shelves
       render :show
     else
       render @new_membership.errors.full_messages, status: 422

@@ -28084,6 +28084,8 @@ var _merge2 = __webpack_require__(6);
 
 var _merge3 = _interopRequireDefault(_merge2);
 
+var _shelf_actions = __webpack_require__(8);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -28099,6 +28101,9 @@ var BooksReducer = function BooksReducer() {
       return (0, _merge3.default)({}, action.books);
     case _book_actions.RECEIVE_BOOK:
       return (0, _merge3.default)(newState, _defineProperty({}, action.book.book.id, action.book.book));
+    case _shelf_actions.RECEIVE_SHELF_ITEM:
+      newState[action.shelfItem.shelf.bookId].shelves = action.shelfItem.shelves;
+      return newState;
     default:
       return state;
   }
@@ -28300,6 +28305,7 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
             if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
             return state;
         // case RECEIVE_SHELF_ITEM:
+        // debugger;
         //     newState[action.shelfItem.shelf.shelfId].bookIds.push(action.shelfItem.shelf.bookId);
         //     return newState;
         default:
@@ -33419,6 +33425,7 @@ var UserContent = function (_React$Component) {
             })
           );
         }
+        // debugger;
 
         reviewComponent = _react2.default.createElement(
           'table',
@@ -33452,6 +33459,20 @@ var UserContent = function (_React$Component) {
                 'td',
                 { className: 'row_value' },
                 userReview.rating
+              )
+            ),
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                { className: 'row_key' },
+                'Shelves'
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'row_value' },
+                shelfItems
               )
             ),
             _react2.default.createElement(

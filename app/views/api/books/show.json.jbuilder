@@ -3,11 +3,6 @@ json.book do
   json.extract! @book, :average_rating, :description, :published, :ISBN
   if current_user 
     json.shelves do 
-      # @book_shelves.each do |shelf|
-      #   json.set! shelf.id do 
-      #     json.extract! shelf, :id, :name 
-      #   end
-      # end
       json.array! @book_shelves.pluck(:id)
     end
   end

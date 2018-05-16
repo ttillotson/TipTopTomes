@@ -11,6 +11,7 @@ const BooksReducer = (state={}, action) => {
     case RECEIVE_BOOK:
       return merge(newState, {[action.book.book.id]: action.book.book});
     case RECEIVE_SHELF_ITEM:
+    debugger;
       newState[action.shelfItem.shelf.bookId].shelves = action.shelfItem.shelves;
       return newState;
     default:

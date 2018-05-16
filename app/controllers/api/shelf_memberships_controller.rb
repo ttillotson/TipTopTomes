@@ -5,7 +5,8 @@ class Api::ShelfMembershipsController < ApplicationController
     @new_membership.shelf_id = params[:shelfItem][:shelfId]
 
     default_ids = current_user.default_shelves.map(&:id)
-    existing = ShelfMembership.find(params[:shelfItem][:bookId].to_i)
+    existing = ShelfMembership
+    .find_by(book_id: params[:shelfItem][:bookId].to_i, shelf_id: params[:shelfItem][:shelfId].to_i)
     existing_default = current_user.default_membership(params[:shelfItem][:bookId].to_i)
     if default_ids.include?(@new_membership.shelf_id) && existing_default
       existing_default.shelf_id = params[:shelfItem][:shelfId]

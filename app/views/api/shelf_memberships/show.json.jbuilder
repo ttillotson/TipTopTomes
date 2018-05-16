@@ -5,7 +5,7 @@ json.status do
     json.extract! @new_membership, :shelf_id
   end
 end
-
+debugger
 json.shelf do 
   json.extract! @new_membership, :book_id, :shelf_id
 end

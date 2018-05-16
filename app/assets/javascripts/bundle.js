@@ -28102,6 +28102,7 @@ var BooksReducer = function BooksReducer() {
     case _book_actions.RECEIVE_BOOK:
       return (0, _merge3.default)(newState, _defineProperty({}, action.book.book.id, action.book.book));
     case _shelf_actions.RECEIVE_SHELF_ITEM:
+      debugger;
       newState[action.shelfItem.shelf.bookId].shelves = action.shelfItem.shelves;
       return newState;
     default:

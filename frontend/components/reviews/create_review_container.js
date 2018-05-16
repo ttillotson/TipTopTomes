@@ -4,16 +4,13 @@ import { fetchBook } from '../../actions/book_actions';
 import { createReview, receiveErrors } from '../../actions/review_actions';
 
 
-const mapStateToProps = (state, ownProps) => {
-  debugger
-  return {
-    review: { rating: 0, body: '', book_id: ownProps.match.params.bookId},
-    book: state.entities.books[ownProps.match.params.bookId],
-    loading: state.ui.loading.reviewLoading,
-    errors: state.errors.reviews,
-    formType: 'Create',
-    };
-  };
+const mapStateToProps = (state, ownProps) => ({
+  review: { rating: 0, body: '', book_id: ownProps.match.params.bookId},
+  book: state.entities.books[ownProps.match.params.bookId],
+  loading: state.ui.loading.reviewLoading,
+  errors: state.errors.reviews,
+  formType: 'Create',
+});
 
 
 const mapDispatchToProps = (dispatch) => ({

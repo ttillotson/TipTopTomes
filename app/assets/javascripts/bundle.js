@@ -33680,7 +33680,6 @@ var _review_actions = __webpack_require__(11);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
-  debugger;
   return {
     review: { rating: 0, body: '', book_id: ownProps.match.params.bookId },
     book: state.entities.books[ownProps.match.params.bookId],

@@ -27,7 +27,6 @@ class  UserContent extends React.Component {
       let bookStatus= null;
       let shelfItems = null;
       let shelves = book.shelves;
-      // debugger;
       if (shelves && shelves.length > 0) {
         shelfItems = (
           <ul>

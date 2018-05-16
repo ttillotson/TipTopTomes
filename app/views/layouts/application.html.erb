@@ -8,10 +8,10 @@
     <%= javascript_include_tag 'application' %>
 
     <% if current_user %>
-    <script type='text/javascript'>
-      window.currentUser =
-        <%= render('api/users/user.json.jbuilder', user:current_user).html_safe %>
-    </script>
+      <script type='text/javascript'>
+        window.currentUser =
+          <%= render('api/users/user.json.jbuilder', user:current_user).html_safe %>
+      </script>
     <% end %>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117680925-1"></script>
@@ -25,7 +25,6 @@
   </head>
 
   <body>
-
     <%= yield %>
   </body>
 </html>

@@ -5441,7 +5441,6 @@ var SessionForm = function (_React$Component) {
     key: 'handleDemo',
     value: function handleDemo(e) {
       e.preventDefault();
-      debugger;
       var demoUser = { email: 'demo_user@demos.com', password: 'password' };
       this.props.signIn(demoUser);
     }
@@ -33401,7 +33400,6 @@ var UserContent = function (_React$Component) {
         var bookStatus = null;
         var shelfItems = null;
         var shelves = book.shelves;
-        // debugger;
         if (shelves && shelves.length > 0) {
           shelfItems = _react2.default.createElement(
             'ul',

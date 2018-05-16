@@ -18,27 +18,7 @@ const Protected = ({ component: Component, path, loggedIn, exact}) =>(
     loggedIn  ? (
       <Component {...props} />
     ) : (
-      <Redirect to='/' />
-    )
-  )} />
-);
-
-const NotReviewed = ({ component: Component, path, loggedIn, reviewed, exact}) => (
-  <Route path={path} exact={exact} render={(props) => (
-    loggedIn && !reviewed ? (
-      <Component {...props} />
-    ) : (
-      <Redirect to='/' />
-    )
-  )} />
-);
-
-const Reviewed = ({ component: Component, path, loggedIn, reviewed, exact}) => (
-  <Route path={path} exact={exact} render={(props) => (
-    loggedIn && reviewed ? (
-      <Component {...props} />
-    ) : (
-      <Redirect to='/' />
+      <Redirect to='/session/new' />
     )
   )} />
 );
@@ -57,6 +37,3 @@ export const AuthRoute = withRouter(connect(mapStateToProps, null)(Auth));
 
 export const ProtectedRoute = withRouter(connect(mapStateToProps, null)(Protected));
 
-export const EditRoute = withRouter(connect(mapStateToProps, null)(NotReviewed));
-
-export const ReviewRoute = withRouter(connect(mapStateToProps, null)(Reviewed));

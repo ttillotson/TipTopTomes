@@ -6455,7 +6455,7 @@ exports.default = Footer;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.ReviewRoute = exports.EditRoute = exports.ProtectedRoute = exports.AuthRoute = undefined;
+exports.ProtectedRoute = exports.AuthRoute = undefined;
 
 var _react = __webpack_require__(0);
 
@@ -6483,29 +6483,7 @@ var Protected = function Protected(_ref2) {
       loggedIn = _ref2.loggedIn,
       exact = _ref2.exact;
   return _react2.default.createElement(_reactRouterDom.Route, { path: path, exact: exact, render: function render(props) {
-      return loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
-    } });
-};
-
-var NotReviewed = function NotReviewed(_ref3) {
-  var Component = _ref3.component,
-      path = _ref3.path,
-      loggedIn = _ref3.loggedIn,
-      reviewed = _ref3.reviewed,
-      exact = _ref3.exact;
-  return _react2.default.createElement(_reactRouterDom.Route, { path: path, exact: exact, render: function render(props) {
-      return loggedIn && !reviewed ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
-    } });
-};
-
-var Reviewed = function Reviewed(_ref4) {
-  var Component = _ref4.component,
-      path = _ref4.path,
-      loggedIn = _ref4.loggedIn,
-      reviewed = _ref4.reviewed,
-      exact = _ref4.exact;
-  return _react2.default.createElement(_reactRouterDom.Route, { path: path, exact: exact, render: function render(props) {
-      return loggedIn && reviewed ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' });
+      return loggedIn ? _react2.default.createElement(Component, props) : _react2.default.createElement(_reactRouterDom.Redirect, { to: '/session/new' });
     } });
 };
 
@@ -6522,10 +6500,6 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
 var AuthRoute = exports.AuthRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Auth));
 
 var ProtectedRoute = exports.ProtectedRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Protected));
-
-var EditRoute = exports.EditRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(NotReviewed));
-
-var ReviewRoute = exports.ReviewRoute = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps, null)(Reviewed));
 
 /***/ }),
 /* 103 */

@@ -39,10 +39,11 @@ class  UserContent extends React.Component {
               ) } 
           </ul>
         );
-
+        debugger;
         for (let i = 0, num = shelves.length; i < num; i++ ) {
           if (defaultShelves[shelves[i]]) bookStatus = defaultShelves[shelves[i]].name;
         }
+        debugger;
       }
 
 

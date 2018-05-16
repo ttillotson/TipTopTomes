@@ -6,5 +6,12 @@ json.reviews do
     end
   end
 end
+json.defaultShelves do 
+  user.default_shelves.each do |shelf|
+    json.set! shelf.id do 
+      json.extract! shelf, :id, :name
+    end
+  end
+end
 
 # json.bookshelves user.bookshelves.pluck(:id)

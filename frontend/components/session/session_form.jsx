@@ -31,7 +31,11 @@ class SessionForm extends React.Component {
   handleDemo(e){
     e.preventDefault();
     let demoUser = {email: 'demo_user@demos.com', password: 'password'};
-    this.props.signIn(demoUser);
+    if (this.props.formType === 'Sign Up'){
+      this.props.signIn(demoUser);
+    } else {
+      this.props.submitForm(demoUser);
+    }
   }
 
   renderErrors() {

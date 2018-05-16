@@ -5442,7 +5442,11 @@ var SessionForm = function (_React$Component) {
     value: function handleDemo(e) {
       e.preventDefault();
       var demoUser = { email: 'demo_user@demos.com', password: 'password' };
-      this.props.signIn(demoUser);
+      if (this.props.formType === 'Sign Up') {
+        this.props.signIn(demoUser);
+      } else {
+        this.props.submitForm(demoUser);
+      }
     }
   }, {
     key: 'renderErrors',
@@ -28292,6 +28296,8 @@ var _merge = __webpack_require__(6);
 
 var _merge2 = _interopRequireDefault(_merge);
 
+var _session_actions = __webpack_require__(10);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer() {
@@ -28303,12 +28309,15 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
     var shelfId = void 0;
     var newState = (0, _merge2.default)({}, state);
     switch (action.type) {
-        case _book_actions.RECEIVE_BOOK:
-            if (action.book.activeDefaultShelves) return action.book.activeDefaultShelves;
-            return state;
-        case _shelf_actions.RECEIVE_SHELF:
-            if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
-            return state;
+        // case RECEIVE_BOOK:
+        //     if (action.book.activeDefaultShelves) return action.book.activeDefaultShelves;
+        //     return state;
+        // case RECEIVE_SHELF:
+        //     if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
+        //     return state;
+        case _session_actions.RECEIVE_CURRENT_USER:
+            debugger;
+            if (action.user) return (0, _merge2.default)(newState, action.user.defaultShelves);
         default:
             return state;
     }
@@ -33416,10 +33425,11 @@ var UserContent = function (_React$Component) {
               );
             })
           );
-
+          debugger;
           for (var i = 0, num = shelves.length; i < num; i++) {
             if (defaultShelves[shelves[i]]) bookStatus = defaultShelves[shelves[i]].name;
           }
+          debugger;
         }
 
         reviewComponent = _react2.default.createElement(

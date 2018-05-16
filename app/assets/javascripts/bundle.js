@@ -499,63 +499,6 @@ module.exports = merge;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(process) {/**
- * Copyright (c) 2013-present, Facebook, Inc.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-
-
-
-/**
- * Use invariant() to assert state which your program assumes to be true.
- *
- * Provide sprintf-style format (only %s is supported) and arguments
- * to provide information about what broke and what you were
- * expecting.
- *
- * The invariant message will be stripped in production, but the invariant
- * will remain to ensure logic does not differ in production.
- */
-
-var invariant = function(condition, format, a, b, c, d, e, f) {
-  if (process.env.NODE_ENV !== 'production') {
-    if (format === undefined) {
-      throw new Error('invariant requires an error message argument');
-    }
-  }
-
-  if (!condition) {
-    var error;
-    if (format === undefined) {
-      error = new Error(
-        'Minified exception occurred; use the non-minified dev environment ' +
-        'for the full error message and additional helpful warnings.'
-      );
-    } else {
-      var args = [a, b, c, d, e, f];
-      var argIndex = 0;
-      error = new Error(
-        format.replace(/%s/g, function() { return args[argIndex++]; })
-      );
-      error.name = 'Invariant Violation';
-    }
-
-    error.framesToPop = 1; // we don't care about invariant's own frame
-    throw error;
-  }
-};
-
-module.exports = invariant;
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 
 
 Object.defineProperty(exports, "__esModule", {
@@ -691,6 +634,63 @@ var deleteShelfItem = exports.deleteShelfItem = function deleteShelfItem(shelfIt
     });
   };
 };
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {/**
+ * Copyright (c) 2013-present, Facebook, Inc.
+ *
+ * This source code is licensed under the MIT license found in the
+ * LICENSE file in the root directory of this source tree.
+ */
+
+
+
+/**
+ * Use invariant() to assert state which your program assumes to be true.
+ *
+ * Provide sprintf-style format (only %s is supported) and arguments
+ * to provide information about what broke and what you were
+ * expecting.
+ *
+ * The invariant message will be stripped in production, but the invariant
+ * will remain to ensure logic does not differ in production.
+ */
+
+var invariant = function(condition, format, a, b, c, d, e, f) {
+  if (process.env.NODE_ENV !== 'production') {
+    if (format === undefined) {
+      throw new Error('invariant requires an error message argument');
+    }
+  }
+
+  if (!condition) {
+    var error;
+    if (format === undefined) {
+      error = new Error(
+        'Minified exception occurred; use the non-minified dev environment ' +
+        'for the full error message and additional helpful warnings.'
+      );
+    } else {
+      var args = [a, b, c, d, e, f];
+      var argIndex = 0;
+      error = new Error(
+        format.replace(/%s/g, function() { return args[argIndex++]; })
+      );
+      error.name = 'Invariant Violation';
+    }
+
+    error.framesToPop = 1; // we don't care about invariant's own frame
+    throw error;
+  }
+};
+
+module.exports = invariant;
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(1)))
 
 /***/ }),
 /* 9 */
@@ -1814,7 +1814,7 @@ module.exports = isArrayLike;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -2622,7 +2622,7 @@ exports.default = createTransitionManager;
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -3892,7 +3892,7 @@ var storeShape = __WEBPACK_IMPORTED_MODULE_0_prop_types___default.a.shape({
 /* WEBPACK VAR INJECTION */(function(process) {/* harmony export (immutable) */ __webpack_exports__["a"] = connectAdvanced;
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__ = __webpack_require__(77);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_hoist_non_react_statics__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -4554,7 +4554,7 @@ var isExtraneousPopstateEvent = exports.isExtraneousPopstateEvent = function isE
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
@@ -4742,7 +4742,7 @@ MemoryRouter.propTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(5);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_invariant__);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -4835,7 +4835,7 @@ Prompt.contextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_history__ = __webpack_require__(238);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5005,7 +5005,7 @@ var isExtraneousPopstateEvent = function isExtraneousPopstateEvent(event) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react__);
@@ -5192,7 +5192,7 @@ StaticRouter.childContextTypes = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__matchPath__ = __webpack_require__(34);
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -5441,8 +5441,9 @@ var SessionForm = function (_React$Component) {
     key: 'handleDemo',
     value: function handleDemo(e) {
       e.preventDefault();
+      debugger;
       var demoUser = { email: 'demo_user@demos.com', password: 'password' };
-      this.props.submitForm(demoUser);
+      this.props.signIn(demoUser);
     }
   }, {
     key: 'renderErrors',
@@ -5573,12 +5574,16 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     clearErrors: function clearErrors(errors) {
       return dispatch((0, _session_actions.receiveErrors)(errors));
+    },
+    signIn: function signIn(user) {
+      return dispatch((0, _session_actions.signin)(user));
     }
   };
 };
 
 var NewUserForm = function NewUserForm(_ref2) {
   var submitForm = _ref2.submitForm,
+      signIn = _ref2.signIn,
       formType = _ref2.formType,
       errors = _ref2.errors,
       currentUser = _ref2.currentUser,
@@ -5589,7 +5594,8 @@ var NewUserForm = function NewUserForm(_ref2) {
     submitForm: submitForm,
     errors: errors,
     currentUser: currentUser,
-    clearErrors: clearErrors
+    clearErrors: clearErrors,
+    signIn: signIn
   });
 };
 
@@ -5655,7 +5661,7 @@ var _shelf_item_form = __webpack_require__(267);
 
 var _shelf_item_form2 = _interopRequireDefault(_shelf_item_form);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(36);
 
@@ -27932,7 +27938,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _merge = __webpack_require__(6);
 
@@ -28084,6 +28090,8 @@ var _merge2 = __webpack_require__(6);
 
 var _merge3 = _interopRequireDefault(_merge2);
 
+var _shelf_actions = __webpack_require__(7);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -28099,6 +28107,9 @@ var BooksReducer = function BooksReducer() {
       return (0, _merge3.default)({}, action.books);
     case _book_actions.RECEIVE_BOOK:
       return (0, _merge3.default)(newState, _defineProperty({}, action.book.book.id, action.book.book));
+    case _shelf_actions.RECEIVE_SHELF_ITEM:
+      newState[action.shelfItem.shelf.bookId].shelves = action.shelfItem.shelves;
+      return newState;
     default:
       return state;
   }
@@ -28187,7 +28198,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _merge2 = __webpack_require__(6);
 
@@ -28235,7 +28246,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _book_actions = __webpack_require__(9);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _merge = __webpack_require__(6);
 
@@ -28276,7 +28287,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _book_actions = __webpack_require__(9);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _merge = __webpack_require__(6);
 
@@ -28299,9 +28310,6 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
         case _shelf_actions.RECEIVE_SHELF:
             if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
             return state;
-        // case RECEIVE_SHELF_ITEM:
-        //     newState[action.shelfItem.shelf.shelfId].bookIds.push(action.shelfItem.shelf.bookId);
-        //     return newState;
         default:
             return state;
     }
@@ -28322,7 +28330,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _book_actions = __webpack_require__(9);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _merge = __webpack_require__(6);
 
@@ -28387,7 +28395,7 @@ var _book_actions = __webpack_require__(9);
 
 var _review_actions = __webpack_require__(11);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _merge = __webpack_require__(6);
 
@@ -29810,7 +29818,7 @@ var _warning = __webpack_require__(4);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(7);
+var _invariant = __webpack_require__(8);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -30187,7 +30195,7 @@ var _warning = __webpack_require__(4);
 
 var _warning2 = _interopRequireDefault(_warning);
 
-var _invariant = __webpack_require__(7);
+var _invariant = __webpack_require__(8);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
@@ -31267,7 +31275,7 @@ module.exports = Array.isArray || function (arr) {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(21);
@@ -31571,7 +31579,7 @@ var createBrowserHistory = function createBrowserHistory() {
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning__ = __webpack_require__(4);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_warning___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_warning__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(7);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant__ = __webpack_require__(8);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_invariant___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_invariant__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__LocationUtils__ = __webpack_require__(35);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__PathUtils__ = __webpack_require__(21);
@@ -33311,11 +33319,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     currentUser: state.session.currentUser,
     book: state.entities.books[ownProps.match.params.bookId],
     reviews: state.entities.reviews,
-    status: state.entities.activeUserBooks[ownProps.match.params.bookId],
     defaultShelves: state.entities.activeUserDefaultShelves,
     customShelves: state.entities.activeUserMadeShelves,
     shelves: (0, _merge2.default)({}, state.entities.activeUserDefaultShelves, state.entities.activeUserMadeShelves)
-    // update status to trigger rerender -> ActiveUserDefaultBooksReducer
   };
 };
 
@@ -33373,7 +33379,7 @@ var UserContent = function (_React$Component) {
           currentUser = _props.currentUser,
           book = _props.book,
           reviews = _props.reviews,
-          status = _props.status;
+          defaultShelves = _props.defaultShelves;
 
       var userReview = undefined;
       var reviewComponent = void 0;
@@ -33393,20 +33399,10 @@ var UserContent = function (_React$Component) {
         );
 
         var bookStatus = null;
-        if (status) {
-          bookStatus = status.name;
-        }
         var shelfItems = null;
-
-        // if (book.shelves && Object.values(book.shelves).length > 0){
-        //   shelves = (
-        //     <ul>
-        //       {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
-        //     </ul>
-        //   );
+        var shelves = book.shelves;
         // debugger;
-
-        if (book.shelves && book.shelves.length > 0) {
+        if (shelves && shelves.length > 0) {
           shelfItems = _react2.default.createElement(
             'ul',
             null,
@@ -33414,10 +33410,18 @@ var UserContent = function (_React$Component) {
               return _react2.default.createElement(
                 'li',
                 { key: 'shelf-' + id },
-                _this2.props.shelves[id].name
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/bookshelf/' + currentUser.id + '/' + id },
+                  _this2.props.shelves[id].name
+                )
               );
             })
           );
+
+          for (var i = 0, num = shelves.length; i < num; i++) {
+            if (defaultShelves[shelves[i]]) bookStatus = defaultShelves[shelves[i]].name;
+          }
         }
 
         reviewComponent = _react2.default.createElement(
@@ -33452,6 +33456,20 @@ var UserContent = function (_React$Component) {
                 'td',
                 { className: 'row_value' },
                 userReview.rating
+              )
+            ),
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                { className: 'row_key' },
+                'Shelves'
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'row_value' },
+                shelfItems
               )
             ),
             _react2.default.createElement(
@@ -50920,7 +50938,7 @@ var _shelf = __webpack_require__(98);
 
 var _shelf2 = _interopRequireDefault(_shelf);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -51105,7 +51123,7 @@ var _shelf_nav = __webpack_require__(274);
 
 var _shelf_nav2 = _interopRequireDefault(_shelf_nav);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(36);
 
@@ -51299,7 +51317,7 @@ var _shelf_list_item = __webpack_require__(276);
 
 var _shelf_list_item2 = _interopRequireDefault(_shelf_list_item);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 var _reactRouter = __webpack_require__(36);
 
@@ -51457,7 +51475,7 @@ var _shelf = __webpack_require__(98);
 
 var _shelf2 = _interopRequireDefault(_shelf);
 
-var _shelf_actions = __webpack_require__(8);
+var _shelf_actions = __webpack_require__(7);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

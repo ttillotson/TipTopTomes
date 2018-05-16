@@ -8,7 +8,7 @@ class  UserContent extends React.Component {
   }
 
   render() {
-    const { currentUser, book, reviews, status } = this.props;
+    const { currentUser, book, reviews, defaultShelves } = this.props;
     let userReview = undefined;
     let reviewComponent;
     let editReview;
@@ -23,28 +23,29 @@ class  UserContent extends React.Component {
                     className='add_review_link'>
                     Edit your Review
                     </Link>;
-
+    
       let bookStatus= null;
-      if (status) {
-        bookStatus = status.name;
-      }
       let shelfItems = null;
-
-      // if (book.shelves && Object.values(book.shelves).length > 0){
-      //   shelves = (
-      //     <ul>
-      //       {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
-      //     </ul>
-      //   );
+      let shelves = book.shelves;
       // debugger;
-
-      if (book.shelves && book.shelves.length > 0) {
+      if (shelves && shelves.length > 0) {
         shelfItems = (
           <ul>
-            {book.shelves.map((id) => <li key={`shelf-${id}`}>{this.props.shelves[id].name}</li>) } 
+            {book.shelves.map((id) => 
+              <li key={`shelf-${id}`}>
+                <Link to={`/bookshelf/${currentUser.id}/${id}`}>
+                  {this.props.shelves[id].name}
+                </Link>
+              </li>
+              ) } 
           </ul>
         );
+
+        for (let i = 0, num = shelves.length; i < num; i++ ) {
+          if (defaultShelves[shelves[i]]) bookStatus = defaultShelves[shelves[i]].name;
+        }
       }
+
 
       reviewComponent = (
         <table>
@@ -57,10 +58,10 @@ class  UserContent extends React.Component {
               <td className='row_key'>Rating</td>
               <td className='row_value'>{userReview.rating}</td>
             </tr>
-            {/* <tr>
+            <tr>
               <td className='row_key'>Shelves</td>
               <td className='row_value'>{ shelfItems }</td>
-            </tr> */}
+            </tr>
             <tr>
               <td className='row_key'>Status</td>
               <td className='row_value'>{ bookStatus }</td>

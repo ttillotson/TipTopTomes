@@ -1,5 +1,4 @@
 if current_user
-    # debugger
     json.active_default_books do 
         user_default_memberships.each do |shelf|
             shelf.each do |membership|

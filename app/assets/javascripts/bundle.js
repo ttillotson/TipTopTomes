@@ -28102,7 +28102,6 @@ var BooksReducer = function BooksReducer() {
     case _book_actions.RECEIVE_BOOK:
       return (0, _merge3.default)(newState, _defineProperty({}, action.book.book.id, action.book.book));
     case _shelf_actions.RECEIVE_SHELF_ITEM:
-      debugger;
       newState[action.shelfItem.shelf.bookId].shelves = action.shelfItem.shelves;
       return newState;
     default:
@@ -28305,10 +28304,6 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
         case _shelf_actions.RECEIVE_SHELF:
             if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
             return state;
-        // case RECEIVE_SHELF_ITEM:
-        // debugger;
-        //     newState[action.shelfItem.shelf.shelfId].bookIds.push(action.shelfItem.shelf.bookId);
-        //     return newState;
         default:
             return state;
     }
@@ -33318,11 +33313,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     currentUser: state.session.currentUser,
     book: state.entities.books[ownProps.match.params.bookId],
     reviews: state.entities.reviews,
-    status: state.entities.activeUserBooks[ownProps.match.params.bookId],
     defaultShelves: state.entities.activeUserDefaultShelves,
     customShelves: state.entities.activeUserMadeShelves,
     shelves: (0, _merge2.default)({}, state.entities.activeUserDefaultShelves, state.entities.activeUserMadeShelves)
-    // update status to trigger rerender -> ActiveUserDefaultBooksReducer
   };
 };
 
@@ -33380,7 +33373,7 @@ var UserContent = function (_React$Component) {
           currentUser = _props.currentUser,
           book = _props.book,
           reviews = _props.reviews,
-          status = _props.status;
+          defaultShelves = _props.defaultShelves;
 
       var userReview = undefined;
       var reviewComponent = void 0;
@@ -33400,20 +33393,10 @@ var UserContent = function (_React$Component) {
         );
 
         var bookStatus = null;
-        if (status) {
-          bookStatus = status.name;
-        }
         var shelfItems = null;
-
-        // if (book.shelves && Object.values(book.shelves).length > 0){
-        //   shelves = (
-        //     <ul>
-        //       {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
-        //     </ul>
-        //   );
+        var shelves = book.shelves;
         // debugger;
-
-        if (book.shelves && book.shelves.length > 0) {
+        if (shelves && shelves.length > 0) {
           shelfItems = _react2.default.createElement(
             'ul',
             null,
@@ -33421,12 +33404,19 @@ var UserContent = function (_React$Component) {
               return _react2.default.createElement(
                 'li',
                 { key: 'shelf-' + id },
-                _this2.props.shelves[id].name
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/bookshelf/' + currentUser.id + '/' + id },
+                  _this2.props.shelves[id].name
+                )
               );
             })
           );
+
+          for (var i = 0, num = shelves.length; i < num; i++) {
+            if (defaultShelves[shelves[i]]) bookStatus = defaultShelves[shelves[i]].name;
+          }
         }
-        // debugger;
 
         reviewComponent = _react2.default.createElement(
           'table',

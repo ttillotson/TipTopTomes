@@ -702,6 +702,71 @@ module.exports = invariant;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+exports.signout = exports.signin = exports.signup = exports.receiveErrors = exports.RECEIVE_SESSION_ERRORS = exports.RECEIVE_CURRENT_USER = undefined;
+
+var _session_api_util = __webpack_require__(132);
+
+var SessionApiUtil = _interopRequireWildcard(_session_api_util);
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
+
+var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+var RECEIVE_SESSION_ERRORS = exports.RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
+
+var receiveCurrentUser = function receiveCurrentUser(user) {
+  return {
+    type: RECEIVE_CURRENT_USER,
+    user: user
+  };
+};
+
+var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
+  return {
+    type: RECEIVE_SESSION_ERRORS,
+    errors: errors
+  };
+};
+
+var signup = exports.signup = function signup(user) {
+  return function (dispatch) {
+    return SessionApiUtil.signup(user).then(function (ajaxUser) {
+      return dispatch(receiveCurrentUser(ajaxUser));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
+
+var signin = exports.signin = function signin(user) {
+  return function (dispatch) {
+    return SessionApiUtil.signin(user).then(function (ajaxUser) {
+      return dispatch(receiveCurrentUser(ajaxUser));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
+
+var signout = exports.signout = function signout() {
+  return function (dispatch) {
+    return SessionApiUtil.signout().then(function () {
+      return dispatch(receiveCurrentUser(null));
+    }, function (errors) {
+      return dispatch(receiveErrors(errors.responseJSON));
+    });
+  };
+};
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 exports.fetchBooks = exports.fetchBook = exports.receiveErrors = exports.RECEIVE_BOOK_ERRORS = exports.START_LOADING_SINGLE_BOOK = exports.START_LOADING_BOOKS = exports.RECEIVE_BOOK = exports.RECEIVE_BOOKS = undefined;
 
 var _books_api_util = __webpack_require__(205);
@@ -765,71 +830,6 @@ var fetchBooks = exports.fetchBooks = function fetchBooks() {
     dispatch(startLoadingBooks());
     return BooksApiUtil.fetchBooks().then(function (ajaxBooks) {
       return dispatch(receiveBooks(ajaxBooks));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
-  };
-};
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.signout = exports.signin = exports.signup = exports.receiveErrors = exports.RECEIVE_SESSION_ERRORS = exports.RECEIVE_CURRENT_USER = undefined;
-
-var _session_api_util = __webpack_require__(132);
-
-var SessionApiUtil = _interopRequireWildcard(_session_api_util);
-
-function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
-
-var RECEIVE_CURRENT_USER = exports.RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
-var RECEIVE_SESSION_ERRORS = exports.RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
-
-var receiveCurrentUser = function receiveCurrentUser(user) {
-  return {
-    type: RECEIVE_CURRENT_USER,
-    user: user
-  };
-};
-
-var receiveErrors = exports.receiveErrors = function receiveErrors(errors) {
-  return {
-    type: RECEIVE_SESSION_ERRORS,
-    errors: errors
-  };
-};
-
-var signup = exports.signup = function signup(user) {
-  return function (dispatch) {
-    return SessionApiUtil.signup(user).then(function (ajaxUser) {
-      return dispatch(receiveCurrentUser(ajaxUser));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
-  };
-};
-
-var signin = exports.signin = function signin(user) {
-  return function (dispatch) {
-    return SessionApiUtil.signin(user).then(function (ajaxUser) {
-      return dispatch(receiveCurrentUser(ajaxUser));
-    }, function (errors) {
-      return dispatch(receiveErrors(errors.responseJSON));
-    });
-  };
-};
-
-var signout = exports.signout = function signout() {
-  return function (dispatch) {
-    return SessionApiUtil.signout().then(function () {
-      return dispatch(receiveCurrentUser(null));
     }, function (errors) {
       return dispatch(receiveErrors(errors.responseJSON));
     });
@@ -5341,7 +5341,7 @@ var _session_form = __webpack_require__(93);
 
 var _session_form2 = _interopRequireDefault(_session_form);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 var _reactRouterDom = __webpack_require__(3);
 
@@ -5549,7 +5549,7 @@ var _session_form = __webpack_require__(93);
 
 var _session_form2 = _interopRequireDefault(_session_form);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 var _reactRouterDom = __webpack_require__(3);
 
@@ -5739,9 +5739,9 @@ var ReviewForm = function (_React$Component) {
 
     var _this = _possibleConstructorReturn(this, (ReviewForm.__proto__ || Object.getPrototypeOf(ReviewForm)).call(this, props));
 
-    _this.props = props;
     _this.state = _this.props.review;
     _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.renderErrors = _this.renderErrors.bind(_this);
 
     return _this;
   }
@@ -6550,7 +6550,7 @@ var _root = __webpack_require__(215);
 
 var _root2 = _interopRequireDefault(_root);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -25702,7 +25702,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 var _merge = __webpack_require__(6);
 
@@ -27840,7 +27840,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 var _merge = __webpack_require__(6);
 
@@ -28105,7 +28105,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _merge2 = __webpack_require__(6);
 
@@ -28175,7 +28175,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _review_actions = __webpack_require__(11);
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _merge2 = __webpack_require__(6);
 
@@ -28265,7 +28265,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _shelf_actions = __webpack_require__(7);
 
@@ -28306,7 +28306,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _shelf_actions = __webpack_require__(7);
 
@@ -28314,7 +28314,7 @@ var _merge = __webpack_require__(6);
 
 var _merge2 = _interopRequireDefault(_merge);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -28347,7 +28347,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _shelf_actions = __webpack_require__(7);
 
@@ -28410,7 +28410,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _review_actions = __webpack_require__(11);
 
@@ -32250,7 +32250,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _reactRedux = __webpack_require__(2);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 var _navbar = __webpack_require__(248);
 
@@ -32480,7 +32480,7 @@ var _books_index = __webpack_require__(251);
 
 var _books_index2 = _interopRequireDefault(_books_index);
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _selectors = __webpack_require__(253);
 
@@ -32868,7 +32868,7 @@ var _book_show = __webpack_require__(261);
 
 var _book_show2 = _interopRequireDefault(_book_show);
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _review_actions = __webpack_require__(11);
 
@@ -33436,11 +33436,9 @@ var UserContent = function (_React$Component) {
               );
             })
           );
-          debugger;
           for (var i = 0, num = shelves.length; i < num; i++) {
             if (defaultShelves[shelves[i]]) bookStatus = defaultShelves[shelves[i]].name;
           }
-          debugger;
         }
 
         reviewComponent = _react2.default.createElement(
@@ -33701,18 +33699,19 @@ var _review_form = __webpack_require__(97);
 
 var _review_form2 = _interopRequireDefault(_review_form);
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _review_actions = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state, ownProps) {
+  debugger;
   return {
     review: { rating: 0, body: '', book_id: ownProps.match.params.bookId },
     book: state.entities.books[ownProps.match.params.bookId],
     loading: state.ui.loading.reviewLoading,
-    errors: state.errors.review,
+    errors: state.errors.reviews,
     formType: 'Create'
   };
 };
@@ -50861,7 +50860,7 @@ var _review_form = __webpack_require__(97);
 
 var _review_form2 = _interopRequireDefault(_review_form);
 
-var _book_actions = __webpack_require__(9);
+var _book_actions = __webpack_require__(10);
 
 var _review_actions = __webpack_require__(11);
 
@@ -50880,7 +50879,7 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     review: state.entities.reviews[state.session.currentUser.id],
     book: state.entities.books[ownProps.match.params.bookId],
     loading: state.ui.loading.reviewLoading,
-    errors: state.errors.review,
+    errors: state.errors.reviews,
     formType: 'Update'
   };
 };
@@ -51635,7 +51634,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(2);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -51775,7 +51774,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(2);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -52054,7 +52053,7 @@ var _splash = __webpack_require__(100);
 
 var _splash2 = _interopRequireDefault(_splash);
 
-var _session_actions = __webpack_require__(10);
+var _session_actions = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 

@@ -11,7 +11,7 @@ const mapStateToProps = (state, ownProps) => ({
   review: state.entities.reviews[state.session.currentUser.id],
   book: state.entities.books[ownProps.match.params.bookId],
   loading: state.ui.loading.reviewLoading,
-  errors: state.errors.review,
+  errors: state.errors.reviews,
   formType: 'Update',
 });
 

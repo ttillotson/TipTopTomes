@@ -7,9 +7,9 @@ import ShelfItemFormContainer from '../shelves/shelf_item_form_container';
 class ReviewForm extends React.Component {
   constructor(props) {
     super(props);
-    this.props = props;
     this.state = this.props.review;
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.renderErrors = this.renderErrors.bind(this);
 
   }
 
@@ -114,7 +114,7 @@ class ReviewForm extends React.Component {
 
             <button>Save</button>
           </form>
-          { this.renderErrors() }
+        { this.renderErrors() }
         </section>
       </div>
     );

@@ -5441,8 +5441,9 @@ var SessionForm = function (_React$Component) {
     key: 'handleDemo',
     value: function handleDemo(e) {
       e.preventDefault();
+      debugger;
       var demoUser = { email: 'demo_user@demos.com', password: 'password' };
-      this.props.submitForm(demoUser);
+      this.props.signIn(demoUser);
     }
   }, {
     key: 'renderErrors',
@@ -5526,10 +5527,79 @@ exports.default = (0, _reactRouter.withRouter)(SessionForm);
 
 /***/ }),
 /* 94 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-throw new Error("Module build failed: Error: ENOENT: no such file or directory, open '/Users/travist/Projects/GoodReadsClone/frontend/components/session/create_user_container.js'");
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(2);
+
+var _session_form = __webpack_require__(93);
+
+var _session_form2 = _interopRequireDefault(_session_form);
+
+var _session_actions = __webpack_require__(10);
+
+var _reactRouterDom = __webpack_require__(3);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var mapStateToProps = function mapStateToProps(_ref) {
+  var session = _ref.session,
+      errors = _ref.errors;
+  return {
+    currentUser: session.currentUser,
+    formType: 'Sign Up',
+    errors: errors.sessions,
+    navLink: _react2.default.createElement(
+      _reactRouterDom.Link,
+      { to: '/session/new' },
+      'Sign In'
+    )
+  };
+};
+
+var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+  return {
+    submitForm: function submitForm(user) {
+      return dispatch((0, _session_actions.signup)(user));
+    },
+    clearErrors: function clearErrors(errors) {
+      return dispatch((0, _session_actions.receiveErrors)(errors));
+    },
+    signIn: function signIn(user) {
+      return dispatch((0, _session_actions.signin)(user));
+    }
+  };
+};
+
+var NewUserForm = function NewUserForm(_ref2) {
+  var submitForm = _ref2.submitForm,
+      signIn = _ref2.signIn,
+      formType = _ref2.formType,
+      errors = _ref2.errors,
+      currentUser = _ref2.currentUser,
+      clearErrors = _ref2.clearErrors;
+
+  return _react2.default.createElement(_session_form2.default, {
+    formType: formType,
+    submitForm: submitForm,
+    errors: errors,
+    currentUser: currentUser,
+    clearErrors: clearErrors,
+    signIn: signIn
+  });
+};
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(NewUserForm);
 
 /***/ }),
 /* 95 */
@@ -28020,6 +28090,8 @@ var _merge2 = __webpack_require__(6);
 
 var _merge3 = _interopRequireDefault(_merge2);
 
+var _shelf_actions = __webpack_require__(7);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -28035,6 +28107,9 @@ var BooksReducer = function BooksReducer() {
       return (0, _merge3.default)({}, action.books);
     case _book_actions.RECEIVE_BOOK:
       return (0, _merge3.default)(newState, _defineProperty({}, action.book.book.id, action.book.book));
+    case _shelf_actions.RECEIVE_SHELF_ITEM:
+      newState[action.shelfItem.shelf.bookId].shelves = action.shelfItem.shelves;
+      return newState;
     default:
       return state;
   }
@@ -28235,9 +28310,6 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
         case _shelf_actions.RECEIVE_SHELF:
             if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
             return state;
-        // case RECEIVE_SHELF_ITEM:
-        //     newState[action.shelfItem.shelf.shelfId].bookIds.push(action.shelfItem.shelf.bookId);
-        //     return newState;
         default:
             return state;
     }
@@ -33247,11 +33319,9 @@ var mapStateToProps = function mapStateToProps(state, ownProps) {
     currentUser: state.session.currentUser,
     book: state.entities.books[ownProps.match.params.bookId],
     reviews: state.entities.reviews,
-    status: state.entities.activeUserBooks[ownProps.match.params.bookId],
     defaultShelves: state.entities.activeUserDefaultShelves,
     customShelves: state.entities.activeUserMadeShelves,
     shelves: (0, _merge2.default)({}, state.entities.activeUserDefaultShelves, state.entities.activeUserMadeShelves)
-    // update status to trigger rerender -> ActiveUserDefaultBooksReducer
   };
 };
 
@@ -33309,7 +33379,7 @@ var UserContent = function (_React$Component) {
           currentUser = _props.currentUser,
           book = _props.book,
           reviews = _props.reviews,
-          status = _props.status;
+          defaultShelves = _props.defaultShelves;
 
       var userReview = undefined;
       var reviewComponent = void 0;
@@ -33329,20 +33399,10 @@ var UserContent = function (_React$Component) {
         );
 
         var bookStatus = null;
-        if (status) {
-          bookStatus = status.name;
-        }
         var shelfItems = null;
-
-        // if (book.shelves && Object.values(book.shelves).length > 0){
-        //   shelves = (
-        //     <ul>
-        //       {Object.values(book.shelves).map((shelfObj, i) => <li key={`shelf-${i}`}>{shelfObj.name}</li>) } 
-        //     </ul>
-        //   );
+        var shelves = book.shelves;
         // debugger;
-
-        if (book.shelves && book.shelves.length > 0) {
+        if (shelves && shelves.length > 0) {
           shelfItems = _react2.default.createElement(
             'ul',
             null,
@@ -33350,10 +33410,18 @@ var UserContent = function (_React$Component) {
               return _react2.default.createElement(
                 'li',
                 { key: 'shelf-' + id },
-                _this2.props.shelves[id].name
+                _react2.default.createElement(
+                  _reactRouterDom.Link,
+                  { to: '/bookshelf/' + currentUser.id + '/' + id },
+                  _this2.props.shelves[id].name
+                )
               );
             })
           );
+
+          for (var i = 0, num = shelves.length; i < num; i++) {
+            if (defaultShelves[shelves[i]]) bookStatus = defaultShelves[shelves[i]].name;
+          }
         }
 
         reviewComponent = _react2.default.createElement(
@@ -33388,6 +33456,20 @@ var UserContent = function (_React$Component) {
                 'td',
                 { className: 'row_value' },
                 userReview.rating
+              )
+            ),
+            _react2.default.createElement(
+              'tr',
+              null,
+              _react2.default.createElement(
+                'td',
+                { className: 'row_key' },
+                'Shelves'
+              ),
+              _react2.default.createElement(
+                'td',
+                { className: 'row_value' },
+                shelfItems
               )
             ),
             _react2.default.createElement(

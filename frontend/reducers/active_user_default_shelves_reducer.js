@@ -14,9 +14,6 @@ const ActiveUserDefaultShelvesReducer = (state = {}, action) => {
         case RECEIVE_SHELF:
             if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
             return state;
-        // case RECEIVE_SHELF_ITEM:
-        //     newState[action.shelfItem.shelf.shelfId].bookIds.push(action.shelfItem.shelf.bookId);
-        //     return newState;
         default:
             return state;
     }

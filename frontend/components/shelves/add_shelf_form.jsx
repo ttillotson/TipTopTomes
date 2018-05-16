@@ -40,9 +40,9 @@ class AddShelfForm extends React.Component {
     let button;
 
     if (this.props.info) {
-      button = <button className='add_shelf'>Update</button>
+      button = <button className='add_shelf'>Update</button>;
     } else {
-      button = <button className='add_shelf'>Add</button>
+      button = <button className='add_shelf'>Add</button>;
     }
 
     return (

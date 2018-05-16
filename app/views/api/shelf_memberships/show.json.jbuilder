@@ -9,3 +9,8 @@ end
 json.shelf do 
   json.extract! @new_membership, :book_id, :shelf_id
 end
+
+json.shelves do 
+  json.array! @shelves.where(user_id: current_user.id).pluck(:id)
+end
+

@@ -1,6 +1,6 @@
 .review_form_container {
   background-color: #FFF;
-  min-height: 750px;
+  min-height: 90vh;
   margin-top: 2px;
   padding-top: 17px;
 
@@ -107,20 +107,8 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
+@media only screen and (max-width: 1400px) {
+  .review_form_container {
+    min-height: 86.2vh;
+  }
+}

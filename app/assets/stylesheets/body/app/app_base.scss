@@ -11,7 +11,7 @@ body {
 }
 
 .page_content {
-  min-height: 845px;
+  min-height: 92.3vh;
 }
 
 .footer_container {
@@ -38,5 +38,11 @@ body {
         border-left: 1px solid #666666;
       }
     }
+  }
+}
+
+@media only screen and (max-width: 1400px) {
+  .page_content {
+    min-height: 88.8vh;
   }
 }

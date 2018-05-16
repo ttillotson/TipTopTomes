@@ -5783,6 +5783,23 @@ var ReviewForm = function (_React$Component) {
       });
     }
   }, {
+    key: 'renderErrors',
+    value: function renderErrors() {
+      if (this.props.errors) {
+        return _react2.default.createElement(
+          'ul',
+          { className: 'review_errors' },
+          this.props.errors.map(function (error, i) {
+            return _react2.default.createElement(
+              'li',
+              { key: '' + i },
+              error
+            );
+          })
+        );
+      }
+    }
+  }, {
     key: 'render',
     value: function render() {
       var _props = this.props,
@@ -5915,7 +5932,8 @@ var ReviewForm = function (_React$Component) {
               null,
               'Save'
             )
-          )
+          ),
+          this.renderErrors()
         )
       );
     }
@@ -28309,14 +28327,7 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
     var shelfId = void 0;
     var newState = (0, _merge2.default)({}, state);
     switch (action.type) {
-        // case RECEIVE_BOOK:
-        //     if (action.book.activeDefaultShelves) return action.book.activeDefaultShelves;
-        //     return state;
-        // case RECEIVE_SHELF:
-        //     if (Boolean(action.shelf.activeDefaultShelves)) return action.shelf.activeDefaultShelves;
-        //     return state;
         case _session_actions.RECEIVE_CURRENT_USER:
-            debugger;
             if (action.user) return (0, _merge2.default)(newState, action.user.defaultShelves);
         default:
             return state;

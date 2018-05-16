@@ -40,17 +40,25 @@ class ReviewForm extends React.Component {
     );
   }
 
+  renderErrors() {
+    if (this.props.errors) {
+      return(
+        <ul className='review_errors'>
+          {this.props.errors.map((error, i) => (
+            <li key={`${i}`}>
+              {error}
+            </li>
+          ))}
+        </ul>
+      );
+    }
+  }
+
   render() {
     const { review, loading, book } = this.props;
     if (loading) { return <LoadingIcon />; }
     if (!book) { return null; }
     if (!review) { return <LoadingIcon />; }
-
-
-
-
-
-
 
     return (
       <div className='review_form_container'>
@@ -106,6 +114,7 @@ class ReviewForm extends React.Component {
 
             <button>Save</button>
           </form>
+          { this.renderErrors() }
         </section>
       </div>
     );

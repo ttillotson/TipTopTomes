@@ -15,27 +15,30 @@ class DiscoveryBoxIndex extends React.Component {
 
     if (loading) {return <LoadingIcon />; }
 
-    const bookItems = books.map( book => {
-      return (
+    const bookItems = books.map( book => (
         <BookIndexItem
           key={`${book.id}`}
           book={book}
           classTag={'discovery_item'}
           />
-      );
-    });
+      )
+    );
 
     const rows = [];
-    while ( bookItems.length > 0 ) {
+    while ( rows.length < 2 ) {
       let row = [];
-      for (let i = 0; i < 7; i++){
-        row.push(bookItems.pop());
+      for (let i = 0; i < 8; i++){
+        row.push(bookItems.shift());
       }
       rows.push(row);
     }
+    const names = ["Little Billy", "Betty Sue"];
 
     const bookRows = rows.map((row, i) => (
-      <BookIndexRow key={i} books={row} classTag={'discovery_row'} />
+      <article key={i}>
+        <h4>{names[i]} liked these books</h4>
+        <BookIndexRow books={row} classTag={'discovery_row'} />
+      </article>
     ));
 
     return (

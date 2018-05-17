@@ -14,15 +14,14 @@ class BooksIndex extends React.Component {
 
     if (loading) {return <LoadingIcon />; }
 
-    const bookItems = books.map( book => {
-      return (
+    const bookItems = books.map( book => (
         <BookIndexItem
           key={`${book.id}`}
           book={book}
           classTag={'book_index_item'}
           />
-      );
-    });
+      )
+    );
 
     let rows = [];
     while ( bookItems.length > 0 ) {

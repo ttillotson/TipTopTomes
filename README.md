@@ -29,7 +29,7 @@ Reviews are displayed in a most recent fashion with the user-content box holding
 ### Bookshelves
 
 ![Bookshelf](https://res.cloudinary.com/tiptoptomes/image/upload/v1523657814/Screen_Shot_2018-04-13_at_2.56.06_PM.png)
-Showcases all books in a given collection with links to the books and other shelves belonging to the reader. The User's "Profile" is a combined bookshelves page, showcasing ever book from their collections.
+Showcases all books in a given collection with links to the books and other shelves belonging to the reader. The User's "Profile" is a combined bookshelves page, showcasing every book from their collections.
 
 ## Things Learned
 

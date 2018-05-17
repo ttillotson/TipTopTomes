@@ -32,20 +32,28 @@ class DiscoveryBoxIndex extends React.Component {
       }
       rows.push(row);
     }
-    const names = ["Little Billy", "Betty Sue"];
+    const names = ['Barbra Anne', 'Betty Sue'];
 
     const bookRows = rows.map((row, i) => (
       <article key={i}>
-        <h4>{names[i]} liked these books</h4>
-        <BookIndexRow books={row} classTag={'discovery_row'} />
+        <section>
+          <h4>Because {names[i]} liked... </h4>
+          <BookIndexRow books={row} classTag={'discovery_row'} />
+        </section>
+        <figure className={'discovery_arrow'}/>
+        <section>
+          <h4>She disocvered:</h4>
+          <ul>
+            {bookItems.shift()}
+          </ul>
+        </section>
       </article>
     ));
 
     return (
-      <section>
-        <ul>
-          { bookRows }
-        </ul>
+      <section className={'discovery_box'}>
+        <h3>What will <i>you</i> discover?</h3>
+        { bookRows }
       </section>
     );
   }

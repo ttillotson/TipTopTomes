@@ -52025,30 +52025,57 @@ var DiscoveryBoxIndex = function (_React$Component) {
         }
         rows.push(row);
       }
-      var names = ["Little Billy", "Betty Sue"];
+      var names = ['Barbra Anne', 'Betty Sue'];
 
       var bookRows = rows.map(function (row, i) {
         return _react2.default.createElement(
           'article',
           { key: i },
           _react2.default.createElement(
-            'h4',
+            'section',
             null,
-            names[i],
-            ' liked these books'
+            _react2.default.createElement(
+              'h4',
+              null,
+              'Because ',
+              names[i],
+              ' liked... '
+            ),
+            _react2.default.createElement(_book_index_row2.default, { books: row, classTag: 'discovery_row' })
           ),
-          _react2.default.createElement(_book_index_row2.default, { books: row, classTag: 'discovery_row' })
+          _react2.default.createElement('figure', { className: 'discovery_arrow' }),
+          _react2.default.createElement(
+            'section',
+            null,
+            _react2.default.createElement(
+              'h4',
+              null,
+              'She disocvered:'
+            ),
+            _react2.default.createElement(
+              'ul',
+              null,
+              bookItems.shift()
+            )
+          )
         );
       });
 
       return _react2.default.createElement(
         'section',
-        null,
+        { className: 'discovery_box' },
         _react2.default.createElement(
-          'ul',
+          'h3',
           null,
-          bookRows
-        )
+          'What will ',
+          _react2.default.createElement(
+            'i',
+            null,
+            'you'
+          ),
+          ' discover?'
+        ),
+        bookRows
       );
     }
   }]);

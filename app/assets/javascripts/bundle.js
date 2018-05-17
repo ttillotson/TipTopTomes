@@ -32510,7 +32510,7 @@ var BooksIndex = function (_React$Component) {
   _createClass(BooksIndex, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (Object.values(this.props.books).length > 0) this.props.fetchBooks();
+      if (Object.values(this.props.books).length === 0) this.props.fetchBooks();
     }
   }, {
     key: 'render',
@@ -51915,21 +51915,32 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(2);
 
+var _book_actions = __webpack_require__(10);
+
 var _discovery_box_index = __webpack_require__(284);
 
 var _discovery_box_index2 = _interopRequireDefault(_discovery_box_index);
+
+var _selectors = __webpack_require__(253);
+
+var _selectors2 = _interopRequireDefault(_selectors);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
   return {
-    books: state.entities.books,
+    // books: state.entities.books,
+    books: (0, _selectors2.default)(state.entities),
     loading: state.ui.loading.indexLoading
   };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-  return {};
+  return {
+    fetchBooks: function fetchBooks() {
+      return dispatch((0, _book_actions.fetchBooks)());
+    }
+  };
 };
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_discovery_box_index2.default);
@@ -51959,6 +51970,10 @@ var _book_index_item = __webpack_require__(95);
 
 var _book_index_item2 = _interopRequireDefault(_book_index_item);
 
+var _loading_icon = __webpack_require__(22);
+
+var _loading_icon2 = _interopRequireDefault(_loading_icon);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -51970,21 +51985,16 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var DiscoveryBoxIndex = function (_React$Component) {
   _inherits(DiscoveryBoxIndex, _React$Component);
 
-  function DiscoveryBoxIndex(props) {
+  function DiscoveryBoxIndex() {
     _classCallCheck(this, DiscoveryBoxIndex);
 
-    var _this = _possibleConstructorReturn(this, (DiscoveryBoxIndex.__proto__ || Object.getPrototypeOf(DiscoveryBoxIndex)).call(this, props));
-
-    _this.state = {
-      books: _this.props.books
-    };
-    return _this;
+    return _possibleConstructorReturn(this, (DiscoveryBoxIndex.__proto__ || Object.getPrototypeOf(DiscoveryBoxIndex)).apply(this, arguments));
   }
 
   _createClass(DiscoveryBoxIndex, [{
-    key: 'componentWillMount',
-    value: function componentWillMount() {
-      if (Object.values(this.props.books).length > 0) this.props.fetchBooks();
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      if (Object.values(this.props.books).length === 0) this.props.fetchBooks();
     }
   }, {
     key: 'render',
@@ -51996,12 +52006,10 @@ var DiscoveryBoxIndex = function (_React$Component) {
 
 
       if (loading) {
-        return _react2.default.createElement(LoadingIcon, null);
+        return _react2.default.createElement(_loading_icon2.default, null);
       }
 
-      debugger;
-
-      var bookItems = props.books.map(function (book) {
+      var bookItems = books.map(function (book) {
         return _react2.default.createElement(_book_index_item2.default, {
           key: '' + book.id,
           book: book,

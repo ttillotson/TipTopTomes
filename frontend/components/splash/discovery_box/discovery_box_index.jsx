@@ -1,18 +1,12 @@
 import React from 'react';
 import BookIndexRow from '../../books/book_index_row';
 import BookIndexItem from '../../books/book_index_item';
+import LoadingIcon from '../../shared/loading_icon';
 
 
 class DiscoveryBoxIndex extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      books: this.props.books
-    };
-  }
-
-  componentWillMount() {
-    if (Object.values(this.props.books).length > 0) this.props.fetchBooks();
+  componentDidMount() {
+    if (Object.values(this.props.books).length === 0) this.props.fetchBooks();
   }
 
 
@@ -21,9 +15,7 @@ class DiscoveryBoxIndex extends React.Component {
 
     if (loading) {return <LoadingIcon />; }
 
-    debugger;
-
-    const bookItems = props.books.map( book => {
+    const bookItems = books.map( book => {
       return (
         <BookIndexItem
           key={`${book.id}`}

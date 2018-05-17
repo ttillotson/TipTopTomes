@@ -6,7 +6,7 @@ import LoadingIcon from '../shared/loading_icon';
 
 class BooksIndex extends React.Component {
   componentDidMount() {
-    if (Object.values(this.props.books).length > 0) this.props.fetchBooks();
+    if (Object.values(this.props.books).length === 0) this.props.fetchBooks();
   }
 
   render() {

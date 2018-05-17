@@ -54,7 +54,7 @@ class ShelfNav extends React.Component {
 
     const addShelfForm = <AddShelfForm clearErrors={clearErrors} shelfAction={createShelf} />;
     
-    let addButton = <tr><td><button onClick={() => this.update()}  className='add_shelf' >Add Shelf</button></td></tr>;
+    let addButton = <tr><td><button onClick={() => this.update()} className='add_shelf' >Add Shelf</button></td></tr>;
     
     let addButtonLogic = this.state.addForm ? addShelfForm : addButton; 
     

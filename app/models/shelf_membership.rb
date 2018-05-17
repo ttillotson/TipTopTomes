@@ -39,8 +39,9 @@ class ShelfMembership < ApplicationRecord
 
   def handle_destruction
     # return if self.user != current_user
-    if !!self.user.default_membership(self.book_id)
-      shelf_members = self.user.shelf_memberships
+    default_books = self.user.default_books
+    if default_books.include?(self)
+      shelf_members = self.user.memberships
                    .where(book_id: self.book_id)
       shelf_members.each do |book|
         book.destroy

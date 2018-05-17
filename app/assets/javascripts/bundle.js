@@ -28335,6 +28335,8 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
     switch (action.type) {
         case _session_actions.RECEIVE_CURRENT_USER:
             if (action.user) return (0, _merge2.default)(newState, action.user.defaultShelves);
+        case _shelf_actions.RECEIVE_SHELF:
+            if (action.shelf.activeDefaultShelves) return (0, _merge2.default)(newState, action.shelf.activeDefaultShelves);
         default:
             return state;
     }
@@ -51356,10 +51358,24 @@ var ShelfListItem = function (_React$Component) {
         _this.state = {
             editForm: false
         };
+        _this.handleDelete = _this.handleDelete.bind(_this);
         return _this;
     }
 
     _createClass(ShelfListItem, [{
+        key: 'handleDelete',
+        value: function handleDelete(shelfId) {
+            this.props.deleteShelf(shelfId);
+            var _props = this.props,
+                owner = _props.owner,
+                info = _props.info;
+            // Change Shelf if deleting current shelf
+
+            var currentLocation = this.props.history.location.pathname;
+            var shelfPath = '/bookshelf/' + owner + '/' + info[0];
+            if (currentLocation === shelfPath) this.props.history.push('/bookshelf/' + owner);
+        }
+    }, {
         key: 'update',
         value: function update() {
             this.setState({ editForm: true });
@@ -51369,13 +51385,13 @@ var ShelfListItem = function (_React$Component) {
         value: function render() {
             var _this2 = this;
 
-            var _props = this.props,
-                deleteShelf = _props.deleteShelf,
-                updateShelf = _props.updateShelf,
-                clearErrors = _props.clearErrors,
-                info = _props.info,
-                owner = _props.owner,
-                isOwner = _props.isOwner;
+            var _props2 = this.props,
+                deleteShelf = _props2.deleteShelf,
+                updateShelf = _props2.updateShelf,
+                clearErrors = _props2.clearErrors,
+                info = _props2.info,
+                owner = _props2.owner,
+                isOwner = _props2.isOwner;
 
             var editIcons = _react2.default.createElement(
                 'td',
@@ -51384,7 +51400,7 @@ var ShelfListItem = function (_React$Component) {
                         return _this2.update();
                     } }),
                 _react2.default.createElement('div', { className: 'shelf_remove', onClick: function onClick() {
-                        return deleteShelf(info[0]);
+                        return _this2.handleDelete(info[0]);
                     } })
             );
 

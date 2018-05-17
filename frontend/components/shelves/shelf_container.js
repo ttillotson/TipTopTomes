@@ -6,7 +6,7 @@ import {
   updateShelf,
   deleteShelf,
   deleteShelfItem,
-  receiveErrors
+  receiveErrors,
 } from '../../actions/shelf_actions';
 
 const mapStateToProps = (state, ownProps) => ({
@@ -24,7 +24,6 @@ const mapDispatchToProps = (dispatch) => ({
   updateShelf: (shelf) => dispatch(updateShelf(shelf)),
   deleteShelf: (shelfId) => dispatch(deleteShelf(shelfId)),
   deleteShelfItem: (shelfItemId) => dispatch(deleteShelfItem(shelfItemId)),
-  clearShelf: (userId) => dispatch(fetchShelf(userId)),
   clearErrors: (errors) => dispatch(receiveErrors(errors)),
 });
 

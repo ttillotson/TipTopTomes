@@ -6072,7 +6072,6 @@ var Shelf = function (_React$Component) {
     key: 'componentWillUnmount',
     value: function componentWillUnmount() {
       this.props.clearErrors([]);
-      this.props.clearShelf();
     }
   }, {
     key: 'render',
@@ -51474,9 +51473,6 @@ var mapDispatchToProps = function mapDispatchToProps(dispatch) {
     },
     deleteShelfItem: function deleteShelfItem(shelfItemId) {
       return dispatch((0, _shelf_actions.deleteShelfItem)(shelfItemId));
-    },
-    clearShelf: function clearShelf(userId) {
-      return dispatch((0, _shelf_actions.fetchShelf)(userId));
     },
     clearErrors: function clearErrors(errors) {
       return dispatch((0, _shelf_actions.receiveErrors)(errors));

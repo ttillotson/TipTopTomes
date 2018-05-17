@@ -133,11 +133,11 @@
     padding-bottom: 15px;
     margin-top: 15px;
 
-    .discovery_box {
+    .pitch {
       display: flex;
       justify-content: center;
 
-      .discovery_box_item {
+      .pitch_item {
         width: 280px;
         margin: 0 70px;
 
@@ -152,6 +152,84 @@
           line-height: 18px;
           margin: 18px 0;
         }
+      }
+    }
+
+    .discovery_box {
+      background-color: #F4F2E9;
+      padding-top: 1vh;
+      border-radius: 1em;
+      margin: auto;
+      margin-bottom: 2vh;
+      width: 830px;
+
+      h3 {
+        padding-left: 1vw;
+        font-size: 18px;
+      }
+
+      .discovery_article {
+        background-image: url('https://res.cloudinary.com/tiptoptomes/image/upload/v1526581678/discovery_box_background.png');
+        background-position: bottom;
+        background-repeat: repeat-x;
+        display: flex;
+        justify-content: flex-start;
+        // margin: auto;
+        // margin-top: 1vh;
+        padding: 0 1vw;
+        
+        .discovery_arrow {
+          margin: auto 0;
+          img {
+            width: 21px;
+            height: 35px;
+          }
+        }
+
+        .discovered {
+          text-align: center;
+          h4 {
+            display: inline-block;
+          }
+        }
+
+        section {
+          h4 {
+            font-size: 12px;
+            padding: 1.6vh 0;
+          }
+        }
+        &:last-child {
+          border-bottom-left-radius: 1em;
+          border-bottom-right-radius: 1em;
+        }
+      }
+      .discovery_item {
+        align-content: left;
+        display: flex;
+        flex-direction: column;
+        width: 130px;
+        margin-bottom: 2px;
+
+        figure {
+          margin: 0;
+        }
+
+        .book_title {
+          text-align: center;
+          font-size: 11px;
+          padding: 2px 0 1px 0;
+        }
+        
+        .book_image {
+          height: 150px;
+          width: 100px;
+          margin: auto;
+        }
+      }
+      .discovery_row {
+        display: flex;
+        justify-content: flex-start;
       }
     }
   }

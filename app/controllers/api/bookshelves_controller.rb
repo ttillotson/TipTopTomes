@@ -5,10 +5,11 @@ class Api::BookshelvesController < ApplicationController
     @shelves = Bookshelf.includes(books: [:reviews]).where(user_id: params[:user_id])
     @shelf = @shelves.zip
     @books = @shelves.map{ |shelf| shelf.book_ids }.flatten
-    @user_default_memberships = current_user.default_books
-    @user_made_shelves = current_user.shelves.includes(:books).offset(3)
-    @user_default_shelves = current_user.shelves.includes(:books).limit(3)
-
+    if current_user
+      @user_default_memberships = current_user.default_books
+      @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+      @user_default_shelves = current_user.shelves.includes(:books).limit(3)
+    end
 
     render 'api/bookshelves/combined'
   end
@@ -16,9 +17,11 @@ class Api::BookshelvesController < ApplicationController
   def show
     @shelf = Bookshelf.includes(books: [:reviews]).find(params[:id])
     @shelves = @shelf.user.shelves.includes(:memberships)
-    @user_default_memberships = current_user.default_books
-    @user_made_shelves = current_user.shelves.includes(:books).offset(3)
-    @user_default_shelves = current_user.shelves.includes(:books).limit(3)
+    if current_user
+      @user_default_memberships = current_user.default_books 
+      @user_made_shelves = current_user.shelves.includes(:books).offset(3)
+      @user_default_shelves = current_user.shelves.includes(:books).limit(3)
+    end
     if @shelf 
       render :show 
     else

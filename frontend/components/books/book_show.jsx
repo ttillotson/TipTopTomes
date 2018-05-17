@@ -16,6 +16,7 @@ class BookShow extends React.Component {
 
   componentDidMount() {
     this.props.fetchBook(this.props.match.params.bookId);
+    window.scrollTo(0,0);
   }
 
   componentWillReceiveProps(nextProps) {
@@ -23,6 +24,10 @@ class BookShow extends React.Component {
       this.props.fetchBook(nextProps.match.params.bookId);
       this.setState({shelfForm: false });
     }
+  }
+
+  componentWillUnmount() {
+    window.scrollTo(0,0);
   }
 
   triggerForm() {

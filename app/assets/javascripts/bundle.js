@@ -32917,6 +32917,7 @@ var BookShow = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       this.props.fetchBook(this.props.match.params.bookId);
+      window.scrollTo(0, 0);
     }
   }, {
     key: 'componentWillReceiveProps',
@@ -32925,6 +32926,11 @@ var BookShow = function (_React$Component) {
         this.props.fetchBook(nextProps.match.params.bookId);
         this.setState({ shelfForm: false });
       }
+    }
+  }, {
+    key: 'componentWillUnmount',
+    value: function componentWillUnmount() {
+      window.scrollTo(0, 0);
     }
   }, {
     key: 'triggerForm',

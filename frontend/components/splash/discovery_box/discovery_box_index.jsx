@@ -27,24 +27,26 @@ class DiscoveryBoxIndex extends React.Component {
     const rows = [];
     while ( rows.length < 2 ) {
       let row = [];
-      for (let i = 0; i < 8; i++){
+      for (let i = 0; i < 5; i++){
         row.push(bookItems.shift());
       }
       rows.push(row);
     }
-    const names = ['Barbra Anne', 'Betty Sue'];
+    const names = ['Peggy Sue', 'Mary Lynne'];
 
     const bookRows = rows.map((row, i) => (
-      <article key={i}>
+      <article key={i} className={'discovery_article'}>
         <section>
           <h4>Because {names[i]} liked... </h4>
           <BookIndexRow books={row} classTag={'discovery_row'} />
         </section>
-        <figure className={'discovery_arrow'}/>
-        <section>
-          <h4>She disocvered:</h4>
+        <figure className={'discovery_arrow'}>
+          <img alt='arrow' src='https://res.cloudinary.com/tiptoptomes/image/upload/v1526581688/discovery_arrow.png' /> 
+        </figure>
+        <section className={'discovered'}>
+          <h4>She discovered:</h4>
           <ul>
-            {bookItems.shift()}
+            {bookItems.pop()}
           </ul>
         </section>
       </article>
@@ -52,7 +54,7 @@ class DiscoveryBoxIndex extends React.Component {
 
     return (
       <section className={'discovery_box'}>
-        <h3>What will <i>you</i> discover?</h3>
+        <h3>What will <em>you </em>  discover?</h3>
         { bookRows }
       </section>
     );

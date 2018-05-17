@@ -2875,11 +2875,11 @@ exports.default = function (_ref) {
     'li',
     { className: classTag },
     _react2.default.createElement(
-      _reactRouterDom.Link,
-      { to: '/books/' + book.id },
+      'figure',
+      null,
       _react2.default.createElement(
-        'figure',
-        null,
+        _reactRouterDom.Link,
+        { to: '/books/' + book.id },
         _react2.default.createElement('img', { className: 'book_image',
           src: '' + book.imgUrl,
           alt: 'Book Cover' })
@@ -51864,10 +51864,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 var Pitch = function Pitch() {
   return _react2.default.createElement(
     'section',
-    { className: 'discovery_box' },
+    { className: 'pitch' },
     _react2.default.createElement(
       'article',
-      { className: 'discovery_box_item' },
+      { className: 'pitch_item' },
       _react2.default.createElement(
         'h2',
         null,
@@ -51881,7 +51881,7 @@ var Pitch = function Pitch() {
     ),
     _react2.default.createElement(
       'article',
-      { className: 'discovery_box_item' },
+      { className: 'pitch_item' },
       _react2.default.createElement(
         'h2',
         null,
@@ -52020,17 +52020,17 @@ var DiscoveryBoxIndex = function (_React$Component) {
       var rows = [];
       while (rows.length < 2) {
         var row = [];
-        for (var i = 0; i < 8; i++) {
+        for (var i = 0; i < 5; i++) {
           row.push(bookItems.shift());
         }
         rows.push(row);
       }
-      var names = ['Barbra Anne', 'Betty Sue'];
+      var names = ['Peggy Sue', 'Mary Lynne'];
 
       var bookRows = rows.map(function (row, i) {
         return _react2.default.createElement(
           'article',
-          { key: i },
+          { key: i, className: 'discovery_article' },
           _react2.default.createElement(
             'section',
             null,
@@ -52043,19 +52043,23 @@ var DiscoveryBoxIndex = function (_React$Component) {
             ),
             _react2.default.createElement(_book_index_row2.default, { books: row, classTag: 'discovery_row' })
           ),
-          _react2.default.createElement('figure', { className: 'discovery_arrow' }),
+          _react2.default.createElement(
+            'figure',
+            { className: 'discovery_arrow' },
+            _react2.default.createElement('img', { alt: 'arrow', src: 'https://res.cloudinary.com/tiptoptomes/image/upload/v1526581688/discovery_arrow.png' })
+          ),
           _react2.default.createElement(
             'section',
-            null,
+            { className: 'discovered' },
             _react2.default.createElement(
               'h4',
               null,
-              'She disocvered:'
+              'She discovered:'
             ),
             _react2.default.createElement(
               'ul',
               null,
-              bookItems.shift()
+              bookItems.pop()
             )
           )
         );
@@ -52069,11 +52073,11 @@ var DiscoveryBoxIndex = function (_React$Component) {
           null,
           'What will ',
           _react2.default.createElement(
-            'i',
+            'em',
             null,
-            'you'
+            'you '
           ),
-          ' discover?'
+          '  discover?'
         ),
         bookRows
       );

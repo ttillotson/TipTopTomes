@@ -32572,7 +32572,7 @@ var BooksIndex = function (_React$Component) {
     key: 'componentDidMount',
     value: function componentDidMount() {
       if (Object.values(this.props.books).length < 100) this.props.fetchBooks();
-      // window.scrollTo(0,0);
+      window.scrollTo(0, 0);
     }
   }, {
     key: 'render',
@@ -33603,7 +33603,7 @@ var ShelfItemForm = function (_React$Component) {
                 createdShelves = _props.createdShelves;
 
             var allShelves = Object.values((0, _merge2.default)(defaultShelves, createdShelves));
-            debugger;
+
             var shelfOptions = allShelves.map(function (shelf, i) {
                 return _react2.default.createElement(
                     'li',

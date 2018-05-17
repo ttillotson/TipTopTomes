@@ -52,7 +52,7 @@ class ShelfItemForm extends React.Component {
         );
         const { defaultShelves, createdShelves } = this.props;
         const allShelves = Object.values(merge(defaultShelves, createdShelves));
-        debugger;
+
         let shelfOptions = allShelves.map((shelf, i) => 
             <li key={shelf.id} 
                 onClick={() => this.addToShelf(shelf.id)}

@@ -1,8 +1,8 @@
 import React from 'react';
 
 const Pitch = () => (
-  <section className='discovery_box'>
-    <article className="discovery_box_item">
+  <section className='pitch'>
+    <article className="pitch_item">
 
       <h2>Deciding your next literary adventure?</h2>
 
@@ -11,7 +11,7 @@ const Pitch = () => (
         to a list and check out later!</p>
 
     </article>
-    <article className="discovery_box_item">
+    <article className="pitch_item">
 
       <h2>Curious about what your friends are reading?</h2>
 

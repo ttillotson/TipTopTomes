@@ -1,13 +1,14 @@
 import React from 'react';
 import BookIndexItem from './book_index_item';
 
-const BookIndexRow = ({ books }) => {
+const BookIndexRow = ({ books, classTag }) => {
 
   return (
-    <ul className='book_index_row'>
+    <ul className={classTag} >
       {books}
     </ul>
   );
 };
 
 export default BookIndexRow;
+ 

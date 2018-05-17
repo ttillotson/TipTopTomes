@@ -32566,7 +32566,7 @@ var BooksIndex = function (_React$Component) {
       }
 
       var bookRows = rows.map(function (row, i) {
-        return _react2.default.createElement(_book_index_row2.default, { key: i, books: row });
+        return _react2.default.createElement(_book_index_row2.default, { key: i, books: row, classTag: 'book_index_row' });
       });
 
       return _react2.default.createElement(
@@ -32608,12 +32608,13 @@ var _book_index_item2 = _interopRequireDefault(_book_index_item);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var BookIndexRow = function BookIndexRow(_ref) {
-  var books = _ref.books;
+  var books = _ref.books,
+      classTag = _ref.classTag;
 
 
   return _react2.default.createElement(
     'ul',
-    { className: 'book_index_row' },
+    { className: classTag },
     books
   );
 };
@@ -51968,20 +51969,45 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _discovery_box_index_item = __webpack_require__(285);
+var _book_index_row = __webpack_require__(252);
 
-var _discovery_box_index_item2 = _interopRequireDefault(_discovery_box_index_item);
+var _book_index_row2 = _interopRequireDefault(_book_index_row);
+
+var _book_index_item = __webpack_require__(95);
+
+var _book_index_item2 = _interopRequireDefault(_book_index_item);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var DiscoveryBoxIndex = function DiscoveryBoxIndex(props) {
+
+  var bookItems = props.books.map(function (book) {
+    return _react2.default.createElement(_book_index_item2.default, {
+      key: '' + book.id,
+      book: book
+    });
+  });
+
+  var rows = [];
+  while (bookItems.length > 0) {
+    var row = [];
+    for (var i = 0; i < 7; i++) {
+      row.push(bookItems.pop());
+    }
+    rows.push(row);
+  }
+
+  var bookRows = rows.map(function (row, i) {
+    return _react2.default.createElement(_book_index_row2.default, { key: i, books: row, classTag: 'book_index_row' });
+  });
+
   return _react2.default.createElement(
     'section',
     null,
     _react2.default.createElement(
       'ul',
       null,
-      _react2.default.createElement(_discovery_box_index_item2.default, null)
+      bookRows
     )
   );
 };
@@ -51989,27 +52015,7 @@ var DiscoveryBoxIndex = function DiscoveryBoxIndex(props) {
 exports.default = DiscoveryBoxIndex;
 
 /***/ }),
-/* 285 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (props) {
-  return _react2.default.createElement('li', null);
-};
-
-/***/ }),
+/* 285 */,
 /* 286 */
 /***/ (function(module, exports, __webpack_require__) {
 

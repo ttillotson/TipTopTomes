@@ -34,7 +34,7 @@ class BooksIndex extends React.Component {
 
 
     const bookRows = rows.map((row, i) => (
-      <BookIndexRow key={i} books={row} />
+      <BookIndexRow key={i} books={row} classTag={'book_index_row'} />
     ));
 
     return (

@@ -6,10 +6,10 @@ import LoadingIcon from '../shared/loading_icon';
 
 class BooksIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchBooks();
+    if (Object.values(this.props.books).length > 0) this.props.fetchBooks();
   }
 
-  render(){
+  render() {
     const { books, loading, state } = this.props ;
 
     if (loading) {return <LoadingIcon />; }
@@ -19,6 +19,7 @@ class BooksIndex extends React.Component {
         <BookIndexItem
           key={`${book.id}`}
           book={book}
+          classTag={'book_index_item'}
           />
       );
     });

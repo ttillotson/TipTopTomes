@@ -5624,10 +5624,11 @@ var _reactRouterDom = __webpack_require__(3);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 exports.default = function (_ref) {
-  var book = _ref.book;
+  var book = _ref.book,
+      classTag = _ref.classTag;
   return _react2.default.createElement(
     'li',
-    { className: 'book_index_item' },
+    { className: classTag },
     _react2.default.createElement(
       _reactRouterDom.Link,
       { to: '/books/' + book.id },
@@ -6294,8 +6295,6 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -6326,63 +6325,40 @@ var _footer2 = _interopRequireDefault(_footer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-var Splash = function (_React$Component) {
-  _inherits(Splash, _React$Component);
-
-  function Splash(props) {
-    _classCallCheck(this, Splash);
-
-    return _possibleConstructorReturn(this, (Splash.__proto__ || Object.getPrototypeOf(Splash)).call(this, props));
-  }
-
-  _createClass(Splash, [{
-    key: 'render',
-    value: function render() {
-      return _react2.default.createElement(
-        'div',
-        { className: 'splash_page' },
-        _react2.default.createElement(
-          'section',
-          { className: 'site_header' },
-          _react2.default.createElement(
-            'nav',
-            { className: 'splash_nav' },
-            _react2.default.createElement(_splash_logo2.default, null),
-            _react2.default.createElement(_splash_login2.default, null)
-          ),
-          _react2.default.createElement(
-            'section',
-            { className: 'masthead' },
-            _react2.default.createElement('img', { alt: 'Meet your next Favorite Book.',
-              src: 'http://res.cloudinary.com/tiptoptomes/image/upload/v1522949402/headline.png' }),
-            _react2.default.createElement(_splash_signup2.default, null)
-          )
-        ),
-        _react2.default.createElement(
-          'div',
-          { className: 'splash_body_container' },
-          _react2.default.createElement(
-            'section',
-            { className: 'splash_body' },
-            _react2.default.createElement(_pitch2.default, null),
-            _react2.default.createElement(_discovery_box_index_container2.default, null)
-          )
-        ),
-        _react2.default.createElement(_footer2.default, null)
-      );
-    }
-  }]);
-
-  return Splash;
-}(_react2.default.Component);
-
-exports.default = Splash;
+exports.default = function () {
+  return _react2.default.createElement(
+    'div',
+    { className: 'splash_page' },
+    _react2.default.createElement(
+      'section',
+      { className: 'site_header' },
+      _react2.default.createElement(
+        'nav',
+        { className: 'splash_nav' },
+        _react2.default.createElement(_splash_logo2.default, null),
+        _react2.default.createElement(_splash_login2.default, null)
+      ),
+      _react2.default.createElement(
+        'section',
+        { className: 'masthead' },
+        _react2.default.createElement('img', { alt: 'Meet your next Favorite Book.',
+          src: 'http://res.cloudinary.com/tiptoptomes/image/upload/v1522949402/headline.png' }),
+        _react2.default.createElement(_splash_signup2.default, null)
+      )
+    ),
+    _react2.default.createElement(
+      'div',
+      { className: 'splash_body_container' },
+      _react2.default.createElement(
+        'section',
+        { className: 'splash_body' },
+        _react2.default.createElement(_pitch2.default, null),
+        _react2.default.createElement(_discovery_box_index_container2.default, null)
+      )
+    ),
+    _react2.default.createElement(_footer2.default, null)
+  );
+};
 
 /***/ }),
 /* 101 */
@@ -32534,7 +32510,7 @@ var BooksIndex = function (_React$Component) {
   _createClass(BooksIndex, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      this.props.fetchBooks();
+      if (Object.values(this.props.books).length > 0) this.props.fetchBooks();
     }
   }, {
     key: 'render',
@@ -32552,7 +32528,8 @@ var BooksIndex = function (_React$Component) {
       var bookItems = books.map(function (book) {
         return _react2.default.createElement(_book_index_item2.default, {
           key: '' + book.id,
-          book: book
+          book: book,
+          classTag: 'book_index_item'
         });
       });
 
@@ -51945,7 +51922,10 @@ var _discovery_box_index2 = _interopRequireDefault(_discovery_box_index);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var mapStateToProps = function mapStateToProps(state) {
-  return {};
+  return {
+    books: state.entities.books,
+    loading: state.ui.loading.indexLoading
+  };
 };
 
 var mapDispatchToProps = function mapDispatchToProps(dispatch) {
@@ -51965,6 +51945,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
@@ -51979,38 +51961,81 @@ var _book_index_item2 = _interopRequireDefault(_book_index_item);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var DiscoveryBoxIndex = function DiscoveryBoxIndex(props) {
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-  var bookItems = props.books.map(function (book) {
-    return _react2.default.createElement(_book_index_item2.default, {
-      key: '' + book.id,
-      book: book
-    });
-  });
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-  var rows = [];
-  while (bookItems.length > 0) {
-    var row = [];
-    for (var i = 0; i < 7; i++) {
-      row.push(bookItems.pop());
-    }
-    rows.push(row);
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var DiscoveryBoxIndex = function (_React$Component) {
+  _inherits(DiscoveryBoxIndex, _React$Component);
+
+  function DiscoveryBoxIndex(props) {
+    _classCallCheck(this, DiscoveryBoxIndex);
+
+    var _this = _possibleConstructorReturn(this, (DiscoveryBoxIndex.__proto__ || Object.getPrototypeOf(DiscoveryBoxIndex)).call(this, props));
+
+    _this.state = {
+      books: _this.props.books
+    };
+    return _this;
   }
 
-  var bookRows = rows.map(function (row, i) {
-    return _react2.default.createElement(_book_index_row2.default, { key: i, books: row, classTag: 'book_index_row' });
-  });
+  _createClass(DiscoveryBoxIndex, [{
+    key: 'componentWillMount',
+    value: function componentWillMount() {
+      if (Object.values(this.props.books).length > 0) this.props.fetchBooks();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      var _props = this.props,
+          books = _props.books,
+          loading = _props.loading,
+          state = _props.state;
 
-  return _react2.default.createElement(
-    'section',
-    null,
-    _react2.default.createElement(
-      'ul',
-      null,
-      bookRows
-    )
-  );
-};
+
+      if (loading) {
+        return _react2.default.createElement(LoadingIcon, null);
+      }
+
+      debugger;
+
+      var bookItems = props.books.map(function (book) {
+        return _react2.default.createElement(_book_index_item2.default, {
+          key: '' + book.id,
+          book: book,
+          classTag: 'discovery_item'
+        });
+      });
+
+      var rows = [];
+      while (bookItems.length > 0) {
+        var row = [];
+        for (var i = 0; i < 7; i++) {
+          row.push(bookItems.pop());
+        }
+        rows.push(row);
+      }
+
+      var bookRows = rows.map(function (row, i) {
+        return _react2.default.createElement(_book_index_row2.default, { key: i, books: row, classTag: 'discovery_row' });
+      });
+
+      return _react2.default.createElement(
+        'section',
+        null,
+        _react2.default.createElement(
+          'ul',
+          null,
+          bookRows
+        )
+      );
+    }
+  }]);
+
+  return DiscoveryBoxIndex;
+}(_react2.default.Component);
 
 exports.default = DiscoveryBoxIndex;
 
@@ -52036,10 +52061,10 @@ var _session_actions = __webpack_require__(9);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var mapStateToProps = function mapStateToProps(_ref) {
-  var errors = _ref.errors;
+var mapStateToProps = function mapStateToProps(state) {
   return {
-    errors: errors
+    errors: state.errors,
+    books: state.entities.books
   };
 };
 

@@ -28335,6 +28335,9 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
     switch (action.type) {
         case _session_actions.RECEIVE_CURRENT_USER:
             if (action.user) return (0, _merge2.default)(newState, action.user.defaultShelves);
+        case _book_actions.RECEIVE_BOOK:
+            if (action.book.activeDefaultShelves) return (0, _merge2.default)(newState, action.book.activeDefaultShelves);
+            return state;
         case _shelf_actions.RECEIVE_SHELF:
             if (action.shelf.activeDefaultShelves) return (0, _merge2.default)(newState, action.shelf.activeDefaultShelves);
         default:
@@ -32568,7 +32571,8 @@ var BooksIndex = function (_React$Component) {
   _createClass(BooksIndex, [{
     key: 'componentDidMount',
     value: function componentDidMount() {
-      if (Object.values(this.props.books).length === 0) this.props.fetchBooks();
+      if (Object.values(this.props.books).length < 100) this.props.fetchBooks();
+      // window.scrollTo(0,0);
     }
   }, {
     key: 'render',
@@ -33599,6 +33603,7 @@ var ShelfItemForm = function (_React$Component) {
                 createdShelves = _props.createdShelves;
 
             var allShelves = Object.values((0, _merge2.default)(defaultShelves, createdShelves));
+            debugger;
             var shelfOptions = allShelves.map(function (shelf, i) {
                 return _react2.default.createElement(
                     'li',

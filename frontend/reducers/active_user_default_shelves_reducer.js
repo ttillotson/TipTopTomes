@@ -11,11 +11,13 @@ const ActiveUserDefaultShelvesReducer = (state = {}, action) => {
     switch (action.type) {
         case RECEIVE_CURRENT_USER:
             if (action.user) return merge(newState, action.user.defaultShelves );
+            return newState;
         case RECEIVE_BOOK:
             if (action.book.activeDefaultShelves) return merge(newState,action.book.activeDefaultShelves);
-            return state;
+            return newState;
         case RECEIVE_SHELF:
             if (action.shelf.activeDefaultShelves) return merge(newState, action.shelf.activeDefaultShelves);
+            return newState;
         default:
             return state;
     }

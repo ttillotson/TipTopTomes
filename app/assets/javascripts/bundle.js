@@ -28335,11 +28335,13 @@ var ActiveUserDefaultShelvesReducer = function ActiveUserDefaultShelvesReducer()
     switch (action.type) {
         case _session_actions.RECEIVE_CURRENT_USER:
             if (action.user) return (0, _merge2.default)(newState, action.user.defaultShelves);
+            return newState;
         case _book_actions.RECEIVE_BOOK:
             if (action.book.activeDefaultShelves) return (0, _merge2.default)(newState, action.book.activeDefaultShelves);
-            return state;
+            return newState;
         case _shelf_actions.RECEIVE_SHELF:
             if (action.shelf.activeDefaultShelves) return (0, _merge2.default)(newState, action.shelf.activeDefaultShelves);
+            return newState;
         default:
             return state;
     }

@@ -27,11 +27,9 @@ const nonActiveUser = (signin) => {
     <div className='session_buttons'>
       <Link to={'/users/new'} className='session_button'>Sign Up</Link>
       <Link to={'/session/new'} className='session_button'>Sign In</Link>
-      <Link to={'/'} className='session_button'>
-        <div onClick={signInDemo}>
+      <div onClick={signInDemo} className='session_button'>
             Demo
-        </div>
-      </Link>
+      </div>
     </div>
   );
 };

@@ -32455,13 +32455,9 @@ var nonActiveUser = function nonActiveUser(signin) {
       'Sign In'
     ),
     _react2.default.createElement(
-      _reactRouterDom.Link,
-      { to: '/', className: 'session_button' },
-      _react2.default.createElement(
-        'div',
-        { onClick: signInDemo },
-        'Demo'
-      )
+      'div',
+      { onClick: signInDemo, className: 'session_button' },
+      'Demo'
     )
   );
 };

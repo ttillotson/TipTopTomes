@@ -5472,6 +5472,7 @@ var SessionForm = function (_React$Component) {
       var _this2 = this;
 
       return function (e) {
+        _this2.props.clearErrors([]);
         _this2.setState(_defineProperty({}, field, e.target.value));
       };
     }
